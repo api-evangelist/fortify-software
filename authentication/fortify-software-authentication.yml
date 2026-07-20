@@ -1,0 +1,53 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.ams.fortify.com/swagger/ui/index
+docs: https://www.microfocus.com/documentation/fortify-on-demand/
+notes: >-
+  The Fortify on Demand v3 Swagger document does not declare securityDefinitions,
+  but the published API documentation and every operation description ("Allowed
+  Scopes: ...") document the real authentication model. FoD supports OAuth 2.0
+  client-credentials grant against a token endpoint, plus Personal Access Tokens
+  (managed via the PersonalAccessTokens resource) and tenant API keys (managed via
+  the ApiKeyManagement resource). Scopes gate each operation; see
+  scopes/fortify-software-scopes.yml.
+summary:
+  types: [oauth2, apiKey]
+  api_key_in: [header]
+  oauth2_flows: [clientCredentials]
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  tokenUrl: https://api.ams.fortify.com/oauth/token
+  description: >-
+    OAuth 2.0 client-credentials grant. Exchange an API key (client_id) and secret
+    (client_secret), or a Personal Access Token, at the token endpoint for a bearer
+    access token. Scope requested via the `scope` parameter gates which operations
+    the token may call.
+  scopes_ref: scopes/fortify-software-scopes.yml
+  sources: [docs, openapi/fortify-software-fod-openapi.json]
+- name: BearerToken
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: >-
+    Access token returned by the token endpoint is presented as
+    `Authorization: Bearer <access_token>` on every API call.
+  sources: [docs]
+- name: PersonalAccessToken
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: >-
+    Personal Access Tokens (PATs) are created per user with a scope set and can be
+    exchanged for a bearer token via the client-credentials grant (grant_type
+    password / scope). Managed via the PersonalAccessTokens API resource.
+  sources: [docs, openapi/fortify-software-fod-openapi.json]
+- name: TenantApiKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: >-
+    Tenant-level API keys (client credentials) managed through the ApiKeyManagement
+    resource; used as client_id/client_secret for the client-credentials grant.
+  sources: [docs, openapi/fortify-software-fod-openapi.json]
