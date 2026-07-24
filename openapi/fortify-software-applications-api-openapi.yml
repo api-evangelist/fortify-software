@@ -1,0 +1,2237 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Applications API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Applications
+paths:
+  /api/v3/applications/{applicationId}:
+    get:
+      tags:
+      - Applications
+      summary: Retrieves an individual application by id
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplication
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Application'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - Applications
+      summary: Update an application
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ApplicationsV3_PutApplication
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: The application data
+        required: true
+        schema:
+          $ref: '#/definitions/PutApplicationRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutApplicationResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/PutApplicationResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PutApplicationResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    delete:
+      tags:
+      - Applications
+      summary: Deletes an application
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ApplicationsV3_Delete
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DeleteApplicationResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/DeleteApplicationResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications:
+    get:
+      tags:
+      - Applications
+      summary: Retrieve a collection of applications
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplications
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: applicationDescription, attributes"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      - name: modifiedStartDate
+        in: query
+        description: The modified on or after date.
+        required: false
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApplicationListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Applications
+      summary: Create a new application and release
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ApplicationsV3_PostApplication
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: The application data
+        required: true
+        schema:
+          $ref: '#/definitions/PostApplicationRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/PostApplicationResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/auto-report:
+    get:
+      tags:
+      - Applications
+      summary: Returns the associated auto-run report type for the application.
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetAutoReport
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetAutoReportResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Applications
+      summary: Set-up the associated auto-run report for the application
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ApplicationsV3_PostAutoReport
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: The auto report data
+        required: true
+        schema:
+          $ref: '#/definitions/PostAutoReportRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostAutoReportResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PostAutoReportResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/users:
+    get:
+      tags:
+      - Applications
+      summary: Returns a list of users that have access to the application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationUsers
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetApplicationUsersResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/user-groups:
+    get:
+      tags:
+      - Applications
+      summary: Returns a list of user groups that have access to the application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationUserGroups
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetApplicationUserGroupsResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/owners:
+    get:
+      tags:
+      - Applications
+      summary: Returns a list of users that can be set as an application owner
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationOwners
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApplicationUserListResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/user-permissions:
+    get:
+      tags:
+      - Applications
+      summary: Returns the permissions the current user has for the application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationUserPermissions
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApplicationUserPermissions'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/releases:
+    get:
+      tags:
+      - Applications
+      summary: Returns a list of releases for the given application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationReleases
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: suspended"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      - name: modifiedStartDate
+        in: query
+        description: The modified on or after date.
+        required: false
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ReleaseListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/issue-count-by-severity:
+    get:
+      tags:
+      - Applications
+      summary: Retrieves number of issues by severity for an application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationIssueCount
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApplicationIssueCountListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/scans:
+    get:
+      tags:
+      - Applications
+      summary: Returns a list of scans for the given application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetScansByApplicationId
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ScanListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/bug-tracker:
+    get:
+      tags:
+      - Applications
+      summary: Returns the bug tracker settings for the given application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationBugTracker
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApplicationBugTracker'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/microservices:
+    get:
+      tags:
+      - Applications
+      summary: Retrieves a list of Microservices for an application
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ApplicationsV3_GetApplicationMicroservices
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: includeReleases
+        in: query
+        description: Value defaults to true if not specified.
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/MicroserviceListResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Applications
+      summary: Add a Microservice to an application
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ApplicationsV3_PostApplicationMicroservice
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: The microservice data
+        required: true
+        schema:
+          $ref: '#/definitions/PostMicroserviceRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostMicroserviceResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/microservices/{microserviceId}:
+    put:
+      tags:
+      - Applications
+      summary: Edit a Microservice for an application
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ApplicationsV3_PutApplicationMicroservice
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: microserviceId
+        in: path
+        description: The microservice id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: The microservice data
+        required: true
+        schema:
+          $ref: '#/definitions/PostMicroserviceRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostMicroserviceResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    delete:
+      tags:
+      - Applications
+      summary: Delete a Microservice for an application
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ApplicationsV3_DeleteApplicationMicroservice
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: microserviceId
+        in: path
+        description: The microservice id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostMicroserviceResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/audittemplates:
+    get:
+      tags:
+      - Applications
+      summary: Returns a list of audit templates for the given application
+      description: 'Allowed Scopes: api-tenant, manage-issues'
+      operationId: ApplicationsV3_GetAuditTemplates
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      - name: scanType
+        in: query
+        description: The scan type<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/AuditTemplateListResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - Applications
+      summary: Creates/Update Audit templates for the given application
+      description: 'Allowed Scopes: api-tenant, manage-issues'
+      operationId: ApplicationsV3_PutApplicationAuditTemplates
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        required: true
+        type: integer
+        format: int32
+      - name: auditTemplatesRequest
+        in: body
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/PutAuditTemplateFilterRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/AuditTemplateResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/AuditTemplateResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/applications/{applicationId}/vulnerabilities/{Id}:
+    get:
+      tags:
+      - Applications
+      summary: Returns a list of vulnerabilities with matching InstanceId
+      description: 'Allowed Scopes: api-tenant, view-issues'
+      operationId: ApplicationsV3_GetVulnerabilityInstancesinApplicationByVulnerabilityId
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: applicationId
+        in: path
+        description: The application Id
+        required: true
+        type: integer
+        format: int32
+      - name: Id
+        in: path
+        description: The Issue id
+        required: true
+        type: integer
+        format: int32
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value.\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2.\r\n<br /><br />Filtering is not supported for the following fields: auditPendingAuditorStatus, auditPendingSuppression, checkId, closedDate, closedStatus, falsePositiveChallenge, instanceId, pci1_2, sink, source, stig6, suppressedBy, timeToFixDays"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      - name: includeFixed
+        in: query
+        description: Indicates if items that have been fixed should be included in the return value. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: includeSuppressed
+        in: query
+        description: Indicates if items that have been suppressed should be included in the return value. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: keywordSearch
+        in: query
+        description: Used for keyword searches
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetVulnerabilitiesResponseVulnerabilityDTOLight'
+        '202':
+          description: Accepted
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+definitions:
+  Scan:
+    description: Scan
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The application name
+        type: string
+      releaseId:
+        format: int32
+        description: The release id
+        type: integer
+      releaseName:
+        description: The release name
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+      scanTypeId:
+        format: int32
+        description: The scan type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: integer
+      scanType:
+        description: The scan type. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      assessmentTypeName:
+        description: The assessment type name. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: string
+      analysisStatusTypeId:
+        format: int32
+        description: The analysis status type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      analysisStatusType:
+        description: The analysis status type. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      startedDateTime:
+        format: date-time
+        description: The scan started date time
+        type: string
+      completedDateTime:
+        format: date-time
+        description: The scan completed date time
+        type: string
+      totalIssues:
+        format: int32
+        description: Total number of issues
+        type: integer
+      issueCountCritical:
+        format: int32
+        description: Total number of critical issues
+        type: integer
+      issueCountHigh:
+        format: int32
+        description: Total number of high issues
+        type: integer
+      issueCountMedium:
+        format: int32
+        description: Total number of medium issues
+        type: integer
+      issueCountLow:
+        format: int32
+        description: Total number of low issues
+        type: integer
+      starRating:
+        format: int32
+        description: The star rating
+        type: integer
+      notes:
+        description: Scan notes
+        type: string
+      isFalsePositiveChallenge:
+        description: Indicates if the scan is a false positive challenge
+        type: boolean
+      isRemediationScan:
+        description: Indicates if the scan is a remediation scan
+        type: boolean
+      entitlementId:
+        format: int32
+        description: The entitlement id used for the given scan
+        type: integer
+      entitlementUnitsConsumed:
+        format: int32
+        description: The number of entitlement units used for the given scan
+        type: integer
+      isSubscriptionEntitlement:
+        description: Indicates if the entitlement used for the given scan is a subscription entitlement
+        type: boolean
+      pauseDetails:
+        description: The details for each time the scan has been paused/resumed.
+        type: array
+        items:
+          $ref: '#/definitions/ScanPauseDetail'
+      cancelReason:
+        description: Cancel Reason
+        type: string
+      analysisStatusReasonNotes:
+        description: The Analysis Status Reason Notes
+        type: string
+      scanMethodTypeId:
+        format: int32
+        description: The scan method type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: integer
+      scanMethodTypeName:
+        description: The scan method type name. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: string
+      scanTool:
+        description: The tool used for scanning
+        type: string
+      scanToolVersion:
+        description: The version for the scan tool used for scanning
+        type: string
+      attributes:
+        description: Scan attributes
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  ApplicationIssueCount:
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The name of the application
+        type: string
+      applicationDescription:
+        description: Description of the application that will help you manage multiple applications
+        type: string
+      applicationCreatedDate:
+        format: date-time
+        description: The date the application was created
+        type: string
+      businessCriticalityTypeId:
+        format: int32
+        description: The business criticality type id. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: integer
+      businessCriticalityType:
+        description: The business criticality type name. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: string
+      critical:
+        format: int32
+        description: The business criticality type id. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: integer
+      high:
+        format: int32
+        description: The business criticality type id. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: integer
+      medium:
+        format: int32
+        description: The business criticality type id. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: integer
+      low:
+        format: int32
+        description: The business criticality type id. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: integer
+  PutAuditTemplateCondition:
+    description: AuditTemplateCondition
+    type: object
+    properties:
+      conditionType:
+        description: The condition type
+        enum:
+        - Contains
+        - DoesNotContain
+        - Equals
+        - DoesNotEqual
+        - Regex
+        type: string
+      field:
+        description: The field
+        type: string
+      fieldValue:
+        description: The field value
+        type: string
+      operationType:
+        description: The Operation type
+        enum:
+        - And
+        - Or
+        type: string
+  ApplicationBugTracker:
+    description: Application Bug Tracker Settings
+    type: object
+    properties:
+      bugTrackerTypeId:
+        format: int32
+        description: The Bug Tracker Type Id
+        type: integer
+      bugTrackerType:
+        description: The Bug Tracker Type name
+        type: string
+      bugTrackerUrl:
+        description: The Bug Tracker Url
+        type: string
+      enabled:
+        description: Whether the Bug Tracker is enabled
+        type: boolean
+      autoClose:
+        description: Whether to auto-close bug when the issue is fix-validated
+        type: boolean
+      levelOneProjectName:
+        description: The Bug Tracker's Domain/Product
+        type: string
+      levelTwoProjectName:
+        description: The Bug Tracker' Component
+        type: string
+  ScanPauseDetail:
+    description: Scan Pause Details
+    type: object
+    properties:
+      pausedOn:
+        format: date-time
+        description: The scan paused date/time.
+        type: string
+      reason:
+        description: The reason the scan was paused.
+        type: string
+      notes:
+        description: Optional notes regarding the scan paused.
+        type: string
+  FieldFilter:
+    description: Field Filter
+    type: object
+    properties:
+      fieldName:
+        description: The field name
+        type: string
+      fieldFilterValues:
+        description: List of field filter values
+        type: array
+        items:
+          $ref: '#/definitions/FieldFilterValue'
+      displayName:
+        description: The display name
+        type: string
+  ApplicationAttributeExtended:
+    description: Application Attribute Extended
+    type: object
+    properties:
+      name:
+        description: Name of the attribute
+        type: string
+      id:
+        format: int32
+        description: Id of the attribute
+        type: integer
+      value:
+        description: Value of the attribute
+        type: string
+  PutAuditTemplateFilterRequest:
+    required:
+    - scanType
+    - action
+    type: object
+    properties:
+      scanType:
+        description: The scan type
+        enum:
+        - Static
+        - Dynamic
+        - Mobile
+        - Monitoring
+        - Network
+        - OpenSource
+        type: string
+      scanTypeId:
+        format: int32
+        description: Scan Type Id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: integer
+      action:
+        $ref: '#/definitions/PutAuditTemplateAction'
+        description: The action
+      conditions:
+        description: The conditions
+        type: array
+        items:
+          $ref: '#/definitions/PutAuditTemplateCondition'
+  PostApplicationResponse:
+    description: Post Application Response
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The id of the application that was created
+        type: integer
+      releaseId:
+        format: int32
+        type: integer
+      microserviceId:
+        format: int32
+        type: integer
+      success:
+        description: Indicates if the application was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  MicroserviceListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Microservice'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  GetApplicationUsersResponse:
+    description: Get Application Users Response
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      users:
+        description: A list of users that have access to the application
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationUser'
+  PostAutoReportResponse:
+    description: Post Auto Report Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the auto report was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  ApplicationIssueCountListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationIssueCount'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  ApplicationUserGroup:
+    description: Application User
+    type: object
+    properties:
+      userGroupId:
+        format: int32
+        description: The group id
+        type: integer
+      userGroupName:
+        description: The group name
+        type: string
+  ApplicationListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Application'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  DeleteApplicationResponse:
+    description: Delete Application Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the application was deleted
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  VulnerabilityDTOLight:
+    type: object
+    properties:
+      id:
+        format: int32
+        description: Id
+        type: integer
+      vulnId:
+        description: Vulnerability id
+        type: string
+      releaseId:
+        format: int32
+        description: Release id
+        type: integer
+      releaseName:
+        description: Release Name
+        type: string
+  ApplicationAttribute:
+    description: Attribute
+    type: object
+    properties:
+      id:
+        format: int32
+        description: Id of the attribute
+        type: integer
+      value:
+        description: Value of the attribute
+        type: string
+  Microservice:
+    description: Microservice
+    type: object
+    properties:
+      microserviceId:
+        format: int32
+        description: The microservice id
+        type: integer
+      microserviceName:
+        description: The microservice name
+        type: string
+      releaseId:
+        format: int32
+        description: The associated release for this microservice, if one exists
+        type: integer
+      attributes:
+        description: 'Microservice attributes. This is an array of key/value objects. Example, [{"Attribute 1": "value 1"}, {"Attribute 2": "value 2"}, {"Attribute 3": "value 3"} ]'
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  PutApplicationResponse:
+    description: Put Application Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the application was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  Application:
+    description: Application
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The name of the application
+        type: string
+      applicationDescription:
+        description: Description of the application that will help you manage multiple applications
+        type: string
+      applicationCreatedDate:
+        format: date-time
+        description: The date the application was created
+        type: string
+      businessCriticalityTypeId:
+        format: int32
+        description: The business criticality type id. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: integer
+      businessCriticalityType:
+        description: The business criticality type name. Values can be obtained by calling GET /api/v3/lookup-items?type=BusinessCriticalityTypes
+        type: string
+      emailList:
+        description: List the email addresses of additional people who should be informed of activity related to this release
+        type: string
+      applicationTypeId:
+        format: int32
+        description: The application type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ApplicationTypes
+        type: integer
+      applicationType:
+        description: The application type name. Values can be obtained by calling GET /api/v3/lookup-items?type=ApplicationTypes
+        type: string
+      hasMicroservices:
+        description: Determines if the application has microservices
+        type: boolean
+      attributes:
+        description: Application attributes
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  ApplicationUserListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationUser'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  ApplicationUser:
+    description: Application User
+    type: object
+    properties:
+      userId:
+        format: int32
+        description: The user id
+        type: integer
+      firstName:
+        description: The user first name
+        type: string
+      lastName:
+        description: The user last name
+        type: string
+      emailId:
+        description: The user email id
+        type: string
+      roleId:
+        format: int32
+        description: The user role id
+        type: integer
+      roleName:
+        description: The user role name
+        type: string
+      accessMethod:
+        description: The user access method
+        type: string
+  GetAutoReportResponse:
+    description: Get Auto Report Response
+    type: object
+    properties:
+      staticScanReportId:
+        format: int32
+        description: The report id for static scans
+        type: integer
+      staticScanReportName:
+        description: The report name for static scans
+        type: string
+      dynamicScanReportId:
+        format: int32
+        description: The report id for dynamic scans
+        type: integer
+      dynamicScanReportName:
+        description: The report name for dynamic scans
+        type: string
+  PostMicroserviceResponse:
+    description: Post Microservice Response
+    type: object
+    properties:
+      microserviceId:
+        format: int32
+        description: The id of the application that was created
+        type: integer
+      success:
+        description: Indicates if the item was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  AuditTemplateListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/AuditTemplate'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  AuditTemplate:
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        type: integer
+      scanType:
+        type: string
+      scanTypeId:
+        format: int32
+        type: integer
+      conditions:
+        type: array
+        items:
+          $ref: '#/definitions/AuditTemplateCondition'
+      action:
+        $ref: '#/definitions/AuditTemplateAction'
+  GetApplicationUserGroupsResponse:
+    description: Get Application User Groups Response
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      userGroups:
+        description: A list of user groups that have access to the application
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationUserGroup'
+  ApplicationUserPermissions:
+    description: Application User Permissions
+    type: object
+    properties:
+      startDynamicScan:
+        description: Indicates if the user can start a dynamic scan
+        type: boolean
+      startMobileScan:
+        description: Indicates if the user can start a mobile scan
+        type: boolean
+      startStaticScan:
+        description: Indicates if the user can start a static scan
+        type: boolean
+      configureDynamicScan:
+        description: Indicates if the user can configure a dynamic scan
+        type: boolean
+      configureMobileScan:
+        description: Indicates if the user can configure a mobile scan
+        type: boolean
+      configureStaticScan:
+        description: Indicates if the user can configure a static scan
+        type: boolean
+      createRelease:
+        description: Indicates if the user can create a release
+        type: boolean
+      auditIssues:
+        description: Indicates if the user can audit issues
+        type: boolean
+      challengeIssues:
+        description: Indicates if the user can challenge issues
+        type: boolean
+      editIssues:
+        description: Indicates if the user can edit issues
+        type: boolean
+      downloadFPR:
+        description: Indicates if the user can download the FPR
+        type: boolean
+  PostApplicationRequest:
+    description: Post Application Request
+    required:
+    - applicationName
+    - applicationType
+    - releaseName
+    - businessCriticalityType
+    - sdlcStatusType
+    type: object
+    properties:
+      applicationName:
+        description: The application title
+        type: string
+      applicationDescription:
+        description: Description of the application that will help you manage multiple applications
+        type: string
+      applicationType:
+        description: Indicates if the application is a mobile application
+        enum:
+        - Web_Thick_Client
+        - Mobile
+        type: string
+      releaseName:
+        description: The release name
+        type: string
+      releaseDescription:
+        description: Description to add additional details that help describe the release
+        type: string
+      emailList:
+        description: List the email addresses of additional people who should be informed of activity related to this release. Separate multiple email addresses with a semicolon or comma
+        type: string
+      ownerId:
+        format: int32
+        description: Select an Owner from the list of registered users in your tenant. The "Owner" receives all email notifications related to this application
+        type: integer
+      attributes:
+        description: 'Application attributes. This is an array of key/value objects. Example, [{"Attribute 1": "value 1"}, {"Attribute 2": "value 2"}, {"Attribute 3": "value 3"} ]'
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttribute'
+      businessCriticalityType:
+        description: The business criticality id
+        enum:
+        - High
+        - Medium
+        - Low
+        type: string
+      sdlcStatusType:
+        description: The SDLC status id
+        enum:
+        - Production
+        - QA
+        - Development
+        - Retired
+        type: string
+      hasMicroservices:
+        description: Determines if this is a Microservices application
+        type: boolean
+      microservices:
+        description: A list of microservice names for all releases associated with this application
+        type: array
+        items:
+          type: string
+      releaseMicroserviceName:
+        description: The name of the Microservice to be associated with the newly created version
+        type: string
+      userGroupIds:
+        description: List of user group ids that have access to the application. Values can be obtained by calling GET /api/v3/user-management/user-groups
+        type: array
+        items:
+          format: int32
+          type: integer
+  Release:
+    description: Release
+    type: object
+    properties:
+      releaseId:
+        format: int32
+        description: Release identifier
+        type: integer
+      releaseName:
+        description: Name of the release
+        type: string
+      releaseDescription:
+        description: Description of the release
+        type: string
+      suspended:
+        description: Indicates whether or not the release is suspended
+        type: boolean
+      releaseCreatedDate:
+        format: date-time
+        description: The date the release was created
+        type: string
+      microserviceName:
+        description: Name of the microservice
+        type: string
+      microserviceId:
+        format: int32
+        description: ID of the microservice
+        type: integer
+      applicationId:
+        format: int32
+        description: Application id
+        type: integer
+      applicationName:
+        description: Name of the application
+        type: string
+      currentAnalysisStatusTypeId:
+        format: int32
+        description: Current ananlysis status type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      currentAnalysisStatusType:
+        description: Current ananlysis status type. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      rating:
+        format: int32
+        description: The current star rating (1-5)
+        type: integer
+      critical:
+        format: int32
+        description: Number of critical vulnerabilities
+        type: integer
+      high:
+        format: int32
+        description: Number of high vulnerabilities
+        type: integer
+      medium:
+        format: int32
+        description: Number of medium vulnerabilities
+        type: integer
+      low:
+        format: int32
+        description: Number of low vulnerabilities
+        type: integer
+      staticCritical:
+        format: int32
+        description: Number of critical vulnerabilities from static scans
+        type: integer
+      staticHigh:
+        format: int32
+        description: Number of high vulnerabilities from static scans
+        type: integer
+      staticMedium:
+        format: int32
+        description: Number of medium vulnerabilities from static scans
+        type: integer
+      staticLow:
+        format: int32
+        description: Number of low vulnerabilities from static scans
+        type: integer
+      dynamicCritical:
+        format: int32
+        description: Number of critical vulnerabilities from dynamic scans
+        type: integer
+      dynamicHigh:
+        format: int32
+        description: Number of high vulnerabilities from dynamic scans
+        type: integer
+      dynamicMedium:
+        format: int32
+        description: Number of medium vulnerabilities from dynamic scans
+        type: integer
+      dynamicLow:
+        format: int32
+        description: Number of low vulnerabilities from dynamic scans
+        type: integer
+      mobileCritical:
+        format: int32
+        description: Number of critical vulnerabilities from mobile scans
+        type: integer
+      mobileHigh:
+        format: int32
+        description: Number of high vulnerabilities from mobile scans
+        type: integer
+      mobileMedium:
+        format: int32
+        description: Number of medium vulnerabilities from mobile scans
+        type: integer
+      mobileLow:
+        format: int32
+        description: Number of low vulnerabilities from mobile scans
+        type: integer
+      openSourceCritical:
+        format: int32
+        description: Number of critical vulnerabilities for open source scans.
+        type: integer
+      openSourceHigh:
+        format: int32
+        description: Number of high vulnerabilities for open source scans.
+        type: integer
+      openSourceMedium:
+        format: int32
+        description: Number of medium vulnerabilities for open source scans.
+        type: integer
+      openSourceLow:
+        format: int32
+        description: Number of low vulnerabilities for open source scans.
+        type: integer
+      currentStaticScanId:
+        format: int32
+        description: Current static scan identifier
+        type: integer
+      currentDynamicScanId:
+        format: int32
+        description: Current dynamic scan identifier
+        type: integer
+      currentMobileScanId:
+        format: int32
+        description: Current Mobile Scan Id
+        type: integer
+      staticAnalysisStatusType:
+        description: Current status of the static scan on this release (null if no static scan). Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      dynamicAnalysisStatusType:
+        description: Current status of the dynamic scan on this release (null if no dynamic scan). Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      mobileAnalysisStatusType:
+        description: Current status of the mobile scan on this release (null if no mobile scan). Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      staticAnalysisStatusTypeId:
+        format: int32
+        description: Current status of the static scan as a numberic identifier. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      dynamicAnalysisStatusTypeId:
+        format: int32
+        description: Current status of the dynamic scan as a numberic identifier. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      mobileAnalysisStatusTypeId:
+        format: int32
+        description: Current status of the mobile scan as a numberic identifier. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      staticScanDate:
+        format: date-time
+        description: Static scan completed date
+        type: string
+      dynamicScanDate:
+        format: date-time
+        description: Dynamic scan completed date
+        type: string
+      mobileScanDate:
+        format: date-time
+        description: Mobile scan completed date
+        type: string
+      issueCount:
+        format: int32
+        description: Total number of issues
+        type: integer
+      isPassed:
+        description: Pass/Failed status
+        type: boolean
+      passFailReasonTypeId:
+        format: int32
+        description: Reason for the scan pass/fail id. Values can be obtained by calling GET /api/v3/lookup-items?type=PassFailReasonTypes
+        type: integer
+      passFailReasonType:
+        description: Reason for the scan pass/fail. Values can be obtained by calling GET /api/v3/lookup-items?type=PassFailReasonTypes
+        type: string
+      sdlcStatusTypeId:
+        format: int32
+        description: SDLC Status Type Id. Values can be obtained by calling GET /api/v3/lookup-items?type=SDLCStatusTypes
+        type: integer
+      sdlcStatusType:
+        description: SDLC Status Type. Values can be obtained by calling GET /api/v3/lookup-items?type=SDLCStatusTypes
+        type: string
+      ownerId:
+        format: int32
+        description: Owner Id
+        type: integer
+      IsDebrickedScanEnabled:
+        description: Is Debricked Scan Enabled
+        type: boolean
+      attributes:
+        description: Release attributes
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  ScanListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Scan'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  FieldFilterValue:
+    description: Field Filter Value
+    type: object
+    properties:
+      value:
+        description: The value property
+        type: string
+      count:
+        format: int32
+        description: Count of items in the filter
+        type: integer
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  AuditTemplateResponse:
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The id of the application that was created
+        type: integer
+      success:
+        description: Indicates if the application was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  PostMicroserviceRequest:
+    description: Post Microservice Request
+    type: object
+    properties:
+      microserviceName:
+        description: The microservice name
+        type: string
+      attributes:
+        description: 'Microservice attributes. This is an array of key/value objects. Example, [{"Attribute 1": "value 1"}, {"Attribute 2": "value 2"}, {"Attribute 3": "value 3"} ]'
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttribute'
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  PutApplicationRequest:
+    description: Put Application Request
+    required:
+    - applicationName
+    - businessCriticalityType
+    type: object
+    properties:
+      applicationName:
+        description: The application title
+        type: string
+      applicationDescription:
+        description: Description of the application that will help you manage multiple applications
+        type: string
+      emailList:
+        description: List the email addresses of additional people who should be informed of activity related to this release. Separate multiple email addresses with a semicolon or comma
+        type: string
+      attributes:
+        description: 'Application attributes. This is an array of key/value objects. Example, [{"Attribute 1": "value 1"}, {"Attribute 2": "value 2"}, {"Attribute 3": "value 3"} ]'
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttribute'
+      businessCriticalityType:
+        description: The business criticality type
+        enum:
+        - High
+        - Medium
+        - Low
+        type: string
+  PostAutoReportRequest:
+    description: Post Auto Report Request
+    required:
+    - emailReport
+    - reportFormat
+    type: object
+    properties:
+      staticScanReportId:
+        format: int32
+        description: The report id used for Static Scans
+        type: integer
+      dynamicScanReportId:
+        format: int32
+        description: The report id used for Dynamic Scans
+        type: integer
+      emailReport:
+        description: Enable/Disable email reporting
+        type: boolean
+      reportFormat:
+        description: The report format
+        enum:
+        - Pdf
+        - Html
+        type: string
+      emailNotificationList:
+        description: List of emails separated by semicolon
+        type: string
+      projectSDLCStatusTypes:
+        description: SDLC Status IDs
+        type: array
+        items:
+          enum:
+          - Production
+          - QA
+          - Development
+          - Retired
+          type: string
+  AuditTemplateCondition:
+    type: object
+    properties:
+      field:
+        type: string
+      conditionType:
+        type: string
+      fieldValue:
+        type: string
+      operationType:
+        type: string
+  PutAuditTemplateAction:
+    description: AuditTemplateAction
+    required:
+    - actionType
+    type: object
+    properties:
+      actionType:
+        description: The Action type
+        enum:
+        - Suppress
+        - SetSeverity
+        type: string
+      severity:
+        description: Severity Needs to be set if the Action is Set Severity
+        enum:
+        - Critical
+        - High
+        - Medium
+        - Low
+        type: string
+      severityId:
+        format: int32
+        description: Severity Id
+        type: integer
+      suppressedStatus:
+        type: string
+  GetVulnerabilitiesResponseVulnerabilityDTOLight:
+    description: Get Vulnerabilities Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/VulnerabilityDTOLight'
+      filters:
+        description: The list of filters
+        type: array
+        items:
+          $ref: '#/definitions/FieldFilter'
+      totalCount:
+        format: int32
+        description: The total count of items
+        type: integer
+      isRepositoryUpdating:
+        description: Indicates if the repository is being updated
+        type: boolean
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  AuditTemplateAction:
+    type: object
+    properties:
+      actionType:
+        type: string
+      severity:
+        type: string
+      severityId:
+        format: int32
+        type: integer
+      suppressedStatus:
+        type: string
+  ReleaseListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Release'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer

@@ -1,0 +1,735 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Reports API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Reports
+paths:
+  /api/v3/reports/{reportId}:
+    get:
+      tags:
+      - Reports
+      summary: Get report summary data for the given report
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ReportsV3_GetReport
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: reportId
+        in: path
+        description: The report id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Report'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    delete:
+      tags:
+      - Reports
+      summary: Delete a report
+      description: 'Allowed Scopes: api-tenant, manage-reports'
+      operationId: ReportsV3_Delete
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: reportId
+        in: path
+        description: The report id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DeleteReportResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/reports:
+    get:
+      tags:
+      - Reports
+      summary: Get a list of report summary data
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ReportsV3_GetReports
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ReportListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Reports
+      summary: Create a new report
+      description: 'Allowed Scopes: api-tenant, manage-reports'
+      operationId: ReportsV3_PostReport
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: PostReportRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PostReportRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostReportResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/reports/{reportId}/download:
+    get:
+      tags:
+      - Reports
+      summary: Download the report in binary format
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ReportsV3_Download
+      consumes: []
+      produces:
+      - application/octet-stream
+      parameters:
+      - name: reportId
+        in: path
+        description: The report id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: file
+        '400':
+          description: BadRequest
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/reports/dataexports:
+    get:
+      tags:
+      - Reports
+      summary: Get a list of export report summary data
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ReportsV3_GetDataExports
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DataExportListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Reports
+      summary: Create a new data export
+      description: 'Allowed Scopes: api-tenant, manage-reports'
+      operationId: ReportsV3_PostDataExport
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: PostDataExportRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PostDataExportRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+        '202':
+          description: Accepted
+          schema:
+            $ref: '#/definitions/PostDataExportResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/reports/dataexports/{dataExportId}/download:
+    get:
+      tags:
+      - Reports
+      summary: Download the export report in binary format
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ReportsV3_DownloadExport
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: dataExportId
+        in: path
+        description: The data export id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/reports/dataexports/templates:
+    get:
+      tags:
+      - Reports
+      summary: Get a list of data export templates
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ReportsV3_GetDataExportTemplates
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DataExportTemplateListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/reports/dataexports/{dataExportId}:
+    get:
+      tags:
+      - Reports
+      summary: Get data export details
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ReportsV3_GetDataExport
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: dataExportId
+        in: path
+        description: The data export id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DataExport'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  PostDataExportRequest:
+    description: Request model for creating a new data export
+    type: object
+    properties:
+      dataExportTemplateId:
+        format: int32
+        description: The data export template id
+        type: integer
+  DataExportLinks:
+    description: Links for data export
+    type: object
+    properties:
+      status:
+        description: URL for checking the status of the data export
+        type: string
+      download:
+        description: URL for downloading the completed data export
+        type: string
+  ReportListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Report'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  PostReportRequest:
+    description: Post Report Request
+    required:
+    - applicationId
+    - releaseId
+    - reportTemplateTypeId
+    - reportFormat
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      releaseId:
+        format: int32
+        description: The release id
+        type: integer
+      reportTemplateTypeId:
+        format: int32
+        description: The report template type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ReportTemplateTypes
+        type: integer
+      reportName:
+        description: The report name
+        type: string
+      reportFormat:
+        description: The report format
+        enum:
+        - Pdf
+        - Html
+        type: string
+      notes:
+        description: The report notes
+        type: string
+  Report:
+    description: Report
+    type: object
+    properties:
+      reportId:
+        format: int32
+        description: The report id
+        type: integer
+      reportName:
+        description: The report name
+        type: string
+      reportNotes:
+        description: The report notes
+        type: string
+      reportStatusTypeId:
+        format: int32
+        description: The report status type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ReportStatusType
+        type: integer
+      reportStatusType:
+        description: The report status type. Values can be obtained by calling GET /api/v3/lookup-items?type=ReportStatusType
+        type: string
+      reportTypeId:
+        format: int32
+        description: The report type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ReportTypes
+        type: integer
+      reportType:
+        description: The report type. Values can be obtained by calling GET /api/v3/lookup-items?type=ReportTypes
+        type: string
+      customReportTypeName:
+        description: The custom report type name
+        type: string
+      isReceived:
+        description: Is received
+        type: boolean
+      language:
+        description: The report language
+        type: string
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      releaseId:
+        format: int32
+        description: The release id
+        type: integer
+      userId:
+        format: int32
+        description: The user id
+        type: integer
+  DataExport:
+    description: DataExport
+    type: object
+    properties:
+      dataExportId:
+        format: int32
+        description: The data export id
+        type: integer
+      dataExportName:
+        description: The data export name
+        type: string
+      dataExportType:
+        description: The data export type
+        enum:
+        - IssuesExport
+        - ScansExport
+        - ReleasesExport
+        - ApplicationsExport
+        - EntitlementConsumptionExport
+        type: string
+      createdBy:
+        description: The username that created the data export
+        type: string
+      createdDate:
+        format: date-time
+        description: The created date
+        type: string
+      dataExportStatusType:
+        description: The data export status type
+        enum:
+        - Started
+        - Completed
+        - Failed
+        - Queued
+        - Canceled
+        type: string
+  DataExportTemplate:
+    description: DataExportTemplate
+    type: object
+    properties:
+      dataExportTemplateId:
+        format: int32
+        description: The data export template id
+        type: integer
+      dataExportTemplateName:
+        description: The data export template name
+        type: string
+      dataExportTemplateType:
+        description: The data export template type
+        enum:
+        - IssuesExport
+        - ScansExport
+        - ReleasesExport
+        - ApplicationsExport
+        - EntitlementConsumptionExport
+        type: string
+  DeleteReportResponse:
+    description: Delete Application Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the report was deleted
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  PostDataExportResponse:
+    description: Response model for creating a new data export
+    type: object
+    properties:
+      dataExportId:
+        format: int32
+        description: The data export id
+        type: integer
+      links:
+        $ref: '#/definitions/DataExportLinks'
+        description: Links for tracking and downloading the export
+  DataExportListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/DataExport'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  DataExportTemplateListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/DataExportTemplate'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  PostReportResponse:
+    description: Post Report Response
+    type: object
+    properties:
+      reportId:
+        format: int32
+        description: The id of the report that was created
+        type: integer
+      success:
+        description: Indicates if the application was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string

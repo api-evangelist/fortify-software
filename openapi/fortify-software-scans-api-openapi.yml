@@ -1,0 +1,1033 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Scans API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Scans
+paths:
+  /api/v3/scans:
+    get:
+      tags:
+      - Scans
+      summary: Returns a list of scans
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ScansV3_GetScans
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: startedOnStartDate
+        in: query
+        description: The started on start date.
+        required: false
+        type: string
+        format: date-time
+      - name: startedOnEndDate
+        in: query
+        description: The started on end date.
+        required: false
+        type: string
+        format: date-time
+      - name: completedOnStartDate
+        in: query
+        description: The completed on start date.
+        required: false
+        type: string
+        format: date-time
+      - name: completedOnEndDate
+        in: query
+        description: The completed on end date.
+        required: false
+        type: string
+        format: date-time
+      - name: modifiedStartDate
+        in: query
+        description: The modified on or after date.
+        required: false
+        type: string
+        format: date-time
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ScanListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/scans/{scanId}/summary:
+    get:
+      tags:
+      - Scans
+      summary: Returns summary information for the requested scan id
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ScansV3_GetScanSummary
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ScanSummary'
+        '202':
+          description: Accepted
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/scans/{scanId}/manifest:
+    get:
+      tags:
+      - Scans
+      summary: Download the scan manifest
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ScansV3_DownloadManifest
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/scans/{scanId}/site-tree:
+    get:
+      tags:
+      - Scans
+      summary: Get the site tree
+      description: 'Allowed Scopes: api-tenant, view-reports'
+      operationId: ScansV3_GetSiteTree
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/SiteTreeListResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/scans/{scanId}/static-source-file:
+    get:
+      tags:
+      - Scans
+      summary: Download the static scan source file
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: ScansV3_DownloadStaticScanSourceFile
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/scans/{scanId}/fpr:
+    get:
+      tags:
+      - Scans
+      summary: Download the FPR file for the given ScanId
+      description: 'Allowed Scopes: api-tenant, view-issues'
+      operationId: ScansV3_GetFPRByScanId
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+        '202':
+          description: Accepted
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/scans/{scanId}/mobile-scans/payload-validation-results:
+    get:
+      tags:
+      - Scans
+      summary: Returns mobile validation status and results
+      description: '<remarks>Allowed Scopes: api-tenant, view-apps</remarks>'
+      operationId: ScansV3_GetValidationResults
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/MobileValidationStatus'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3scans/{scanId}:
+    put:
+      tags:
+      - Scans
+      summary: Updates an existing scan
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ScansV3_PutScan
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutScanRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutScanRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutScanResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/PutScanResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PutScanResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  DynamicScanSummaryDetails:
+    type: object
+    properties:
+      dynamicSiteURL:
+        description: The dynamic site url
+        type: string
+      restrictToDirectoryAndSubdirectories:
+        description: True to restrict to directory and subdirectories, otherwise false
+        type: boolean
+      allowSameHostRedirects:
+        description: True to allow HTTP (:80) and HTTPS (:443) of the specified scan host (default), otherwise false.
+        type: boolean
+      allowFormSubmissions:
+        description: True to allow form submissions (default), otherwise false..
+        type: boolean
+      timeZone:
+        description: The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      hasAvailabilityRestrictions:
+        description: Indicates if there are any availability restrictions
+        type: boolean
+      requestCall:
+        description: True if client requests a call prior to assessment
+        type: boolean
+      hasFormsAuthentication:
+        description: True if Forms Authentication is required to scan the site
+        type: boolean
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site
+        type: boolean
+      isWebService:
+        description: True if this a web service scan
+        type: boolean
+      webServiceType:
+        description: The web service type
+        enum:
+        - SOAP
+        - REST
+        - PostmanCollectionFile
+        - PostmanCollectionURL
+        - OpenApiFile
+        - OpenApiUrl
+        - Grpc
+        - GraphQlFile
+        - GraphQlUrl
+        type: string
+      userAgentType:
+        description: The user agent type
+        enum:
+        - Desktop
+        - Mobile
+        type: string
+      notes:
+        description: Additional notes that will help with running a scan
+        type: string
+      concurrentRequestThreadsType:
+        description: The concurrent request threads type
+        enum:
+        - Standard
+        - Limited
+        type: string
+      elapsedTimeSpan:
+        description: The Elapsed Time Scan Span
+        type: string
+      policyName:
+        description: WebInspect Policy
+        type: string
+      crawlSessions:
+        format: int32
+        description: Crawl Sessions
+        type: integer
+      failedRequests:
+        format: int32
+        description: Network Failed Requests
+        type: integer
+      logouts:
+        format: int32
+        description: Network Logouts
+        type: integer
+      macroPlaybacks:
+        format: int32
+        description: Network Macro Playbacks
+        type: integer
+      scanType:
+        description: The DAST Automated scan type. Values can be obtained by calling GET /api/v3/lookup-items?type=DastAutomatedScanTypes
+        type: string
+      timeBoxInHours:
+        format: int32
+        type: integer
+  ScanSummary:
+    description: ScanSummary
+    type: object
+    properties:
+      startedByUserId:
+        format: int32
+        description: The id of the user that started the scan
+        type: integer
+      startedByUserName:
+        description: The user name of the user that started the scan
+        type: string
+      dynamicScanSummaryDetails:
+        $ref: '#/definitions/DynamicScanSummaryDetails'
+        description: DynamicScanSummaryDetails
+      mobileScanSummaryDetails:
+        $ref: '#/definitions/MobileScanSummaryDetails'
+        description: MobileScanSummaryDetails
+      staticScanSummaryDetails:
+        $ref: '#/definitions/StaticScanSummaryDetails'
+        description: StaticScanSummaryDetails
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The application name
+        type: string
+      releaseId:
+        format: int32
+        description: The release id
+        type: integer
+      releaseName:
+        description: The release name
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+      scanTypeId:
+        format: int32
+        description: The scan type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: integer
+      scanType:
+        description: The scan type. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      assessmentTypeName:
+        description: The assessment type name. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: string
+      analysisStatusTypeId:
+        format: int32
+        description: The analysis status type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      analysisStatusType:
+        description: The analysis status type. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      startedDateTime:
+        format: date-time
+        description: The scan started date time
+        type: string
+      completedDateTime:
+        format: date-time
+        description: The scan completed date time
+        type: string
+      totalIssues:
+        format: int32
+        description: Total number of issues
+        type: integer
+      issueCountCritical:
+        format: int32
+        description: Total number of critical issues
+        type: integer
+      issueCountHigh:
+        format: int32
+        description: Total number of high issues
+        type: integer
+      issueCountMedium:
+        format: int32
+        description: Total number of medium issues
+        type: integer
+      issueCountLow:
+        format: int32
+        description: Total number of low issues
+        type: integer
+      starRating:
+        format: int32
+        description: The star rating
+        type: integer
+      notes:
+        description: Scan notes
+        type: string
+      isFalsePositiveChallenge:
+        description: Indicates if the scan is a false positive challenge
+        type: boolean
+      isRemediationScan:
+        description: Indicates if the scan is a remediation scan
+        type: boolean
+      entitlementId:
+        format: int32
+        description: The entitlement id used for the given scan
+        type: integer
+      entitlementUnitsConsumed:
+        format: int32
+        description: The number of entitlement units used for the given scan
+        type: integer
+      isSubscriptionEntitlement:
+        description: Indicates if the entitlement used for the given scan is a subscription entitlement
+        type: boolean
+      pauseDetails:
+        description: The details for each time the scan has been paused/resumed.
+        type: array
+        items:
+          $ref: '#/definitions/ScanPauseDetail'
+      cancelReason:
+        description: Cancel Reason
+        type: string
+      analysisStatusReasonNotes:
+        description: The Analysis Status Reason Notes
+        type: string
+      scanMethodTypeId:
+        format: int32
+        description: The scan method type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: integer
+      scanMethodTypeName:
+        description: The scan method type name. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: string
+      scanTool:
+        description: The tool used for scanning
+        type: string
+      scanToolVersion:
+        description: The version for the scan tool used for scanning
+        type: string
+      attributes:
+        description: Scan attributes
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  Scan:
+    description: Scan
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The application name
+        type: string
+      releaseId:
+        format: int32
+        description: The release id
+        type: integer
+      releaseName:
+        description: The release name
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+      scanTypeId:
+        format: int32
+        description: The scan type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: integer
+      scanType:
+        description: The scan type. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      assessmentTypeName:
+        description: The assessment type name. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: string
+      analysisStatusTypeId:
+        format: int32
+        description: The analysis status type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      analysisStatusType:
+        description: The analysis status type. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      startedDateTime:
+        format: date-time
+        description: The scan started date time
+        type: string
+      completedDateTime:
+        format: date-time
+        description: The scan completed date time
+        type: string
+      totalIssues:
+        format: int32
+        description: Total number of issues
+        type: integer
+      issueCountCritical:
+        format: int32
+        description: Total number of critical issues
+        type: integer
+      issueCountHigh:
+        format: int32
+        description: Total number of high issues
+        type: integer
+      issueCountMedium:
+        format: int32
+        description: Total number of medium issues
+        type: integer
+      issueCountLow:
+        format: int32
+        description: Total number of low issues
+        type: integer
+      starRating:
+        format: int32
+        description: The star rating
+        type: integer
+      notes:
+        description: Scan notes
+        type: string
+      isFalsePositiveChallenge:
+        description: Indicates if the scan is a false positive challenge
+        type: boolean
+      isRemediationScan:
+        description: Indicates if the scan is a remediation scan
+        type: boolean
+      entitlementId:
+        format: int32
+        description: The entitlement id used for the given scan
+        type: integer
+      entitlementUnitsConsumed:
+        format: int32
+        description: The number of entitlement units used for the given scan
+        type: integer
+      isSubscriptionEntitlement:
+        description: Indicates if the entitlement used for the given scan is a subscription entitlement
+        type: boolean
+      pauseDetails:
+        description: The details for each time the scan has been paused/resumed.
+        type: array
+        items:
+          $ref: '#/definitions/ScanPauseDetail'
+      cancelReason:
+        description: Cancel Reason
+        type: string
+      analysisStatusReasonNotes:
+        description: The Analysis Status Reason Notes
+        type: string
+      scanMethodTypeId:
+        format: int32
+        description: The scan method type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: integer
+      scanMethodTypeName:
+        description: The scan method type name. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: string
+      scanTool:
+        description: The tool used for scanning
+        type: string
+      scanToolVersion:
+        description: The version for the scan tool used for scanning
+        type: string
+      attributes:
+        description: Scan attributes
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  MobileValidationCheckItem:
+    type: object
+    properties:
+      result:
+        description: The result property (Ok, Fail, etc.)
+        type: string
+      message:
+        description: The message as reported from mobius property
+        type: string
+  ApplicationAttribute:
+    description: Attribute
+    type: object
+    properties:
+      id:
+        format: int32
+        description: Id of the attribute
+        type: integer
+      value:
+        description: Value of the attribute
+        type: string
+  MobileScanSummaryDetails:
+    type: object
+    properties:
+      frameworkType:
+        description: The framework type
+        enum:
+        - iOS
+        - Android
+        type: string
+      auditPreferenceType:
+        description: The audit preference type
+        enum:
+        - Manual
+        - Automated
+        type: string
+      platformType:
+        description: The platform type
+        enum:
+        - Phone
+        - Tablet
+        - Both
+        type: string
+      identifier:
+        description: Identifier
+        type: string
+      version:
+        description: Version
+        type: string
+      userAccountsRequried:
+        description: Indicates if user accounts are required
+        type: boolean
+      accessToWebServices:
+        description: Indicates if there is access to web services
+        type: boolean
+      hasExclusions:
+        description: Indicates if there are any exclusions
+        type: boolean
+      hasAvailabilityRestrictions:
+        description: Indicates if there are any availability restrictions
+        type: boolean
+  ScanPauseDetail:
+    description: Scan Pause Details
+    type: object
+    properties:
+      pausedOn:
+        format: date-time
+        description: The scan paused date/time.
+        type: string
+      reason:
+        description: The reason the scan was paused.
+        type: string
+      notes:
+        description: Optional notes regarding the scan paused.
+        type: string
+  PutScanResponse:
+    description: Put Scan Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the scan was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  MobileValidationStatus:
+    type: object
+    properties:
+      validationStatus:
+        description: The validationStatus property (ScanId not found, Processing, OK, etc.)
+        type: string
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/MobileValidationCheckItem'
+  ScanListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Scan'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  ApplicationAttributeExtended:
+    description: Application Attribute Extended
+    type: object
+    properties:
+      name:
+        description: Name of the attribute
+        type: string
+      id:
+        format: int32
+        description: Id of the attribute
+        type: integer
+      value:
+        description: Value of the attribute
+        type: string
+  StaticScanSummaryDetails:
+    type: object
+    properties:
+      technologyStack:
+        description: The technology stack
+        type: string
+      languageLevel:
+        description: The language level
+        type: string
+      doSonatypeScan:
+        description: Indicates if a sonatype scan should be included
+        type: boolean
+      auditPreferenceType:
+        description: The audit preference type
+        enum:
+        - Manual
+        - Automated
+        type: string
+      excludeThirdPartyLibs:
+        description: Indicates if third party libraries should be excluded
+        type: boolean
+      buildDate:
+        format: date-time
+        description: The build date
+        type: string
+      engineVersion:
+        description: The engine version
+        type: string
+      rulePackVersion:
+        description: The rule pack version
+        type: string
+      fileCount:
+        format: int32
+        description: The file count
+        type: integer
+      totalLinesOfCode:
+        format: int32
+        description: The total lines of code
+        type: integer
+      payLoadSize:
+        description: The size in KB of the payload
+        type: string
+      staticVulnerabilityFilter:
+        description: The selected Static Vulnerability Filter
+        type: string
+      includeFortifyAviator:
+        description: Indicates whether Aviator Addon Service is enabled
+        type: boolean
+      fortifyAviatorError:
+        $ref: '#/definitions/FortifyAviatorError'
+        description: Aviator information on validation error and exit error code
+  PutScanRequest:
+    description: Put Scan Request
+    type: object
+    properties:
+      attributes:
+        description: 'Scan attributes. This is an array of key/value objects. Example, [{"Attribute 1": "value 1"}, {"Attribute 2": "value 2"}, {"Attribute 3": "value 3"} ]'
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttribute'
+  FortifyAviatorError:
+    type: object
+    properties:
+      exitCode:
+        type: string
+      error:
+        type: string
+  SiteTree:
+    description: Site Tree
+    type: object
+    properties:
+      requestTime:
+        description: The request time
+        type: string
+      scheme:
+        description: The scheme
+        type: string
+      host:
+        description: The host name
+        type: string
+      port:
+        description: The port
+        type: string
+      method:
+        description: The method
+        type: string
+      path:
+        description: The site path
+        type: string
+      statusCode:
+        description: The status code returned on the response
+        type: string
+      responseTimeDelta:
+        description: The delta for the response time
+        type: string
+      spaDisplayName:
+        description: The display name for the SPA
+        type: string
+      spaDisplaySelector:
+        description: The selector for the SPA (e.g. a[@id="Submit"])
+        type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  SiteTreeListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/SiteTree'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer

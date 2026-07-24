@@ -1,0 +1,33 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement EventLogs API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: EventLogs
+paths:
+  /api/v3/eventlogs/download:
+    get:
+      tags:
+      - EventLogs
+      summary: Download the last 24 hours of event log data in csv format
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: EventLogsV3_Download
+      consumes: []
+      produces:
+      - application/x-download
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: file
+        '204':
+          description: NoContent
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError

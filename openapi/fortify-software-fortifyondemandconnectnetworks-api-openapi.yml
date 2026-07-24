@@ -1,0 +1,63 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement FortifyOnDemandConnectNetworks API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: FortifyOnDemandConnectNetworks
+paths:
+  /api/v3/fortify-on-demand-connect-networks:
+    get:
+      tags:
+      - FortifyOnDemandConnectNetworks
+      summary: Retrieve a list of Fortify on Demand Connect networks
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: FortifyOnDemandConnectNetworksV3_GetNetworks
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/FortifyConnectApiNetworkListResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  FortifyConnectApiNetworkListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/FortifyConnectApiNetwork'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  FortifyConnectApiNetwork:
+    type: object
+    properties:
+      networkName:
+        type: string
+      userName:
+        type: string

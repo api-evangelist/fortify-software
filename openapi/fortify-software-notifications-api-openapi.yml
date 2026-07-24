@@ -1,0 +1,248 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Notifications API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Notifications
+paths:
+  /api/v3/notifications/unread:
+    get:
+      tags:
+      - Notifications
+      summary: Get a list of unread notifications
+      description: 'Allowed Scopes: api-tenant, manage-notifications'
+      operationId: NotificationsV3_GetUnreadNotifications
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/NotificationListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/notifications/read:
+    get:
+      tags:
+      - Notifications
+      summary: Get a list of read notifications
+      description: 'Allowed Scopes: api-tenant, manage-notifications'
+      operationId: NotificationsV3_GetReadNotifications
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/NotificationListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/notifications/markasread:
+    post:
+      tags:
+      - Notifications
+      summary: Marks the notification(s) as read
+      description: 'Allowed Scopes: api-tenant, manage-notifications'
+      operationId: NotificationsV3_MarkNotificaitonsAsRead
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: MarkNotificaitonsAsReadRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/MarkNotificaitonsAsReadRequest'
+      responses:
+        '204':
+          description: NoContent
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  MarkNotificaitonsAsReadRequest:
+    required:
+    - messageIds
+    type: object
+    properties:
+      messageIds:
+        description: The list of message ids to mark as read
+        type: array
+        items:
+          format: int32
+          type: integer
+  NotificationListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Notification'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  Notification:
+    description: Notification
+    type: object
+    properties:
+      messageId:
+        format: int32
+        description: The message id
+        type: integer
+      subject:
+        description: The subject
+        type: string
+      message:
+        description: The message
+        type: string
+      triggerType:
+        description: The NotificationTriggerType. Values can be obtained by calling GET /api/v3/lookup-items?type=NotificationTriggerTypes
+        type: string
+      triggerTypeId:
+        format: int32
+        description: The NotificationTriggerType id. Values can be obtained by calling GET /api/v3/lookup-items?type=NotificationTriggerTypes
+        type: integer
+      createdDate:
+        format: date-time
+        description: The created date
+        type: string
+      read:
+        description: Indicates if the message has been marked read
+        type: boolean
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string

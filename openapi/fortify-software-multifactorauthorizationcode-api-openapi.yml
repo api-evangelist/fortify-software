@@ -1,0 +1,93 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement MultiFactorAuthorizationCode API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: MultiFactorAuthorizationCode
+paths:
+  /api/v3/multi-factor-authorization-code:
+    post:
+      tags:
+      - MultiFactorAuthorizationCode
+      summary: Send an Authorization code
+      operationId: MultiFactorAuthorizationCodeV3_Post
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: the username, password, and authorization method
+        required: true
+        schema:
+          $ref: '#/definitions/PostMultiFactorAuthorizationCodeRequest'
+      responses:
+        '204':
+          description: NoContent
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  PostMultiFactorAuthorizationCodeRequest:
+    description: Post Multi Factor Authorization Code Request
+    required:
+    - multiFactorAuthorizationType
+    - username
+    - password
+    type: object
+    properties:
+      multiFactorAuthorizationType:
+        description: Type of Authorization (sms or email)
+        enum:
+        - SMSDelivery
+        - EmailDelivery
+        type: string
+      username:
+        description: Tenant Code / Username
+        type: string
+      password:
+        description: Password
+        type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string

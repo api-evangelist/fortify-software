@@ -1,0 +1,242 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement AuditTemplate API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: AuditTemplate
+paths:
+  /api/v3/audittemplate/globalaudittemplates:
+    get:
+      tags:
+      - AuditTemplate
+      summary: Returns a list of global audit templates
+      description: 'Allowed Scopes: api-tenant, manage-issues'
+      operationId: AuditTemplateV3_GetGlobalAuditTemplates
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanType
+        in: query
+        description: The scan type<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/AuditTemplateListResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - AuditTemplate
+      summary: Creates/Update Global Audit templates
+      description: 'Allowed Scopes: api-tenant, manage-issues'
+      operationId: AuditTemplateV3_PutGlobalAuditTemplates
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: auditTemplatesRequest
+        in: body
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/PutAuditTemplateFilterRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/AuditTemplateResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/AuditTemplateResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  AuditTemplateListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/AuditTemplate'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  AuditTemplate:
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        type: integer
+      scanType:
+        type: string
+      scanTypeId:
+        format: int32
+        type: integer
+      conditions:
+        type: array
+        items:
+          $ref: '#/definitions/AuditTemplateCondition'
+      action:
+        $ref: '#/definitions/AuditTemplateAction'
+  PutAuditTemplateCondition:
+    description: AuditTemplateCondition
+    type: object
+    properties:
+      conditionType:
+        description: The condition type
+        enum:
+        - Contains
+        - DoesNotContain
+        - Equals
+        - DoesNotEqual
+        - Regex
+        type: string
+      field:
+        description: The field
+        type: string
+      fieldValue:
+        description: The field value
+        type: string
+      operationType:
+        description: The Operation type
+        enum:
+        - And
+        - Or
+        type: string
+  AuditTemplateCondition:
+    type: object
+    properties:
+      field:
+        type: string
+      conditionType:
+        type: string
+      fieldValue:
+        type: string
+      operationType:
+        type: string
+  PutAuditTemplateAction:
+    description: AuditTemplateAction
+    required:
+    - actionType
+    type: object
+    properties:
+      actionType:
+        description: The Action type
+        enum:
+        - Suppress
+        - SetSeverity
+        type: string
+      severity:
+        description: Severity Needs to be set if the Action is Set Severity
+        enum:
+        - Critical
+        - High
+        - Medium
+        - Low
+        type: string
+      severityId:
+        format: int32
+        description: Severity Id
+        type: integer
+      suppressedStatus:
+        type: string
+  PutAuditTemplateFilterRequest:
+    required:
+    - scanType
+    - action
+    type: object
+    properties:
+      scanType:
+        description: The scan type
+        enum:
+        - Static
+        - Dynamic
+        - Mobile
+        - Monitoring
+        - Network
+        - OpenSource
+        type: string
+      scanTypeId:
+        format: int32
+        description: Scan Type Id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: integer
+      action:
+        $ref: '#/definitions/PutAuditTemplateAction'
+        description: The action
+      conditions:
+        description: The conditions
+        type: array
+        items:
+          $ref: '#/definitions/PutAuditTemplateCondition'
+  AuditTemplateAction:
+    type: object
+    properties:
+      actionType:
+        type: string
+      severity:
+        type: string
+      severityId:
+        format: int32
+        type: integer
+      suppressedStatus:
+        type: string
+  AuditTemplateResponse:
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The id of the application that was created
+        type: integer
+      success:
+        description: Indicates if the application was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string

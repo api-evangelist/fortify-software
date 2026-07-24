@@ -1,0 +1,126 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement LookupItems API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: LookupItems
+paths:
+  /api/v3/lookup-items:
+    get:
+      tags:
+      - LookupItems
+      summary: Returns a list of lookup items for the given type.
+      description: "Allowed Scopes: api-tenant, view-tenant-data\r\n            \r\nFor LanguageLevels, the group field indicates the TechnologyTypeId."
+      operationId: LookupItemsV3_GetLookupItems
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: type
+        in: query
+        description: The type of lookup items to return
+        required: false
+        type: string
+        enum:
+        - All
+        - AnalysisStatusTypes
+        - ApplicationTypes
+        - ApiRoles
+        - AssessmentTypes
+        - AttributeDataTypes
+        - AttributeTypes
+        - AuditActionTypes
+        - AuditPreferenceTypes
+        - AuditTemplateConditionTypes
+        - BusinessCriticalityTypes
+        - ConcurrentRequestThreadsTypes
+        - DataExportTypes
+        - DayOfWeekTypes
+        - DastAutomatedScanPolicies
+        - DastAutomatedScanTypes
+        - DynamicMobileScanTypeAuditTemplateFieldTypes
+        - DynamicScanAuthenticationTypes
+        - DynamicScanEnvironmentFacingTypes
+        - DynamicScanWebServiceTypes
+        - EntitlementFrequencyTypes
+        - GeoLocations
+        - LanguageLevels
+        - MobileScanAuditPreferenceTypes
+        - MobileScanEnvironmentTypes
+        - MobileScanExternalDeviceTypes
+        - MobileScanFrameworkTypes
+        - MobileScanPlatformTypes
+        - MobileScanRoleTypes
+        - MultiFactorAuthorizationTypes
+        - NetworkAuthenticationType
+        - NotificationTriggerTypes
+        - OpenSourceScanTypeAuditTemplateFieldTypes
+        - PassFailReasonTypes
+        - RepeatScheduleTypes
+        - ReportFormats
+        - ReportStatusTypes
+        - ReportTemplateTypes
+        - ReportTypes
+        - Roles
+        - ScanMethodTypes
+        - ScanPreferenceTypes
+        - ScanStatusTypes
+        - ScanTypes
+        - SDLCStatusTypes
+        - StartScanMethodTypes
+        - StaticScanTypeAuditTemplateFieldTypes
+        - TechnologyTypes
+        - TimeZones
+        - VulnerabilitySeverityTypes
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/LookupItemListResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  LookupItem:
+    description: Lookup Item
+    type: object
+    properties:
+      value:
+        description: The value property
+        type: string
+      text:
+        description: The text property
+        type: string
+      group:
+        description: The group property
+        type: string
+  LookupItemListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/LookupItem'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer

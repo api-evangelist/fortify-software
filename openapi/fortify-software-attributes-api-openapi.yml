@@ -1,0 +1,375 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Attributes API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Attributes
+paths:
+  /api/v3/attributes:
+    get:
+      tags:
+      - Attributes
+      summary: Retrieve a list of attributes
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: AttributesV3_GetAttribute
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: picklistValues"
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/AttributeItemListResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Attributes
+      summary: Create a new attribute
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: AttributesV3_PostAttribute
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: The attribute data
+        required: true
+        schema:
+          $ref: '#/definitions/PostAttributeRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/PostAttributeResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/attributes/{attributeId}:
+    put:
+      tags:
+      - Attributes
+      summary: Update an attribute
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: AttributesV3_PutAttribute
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: attributeId
+        in: path
+        description: The attribute id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: The attribute data
+        required: true
+        schema:
+          $ref: '#/definitions/PutAttributeRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutAttributeResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/PutAttributeResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PutAttributeResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    delete:
+      tags:
+      - Attributes
+      summary: Deletes an attribute
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: AttributesV3_Delete
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: attributeId
+        in: path
+        description: The attribute id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DeleteApplicationResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/DeleteApplicationResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  AttributeValueItem:
+    type: object
+    properties:
+      Name:
+        type: string
+      SortOrder:
+        format: int32
+        type: integer
+  DeleteApplicationResponse:
+    description: Delete Application Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the application was deleted
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  AttributeItemListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/AttributeItem'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  PutAttributeRequest:
+    description: Put Attrbute Request
+    type: object
+    properties:
+      isRequired:
+        description: Is attribute required
+        type: boolean
+      isRestricted:
+        description: Is attribute editable only by SecLeads
+        type: boolean
+      defaultValue:
+        description: Default value for the attribute. Required when both isRequired and isRestricted are true.
+        type: string
+      overwriteExistingValues:
+        description: Overwrite existing picklist values
+        type: boolean
+      picklistValues:
+        description: Picklist Values
+        type: array
+        items:
+          type: string
+  PostAttributeResponse:
+    description: Post Attrbute Response
+    type: object
+    properties:
+      attributeId:
+        format: int32
+        description: The id of the attribute that was created
+        type: integer
+      success:
+        description: Indicates if the application was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  AttributeItem:
+    description: Attribute Item
+    type: object
+    properties:
+      id:
+        format: int32
+        description: The attribute id
+        type: integer
+      name:
+        description: The attribute name
+        type: string
+      attributeTypeId:
+        format: int32
+        description: The attribute type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AttributeTypes
+        type: integer
+      attributeType:
+        description: The attribute type. Values can be obtained by calling GET /api/v3/lookup-items?type=AttributeTypes
+        type: string
+      attributeDataTypeId:
+        format: int32
+        description: The attribute data type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AttributeDataTypes
+        type: integer
+      attributeDataType:
+        description: The attribute data type. Values can be obtained by calling GET /api/v3/lookup-items?type=AttributeDataTypes
+        type: string
+      isRequired:
+        description: Indicates if the attribute is required
+        type: boolean
+      isRestricted:
+        description: Indicates if the attribute is editable only by Security Leads
+        type: boolean
+      defaultValue:
+        description: Default value for the attribute when both isRequired and isRestricted are true
+        type: string
+      picklistValues:
+        description: A list of attribute item values
+        type: array
+        items:
+          $ref: '#/definitions/AttributeItemValue'
+  PutAttributeResponse:
+    description: Put Attrbute Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the attribute was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  PostAttributeRequest:
+    description: Post Attrbute Request
+    required:
+    - name
+    - attributeType
+    - attributeDataType
+    type: object
+    properties:
+      name:
+        description: Attribute name
+        type: string
+      attributeType:
+        description: Attribute type
+        type: string
+      attributeDataType:
+        description: Attribute data name
+        enum:
+        - Picklist
+        - Text
+        - Boolean
+        - Date
+        - User
+        type: string
+      isRequired:
+        description: Is attribute required
+        type: boolean
+      isRestricted:
+        description: Is attribute editable only by SecLeads
+        type: boolean
+      defaultValue:
+        description: Default value for the attribute. Required when both isRequired and isRestricted are true.
+        type: string
+      picklistValues:
+        description: Picklist Values
+        type: array
+        items:
+          $ref: '#/definitions/AttributeValueItem'
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  AttributeItemValue:
+    description: Attribute Item Value
+    type: object
+    properties:
+      id:
+        format: int32
+        description: The id of the attribute item value
+        type: integer
+      name:
+        description: The name of the attribute item value
+        type: string

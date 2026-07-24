@@ -1,0 +1,896 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement DynamicScans API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: DynamicScans
+paths:
+  /api/v3/releases/{releaseId}/dynamic-scans/scan-setup:
+    get:
+      tags:
+      - DynamicScans
+      summary: Get dynamic scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DynamicScansV3_GetDynamicScanSetup
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: ''
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetDynamicScanSetupResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - DynamicScans
+      summary: Saves dynamic scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DynamicScansV3_PutDynamicScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutDynamicScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutDynamicScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutDynamicScanSetupResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/PutDynamicScanSetupResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PutDynamicScanSetupResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dynamic-scans/scan-setup/manifest:
+    patch:
+      tags:
+      - DynamicScans
+      summary: Uploads a web service manifest to the release
+      operationId: DynamicScansV3_PatchDynamicScanManifestSetup
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: webServiceFileType
+        in: query
+        description: The web service type
+        required: true
+        type: string
+        enum:
+        - Postman
+        - OpenApi
+        - GraphQL
+        - Grpc
+        - WSDL
+      - name: postmanFileType
+        in: query
+        description: "Select a file type (Workflow, Auth, Environment, or Globals). \r\nWorkflow file is required. Defaults to Workflow if not specified."
+        required: false
+        type: string
+        enum:
+        - Workflow
+        - Auth
+        - Environment
+        - Globals
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PatchDynamicScanSetupManifestResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/PatchDynamicScanSetupManifestResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PatchDynamicScanSetupManifestResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dynamic-scans/start-scan:
+    post:
+      tags:
+      - DynamicScans
+      summary: Starts a dynamic scan using the current scan setup settings
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DynamicScansV3_StartDynamicScan
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release Id of the scan to start
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: Options for starting the scan
+        required: true
+        schema:
+          $ref: '#/definitions/StartDynamicScanRequest'
+      - name: networkName
+        in: query
+        description: Network Name
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/StartDynamicScanResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dynamic-scans/import-scan:
+    put:
+      tags:
+      - DynamicScans
+      summary: Saves the contents to import scan file
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DynamicScansV3_PutImportScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release Id of the scan to import
+        required: true
+        type: integer
+        format: int32
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: fileLength
+        in: query
+        description: The number of bytes of the file being imported
+        required: true
+        type: integer
+        format: int64
+      - name: importScanSessionId
+        in: query
+        description: The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutImportScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v3/releases/{releaseId}/dynamic-scans/dynamic-to-dast:
+    put:
+      tags:
+      - DynamicScans
+      summary: Switches Dynamic Scan Setup to Dast Automated
+      operationId: DynamicScansV3_PutDynamicSetupDetailsToDastAutomated
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutDynamicToDastAutomatedResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  PutImportScanResponse:
+    description: PutImportScanResponse
+    type: object
+    properties:
+      referenceId:
+        description: Reference Id
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+  Subdomain:
+    type: object
+    properties:
+      value:
+        description: URL subdomain to include in scanning.
+        type: string
+  PutDynamicScanSetupRequest:
+    description: PutDynamic Scan Setup Request
+    required:
+    - geoLocationId
+    - timeZone
+    - entitlementFrequencyType
+    type: object
+    properties:
+      geoLocationId:
+        format: int32
+        description: Geo Location Id of the scan. Values can be obtained by calling GET /api/v3/lookup-items?type=GeoLocations
+        type: integer
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      exclusions:
+        description: Deprecated
+        type: string
+      includeUrls:
+        description: List of subdomains.
+        type: array
+        items:
+          $ref: '#/definitions/Subdomain'
+      exclusionsList:
+        description: List of exclusions.
+        type: array
+        items:
+          $ref: '#/definitions/Exclusion'
+      dynamicScanAuthenticationType:
+        description: This field is obsolete. Please use the hasFormsAuthentication field to indicate if Forms Authentication is required to scan the site
+        enum:
+        - NoAuthentication
+        - GenerateUniqueAuthentication
+        - AuthenticationRequired
+        type: string
+      hasFormsAuthentication:
+        description: True if Forms Authentication is required to scan the site
+        type: boolean
+      primaryUserName:
+        description: Primary username to login with
+        type: string
+      primaryUserPassword:
+        description: Primary account password to login with
+        type: string
+      secondaryUserName:
+        description: Secondary username to login with
+        type: string
+      secondaryUserPassword:
+        description: Secondary account password to login with
+        type: string
+      otherUserName:
+        description: Other username needed to operate the site
+        type: string
+      otherUserPassword:
+        description: Other password needed to operate the site
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site
+        type: boolean
+      networkUserName:
+        description: Network account username
+        type: string
+      networkPassword:
+        description: Network account password
+        type: string
+      notes:
+        description: Additional notes that will help with running a scan
+        type: string
+      dynamicSiteURL:
+        description: The dynamic site url
+        type: string
+      timeZone:
+        description: The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      blockout:
+        description: Blockout days list. All days and hours will default to checked unless otherwise specified.
+        type: array
+        items:
+          $ref: '#/definitions/BlackoutDay'
+      repeatScheduleType:
+        description: For scans that are to be run at regular intervals, this specifies how often
+        enum:
+        - NoRepeat
+        - Biweekly
+        - Monthly
+        - Bimonthly
+        - Quarterly
+        - Triannually
+        - Semiannually
+        - Annually
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: Assessment type identifier of the scan. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement identifier of the scan
+        type: integer
+      allowFormSubmissions:
+        description: True to allow form submissions (default), otherwise false..
+        type: boolean
+      restrictToDirectoryAndSubdirectories:
+        description: True to restrict to directory and subdirectories, otherwise false
+        type: boolean
+      generateWAFVirtualPatch:
+        description: True to generate WAF virtual patch, otherwise false
+        type: boolean
+      isWebService:
+        description: True if this a web service scan
+        type: boolean
+      webServiceType:
+        description: The web service type
+        enum:
+        - SOAP
+        - REST
+        - PostmanCollectionFile
+        - PostmanCollectionURL
+        - OpenApiFile
+        - OpenApiUrl
+        - Grpc
+        - GraphQlFile
+        - GraphQlUrl
+        type: string
+      webServiceDescriptorURL:
+        description: WSDL Location URL
+        type: string
+      webServiceUserName:
+        description: The web service username
+        type: string
+      webServicePassword:
+        description: The web service password
+        type: string
+      webServiceAPIKey:
+        description: The web service API key
+        type: string
+      webServiceAPIPassword:
+        description: The web service API password
+        type: string
+      entitlementFrequencyType:
+        description: The entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      concurrentRequestThreadsType:
+        description: The concurrent request threads type
+        enum:
+        - Standard
+        - Limited
+        type: string
+      postmanCollectionURL:
+        description: URL for the remote Postman collection manifest
+        type: string
+      openApiURL:
+        description: URL for the remote OpenApi manifest
+        type: string
+      remoteManifestAuthorizationHeaderName:
+        description: Optional header name for downloading a remote manifest (e.g. Postman, OpenApi)
+        type: string
+      remoteManifestAuthorizationHeaderValue:
+        description: Optional header value for downloading a remote manifest (e.g. Postman, OpenApi)
+        type: string
+      networkName:
+        description: "When set indicates that the scan should use the specified Fortify on Demand Connect\r\nnetwork when running the scan. Scans that use a Fortify on Demand Connect network\r\nwill automatically set dynamicScanEnvironmentFacingType to 'Internal'. Fortify on\r\nDemand Connect must be enabled for this tenant to use this feature."
+        type: string
+      graphqlUrl:
+        description: URL for the remote GraphQL manifest
+        type: string
+      apiSchemeType:
+        description: Api scheme type (e.g. Http or Https or HttpHttps)
+        type: string
+      apiHost:
+        description: Api host name or Ip address with port number
+        type: string
+      apiServicePath:
+        description: Directory path for the API service
+        type: string
+  StartDynamicScanRequest:
+    description: Options for starting the scan
+    required:
+    - startDate
+    - assessmentTypeId
+    - entitlementId
+    - entitlementFrequencyType
+    - isRemediationScan
+    type: object
+    properties:
+      startDate:
+        format: date-time
+        description: Date when the scan should start, in MM/dd/yyyy HH:mm format
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id to use for the scan. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: The entitlement id to consume for the scan
+        type: integer
+      entitlementFrequencyType:
+        description: The entitlement frequency type to use for the scan
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      isRemediationScan:
+        description: Indicates if the scan is a remediation scan. If not supplied the default value is false
+        type: boolean
+      isBundledAssessment:
+        description: Indicates if the assessment is a bundled assessment. If not supplied legacy behavior will apply
+        type: boolean
+      parentAssessmentTypeId:
+        format: int32
+        description: The parent assessment type id for the bundled assessment. If not supplied legacy behavior will apply
+        type: integer
+      applyPreviousScanSettings:
+        description: Indicates if the previous scan settings should be applied to the remediation scan. This value is ignored if isRemediationScan = false. If not supplied the default value is false.
+        type: boolean
+      scanMethodType:
+        description: The method of starting a scan
+        enum:
+        - IDE
+        - CICD
+        - Other
+        type: string
+      scanTool:
+        description: The tool used for scanning
+        type: string
+      scanToolVersion:
+        description: The version for the scan tool used for scanning
+        type: string
+  GetDynamicScanSetupResponse:
+    description: GetDynamicScanSetupResponse
+    required:
+    - geoLocationId
+    - timeZone
+    - entitlementFrequencyType
+    type: object
+    properties:
+      webServiceManifestFiles:
+        description: Collection of manifest files for web services
+        type: array
+        items:
+          $ref: '#/definitions/WebServiceManifestFile'
+      scanDocument:
+        description: Collection of scan document and additional details files
+        type: array
+        items:
+          $ref: '#/definitions/ScanDocument'
+      geoLocationId:
+        format: int32
+        description: Geo Location Id of the scan. Values can be obtained by calling GET /api/v3/lookup-items?type=GeoLocations
+        type: integer
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      exclusions:
+        description: Deprecated
+        type: string
+      includeUrls:
+        description: List of subdomains.
+        type: array
+        items:
+          $ref: '#/definitions/Subdomain'
+      exclusionsList:
+        description: List of exclusions.
+        type: array
+        items:
+          $ref: '#/definitions/Exclusion'
+      dynamicScanAuthenticationType:
+        description: This field is obsolete. Please use the hasFormsAuthentication field to indicate if Forms Authentication is required to scan the site
+        enum:
+        - NoAuthentication
+        - GenerateUniqueAuthentication
+        - AuthenticationRequired
+        type: string
+      hasFormsAuthentication:
+        description: True if Forms Authentication is required to scan the site
+        type: boolean
+      primaryUserName:
+        description: Primary username to login with
+        type: string
+      primaryUserPassword:
+        description: Primary account password to login with
+        type: string
+      secondaryUserName:
+        description: Secondary username to login with
+        type: string
+      secondaryUserPassword:
+        description: Secondary account password to login with
+        type: string
+      otherUserName:
+        description: Other username needed to operate the site
+        type: string
+      otherUserPassword:
+        description: Other password needed to operate the site
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site
+        type: boolean
+      networkUserName:
+        description: Network account username
+        type: string
+      networkPassword:
+        description: Network account password
+        type: string
+      notes:
+        description: Additional notes that will help with running a scan
+        type: string
+      dynamicSiteURL:
+        description: The dynamic site url
+        type: string
+      timeZone:
+        description: The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      blockout:
+        description: Blockout days list. All days and hours will default to checked unless otherwise specified.
+        type: array
+        items:
+          $ref: '#/definitions/BlackoutDay'
+      repeatScheduleType:
+        description: For scans that are to be run at regular intervals, this specifies how often
+        enum:
+        - NoRepeat
+        - Biweekly
+        - Monthly
+        - Bimonthly
+        - Quarterly
+        - Triannually
+        - Semiannually
+        - Annually
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: Assessment type identifier of the scan. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement identifier of the scan
+        type: integer
+      allowFormSubmissions:
+        description: True to allow form submissions (default), otherwise false..
+        type: boolean
+      restrictToDirectoryAndSubdirectories:
+        description: True to restrict to directory and subdirectories, otherwise false
+        type: boolean
+      generateWAFVirtualPatch:
+        description: True to generate WAF virtual patch, otherwise false
+        type: boolean
+      isWebService:
+        description: True if this a web service scan
+        type: boolean
+      webServiceType:
+        description: The web service type
+        enum:
+        - SOAP
+        - REST
+        - PostmanCollectionFile
+        - PostmanCollectionURL
+        - OpenApiFile
+        - OpenApiUrl
+        - Grpc
+        - GraphQlFile
+        - GraphQlUrl
+        type: string
+      webServiceDescriptorURL:
+        description: WSDL Location URL
+        type: string
+      webServiceUserName:
+        description: The web service username
+        type: string
+      webServicePassword:
+        description: The web service password
+        type: string
+      webServiceAPIKey:
+        description: The web service API key
+        type: string
+      webServiceAPIPassword:
+        description: The web service API password
+        type: string
+      entitlementFrequencyType:
+        description: The entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      concurrentRequestThreadsType:
+        description: The concurrent request threads type
+        enum:
+        - Standard
+        - Limited
+        type: string
+      postmanCollectionURL:
+        description: URL for the remote Postman collection manifest
+        type: string
+      openApiURL:
+        description: URL for the remote OpenApi manifest
+        type: string
+      remoteManifestAuthorizationHeaderName:
+        description: Optional header name for downloading a remote manifest (e.g. Postman, OpenApi)
+        type: string
+      remoteManifestAuthorizationHeaderValue:
+        description: Optional header value for downloading a remote manifest (e.g. Postman, OpenApi)
+        type: string
+      networkName:
+        description: "When set indicates that the scan should use the specified Fortify on Demand Connect\r\nnetwork when running the scan. Scans that use a Fortify on Demand Connect network\r\nwill automatically set dynamicScanEnvironmentFacingType to 'Internal'. Fortify on\r\nDemand Connect must be enabled for this tenant to use this feature."
+        type: string
+      graphqlUrl:
+        description: URL for the remote GraphQL manifest
+        type: string
+      apiSchemeType:
+        description: Api scheme type (e.g. Http or Https or HttpHttps)
+        type: string
+      apiHost:
+        description: Api host name or Ip address with port number
+        type: string
+      apiServicePath:
+        description: Directory path for the API service
+        type: string
+  PatchDynamicScanSetupManifestResponse:
+    type: object
+    properties:
+      success:
+        description: Indicates if the mobile scan was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+      fileId:
+        type: string
+  PutDynamicScanSetupResponse:
+    description: Put Dynamic Scan Setup Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the mobile scan was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  BlackoutHour:
+    description: Blockout hour option
+    type: object
+    properties:
+      hour:
+        format: int32
+        description: The 24 hour identifier (0-23)
+        type: integer
+      checked:
+        description: Checked is true when this hour is blocked out. It is false when clear to scan
+        type: boolean
+  ScanDocument:
+    type: object
+    properties:
+      fileId:
+        format: int32
+        description: The id of the scan document and additional details files
+        type: integer
+      fileName:
+        description: The name of the scan document and additional details files
+        type: string
+      createdDate:
+        description: The creation date of the scan document and additional details files
+        type: string
+  Exclusion:
+    type: object
+    properties:
+      value:
+        description: URL fragment to exclude from scanning.
+        type: string
+  BlackoutDay:
+    description: Blockout day option
+    type: object
+    properties:
+      day:
+        description: Day of week the hour blocks are associated with
+        enum:
+        - Sunday
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        type: string
+      hourBlocks:
+        description: The list of hours and their blockout states
+        type: array
+        items:
+          $ref: '#/definitions/BlackoutHour'
+  PutDynamicToDastAutomatedResponse:
+    type: object
+    properties:
+      success:
+        description: Indicates Success response
+        type: boolean
+      message:
+        description: Details about the initiation of DAST automated scans.
+        type: string
+  StartDynamicScanResponse:
+    description: Start dynamic scan response
+    type: object
+    properties:
+      scanId:
+        format: int32
+        description: The id of the scan that was started
+        type: integer
+  WebServiceManifestFile:
+    type: object
+    properties:
+      webServiceFileType:
+        description: The web service type
+        enum:
+        - Postman
+        - OpenApi
+        - GraphQL
+        - Grpc
+        - WSDL
+        type: string
+      filename:
+        description: The name of the manifest file
+        type: string
+      dateCreated:
+        format: date-time
+        description: The creation date of the manifest file
+        type: string
+      fileId:
+        description: The id of the manifest file
+        type: string
+      postmanFileType:
+        description: "The type of Postman file (Workflow, Auth, Environment, or Globals). \r\nNull for non-Postman web service types."
+        enum:
+        - Workflow
+        - Auth
+        - Environment
+        - Globals
+        type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string

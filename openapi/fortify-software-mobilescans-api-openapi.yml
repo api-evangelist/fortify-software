@@ -1,0 +1,466 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement MobileScans API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: MobileScans
+paths:
+  /api/v3/releases/{releaseId}/mobile-scans/scan-setup:
+    get:
+      tags:
+      - MobileScans
+      summary: Get mobile scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: MobileScansV3_GetMobileScanSetup
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: ''
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/MobileScanSetup'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - MobileScans
+      summary: Saves mobile scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: MobileScansV3_PutMobileScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutMobileScanRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutMobileScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutMobileScanSetupResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/PutMobileScanSetupResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PutMobileScanSetupResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/mobile-scans/start-scan:
+    post:
+      tags:
+      - MobileScans
+      summary: Starts a mobile scan for the given release
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: MobileScansV3_Scan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: startDate
+        in: query
+        description: The start date for the scan in MM/dd/yyyy HH:mm format
+        required: true
+        type: string
+        format: date-time
+      - name: assessmentTypeId
+        in: query
+        description: The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        required: true
+        type: integer
+        format: int32
+      - name: frameworkType
+        in: query
+        description: The framework type id. Only iOS and Android are supported at this time
+        required: true
+        type: string
+        enum:
+        - iOS
+        - Android
+      - name: timeZone
+        in: query
+        description: The time zone<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        required: true
+        type: string
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: entitlementId
+        in: query
+        description: The entitlement id to consume
+        required: true
+        type: integer
+        format: int32
+      - name: entitlementFrequencyType
+        in: query
+        description: The entitlement frequency type
+        required: true
+        type: string
+        enum:
+        - SingleScan
+        - Subscription
+      - name: fileName
+        in: query
+        description: The uploaded file name with extension
+        required: false
+        type: string
+      - name: isRemediationScan
+        in: query
+        description: Indicates if the scan is a remediation scan. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: isBundledAssessment
+        in: query
+        description: Indicates if the assessment is a bundled assessment. If not supplied legacy behavior will apply. Value defaults to null if not specified.
+        required: false
+        type: boolean
+      - name: parentAssessmentTypeId
+        in: query
+        description: The parent assessment type id for the bundled assessment. If not supplied legacy behavior will apply
+        required: false
+        type: integer
+        format: int32
+      - name: scanMethodType
+        in: query
+        description: The method of starting a scan
+        required: false
+        type: string
+        enum:
+        - IDE
+        - CICD
+        - Other
+      - name: scanTool
+        in: query
+        description: The tool used for scanning
+        required: false
+        type: string
+      - name: scanToolVersion
+        in: query
+        description: The version for the scan tool used for scanning
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostMobileScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v3/releases/{releaseId}/mobile-scans/import-scan:
+    put:
+      tags:
+      - MobileScans
+      summary: Saves the contents to import scan file
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: MobileScansV3_PutImportScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release Id of the scan to import
+        required: true
+        type: integer
+        format: int32
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: fileLength
+        in: query
+        description: The number of bytes of the file being imported
+        required: true
+        type: integer
+        format: int64
+      - name: importScanSessionId
+        in: query
+        description: The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutImportScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  PutImportScanResponse:
+    description: PutImportScanResponse
+    type: object
+    properties:
+      referenceId:
+        description: Reference Id
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+  MobileScanSetup:
+    description: StaticScanSetup
+    type: object
+    properties:
+      assessmentTypeId:
+        format: int32
+        description: The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: The assigned entitlementId
+        type: integer
+      entitlementFrequencyType:
+        description: The EntitlementFrequencyType.
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      frameworkType:
+        description: The framework type
+        type: string
+      auditPreferenceType:
+        description: The AuditPreferenceType.
+        type: string
+      timeZone:
+        description: The timeZone.
+        type: string
+  MobileScanUserAccount:
+    description: Mobile Scan User Account
+    type: object
+    properties:
+      username:
+        description: The username
+        type: string
+      password:
+        description: The password
+        type: string
+      roleType:
+        description: The role type
+        enum:
+        - User
+        - Guest
+        - Admin
+        - Other
+        type: string
+      oneTimePassword:
+        description: The one time password
+        type: string
+  PostMobileScanResponse:
+    description: Post Mobile Scan Response
+    type: object
+    properties:
+      scanId:
+        format: int32
+        description: The id of the scan that was created
+        type: integer
+  PutMobileScanSetupResponse:
+    description: Put Mobile Scan Setup Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the mobile scan was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  PutMobileScanSetupRequest:
+    description: Put Mobile Scan Setup Request
+    required:
+    - assessmentTypeId
+    - frameworkType
+    - timeZone
+    type: object
+    properties:
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      frameworkType:
+        description: The framework type
+        enum:
+        - iOS
+        - Android
+        type: string
+      timeZone:
+        description: The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      userAccountsRequried:
+        description: Indicates if user accounts are required
+        type: boolean
+      userAccounts:
+        description: List of user accounts
+        type: array
+        items:
+          $ref: '#/definitions/MobileScanUserAccount'
+      notes:
+        description: Notes
+        type: string
+      vpnRequired:
+        description: Indicates if VPN is required
+        type: boolean
+      vpnUserName:
+        description: The VPN username
+        type: string
+      vpnPassword:
+        description: The VPN password
+        type: string
+      hasMultiFactorAuthentication:
+        description: Indicates if multi-factor authentication is used
+        type: boolean
+      multiFactorAuthenticationNotes:
+        description: Multi-factor authentication notes
+        type: string
+      intrusionDetectionSystem:
+        description: Indicates if intrusion detection system is used
+        type: boolean
+      intrusionPreventionSystem:
+        description: Indicates if intrusion prevention system is used
+        type: boolean
+      webApplicationFirewall:
+        description: Indicates if web application firewall is used
+        type: boolean
+      proxyServers:
+        description: Indicates if proxy servers are used
+        type: boolean
+      loadBalancer:
+        description: Indicates if load balancer is used
+        type: boolean
+      preAssessmentCall:
+        description: Indicates if the customer should be contacted prior to beginning the assessment
+        type: boolean
+      auditPreferenceType:
+        description: The audit preference type
+        enum:
+        - Manual
+        - None
+        type: string

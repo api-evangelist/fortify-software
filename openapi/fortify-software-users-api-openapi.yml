@@ -1,0 +1,431 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Users API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Users
+paths:
+  /api/v3/users/{userId}:
+    get:
+      tags:
+      - Users
+      summary: Get a specific user
+      description: 'Allowed Scopes: api-tenant, view-users'
+      operationId: UsersV3_GetUser
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userId
+        in: path
+        description: The user id can be obtained by calling GET /api/v3/users
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/User'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - Users
+      summary: Update an existing user
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UsersV3_PutUser
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userId
+        in: path
+        description: The user id can be obtained by calling GET /api/v3/users
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutUserRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutUserRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutUserResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+    delete:
+      tags:
+      - Users
+      summary: Delete a specific user
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UsersV3_DeleteUser
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userId
+        in: path
+        description: The user id can be obtained by calling GET /api/v3/users
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DeleteUserResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/users:
+    get:
+      tags:
+      - Users
+      summary: Get a list of users
+      description: 'Allowed Scopes: api-tenant, view-users'
+      operationId: UsersV3_GetUsers
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/UserListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Users
+      summary: Create a new user
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UsersV3_PostUser
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: PostUserRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PostUserRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/PostUserResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  DeleteUserResponse:
+    description: Delete User Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the user was deleted
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  PutUserResponse:
+    description: Put Release Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the user was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  User:
+    description: User
+    type: object
+    properties:
+      userId:
+        format: int32
+        description: The users's id
+        type: integer
+      userName:
+        description: The users's username
+        type: string
+      firstName:
+        description: The users's first name
+        type: string
+      lastName:
+        description: The users's last name
+        type: string
+      email:
+        description: The users's email address
+        type: string
+      phoneNumber:
+        description: The users's phone number
+        type: string
+      isVerified:
+        description: Indicates if the user has been verified
+        type: boolean
+      roleId:
+        format: int32
+        description: The users's role id
+        type: integer
+      roleName:
+        description: The users's role name
+        type: string
+      isSuspended:
+        description: Indicates if the user's account is suspended
+        type: boolean
+      mustChange:
+        description: Indicates if the user must change the password on the next login
+        type: boolean
+      passwordNeverExpires:
+        description: Indicates if the password never expires
+        type: boolean
+      modifiedDate:
+        format: date-time
+        description: The users's modified date
+        type: string
+      lastLoginDate:
+        format: date-time
+        description: The users's last login date
+        type: string
+      createdVia:
+        description: How the user was created
+        type: string
+  PostUserResponse:
+    description: Post User Response
+    type: object
+    properties:
+      userId:
+        format: int32
+        description: The id of the user
+        type: integer
+  UserListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/User'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  PostUserRequest:
+    description: Post User Request
+    required:
+    - userName
+    - email
+    - firstName
+    - lastName
+    - roleId
+    type: object
+    properties:
+      userName:
+        description: The username
+        type: string
+      email:
+        description: The user's email address
+        type: string
+      firstName:
+        description: The user's first name
+        type: string
+      lastName:
+        description: The user's last name
+        type: string
+      phoneNumber:
+        description: The user's phone number
+        type: string
+      roleId:
+        format: int32
+        description: The The user's role id
+        type: integer
+      passwordNeverExpires:
+        description: Indicates if the password never expires
+        type: boolean
+      isSuspended:
+        description: Indicates if the user's account is suspended
+        type: boolean
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  PutUserRequest:
+    description: Put User Request
+    required:
+    - email
+    - firstName
+    - lastName
+    - roleId
+    type: object
+    properties:
+      email:
+        description: The user's email address
+        type: string
+      firstName:
+        description: The user's first name
+        type: string
+      lastName:
+        description: The user's last name
+        type: string
+      phoneNumber:
+        description: The user's phone number
+        type: string
+      roleId:
+        format: int32
+        description: The user's role id
+        type: integer
+      passwordNeverExpires:
+        description: Indicates if the password never expires
+        type: boolean
+      isSuspended:
+        description: Indicates if the user's account is suspended
+        type: boolean
+      mustChange:
+        description: Indicates if the user must change the password on the next login
+        type: boolean
+      password:
+        description: The user's password
+        type: string

@@ -1,0 +1,519 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement UserManagement API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: UserManagement
+paths:
+  /api/v3/user-management/user-groups:
+    get:
+      tags:
+      - UserManagement
+      summary: Get a list of user groups
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserManagementV3_GetUserGroups
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: description"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/UserGroupListResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - UserManagement
+      summary: Create a user group
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserManagementV3_PostUserGroup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: "<p>name: user group name</p>\r\n<p></p>\r\n<p>addAllUsers: Optional - if true add all tenant users to the group. Default is false</p>\r\n<p></p>\r\n<p>users: Optional - list of users to add to the group. If addAllUsers is true this list is ignored</p>"
+        required: true
+        schema:
+          $ref: '#/definitions/PostUserGroupRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/PostUserGroupResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/user-management/user-groups/{groupId}:
+    put:
+      tags:
+      - UserManagement
+      summary: Update a user group
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserManagementV3_PutGroup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: groupId
+        in: path
+        description: The user group id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: "<p>name: new user group name</p>\r\n<p></p>\r\n<p>removeAllUsers: Optional - if true remove all users from the group. Default is false</p>\r\n<p></p>\r\n<p>addAllUsers: Optional - if true add all tenant users to the group. Default is false</p>\r\n<p></p>\r\n<p>Note, addAllUsers will take priority over removeAllUsers when both are set to true.</p>"
+        required: true
+        schema:
+          $ref: '#/definitions/PutUserGroupRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GenericResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    delete:
+      tags:
+      - UserManagement
+      summary: Delete a user group
+      description: 'Allowed Scopes: api-tenant, manage-user'
+      operationId: UserManagementV3_DeleteGroup
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: groupId
+        in: path
+        description: The user group id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GenericResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/user-management/user-groups/{groupId}/members:
+    get:
+      tags:
+      - UserManagement
+      summary: Get a list of user group members
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserManagementV3_GetGroupmembers
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: groupId
+        in: path
+        description: The user group id
+        required: true
+        type: integer
+        format: int32
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: description"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/UserListResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    patch:
+      tags:
+      - UserManagement
+      summary: Update user group membership
+      description: 'Allowed Scopes: api-tenant, manage-user'
+      operationId: UserManagementV3_UpdateGroupMembership
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: groupId
+        in: path
+        description: The user group id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: "<p>removeUsers: list of users' Id to remove from the group</p>\r\n<p></p>\r\n<p>addUsers: list of users' Id to add to the group</p>"
+        required: true
+        schema:
+          $ref: '#/definitions/PatchUserGroupMembershipRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GenericResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  UserGroup:
+    description: User Group
+    type: object
+    properties:
+      id:
+        format: int32
+        description: The user group id
+        type: integer
+      name:
+        description: The user group name
+        type: string
+      description:
+        description: The user group description
+        type: string
+      assignedUsersCount:
+        format: int32
+        description: The assigned users count
+        type: integer
+      assignedApplicationsCount:
+        format: int32
+        description: The assigned applications count
+        type: integer
+      createdVia:
+        description: How the user was created
+        type: string
+  PutUserGroupRequest:
+    description: Put Group Request
+    type: object
+    properties:
+      name:
+        description: The group name
+        type: string
+      removeAllUsers:
+        description: Optional - if true remove all users from the group. Default is false
+        type: boolean
+      addAllUsers:
+        description: Optional - if true add all tenant users to the group. Default is false
+        type: boolean
+  GenericResponse:
+    description: Generic Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the object was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  UserGroupListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/UserGroup'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  User:
+    description: User
+    type: object
+    properties:
+      userId:
+        format: int32
+        description: The users's id
+        type: integer
+      userName:
+        description: The users's username
+        type: string
+      firstName:
+        description: The users's first name
+        type: string
+      lastName:
+        description: The users's last name
+        type: string
+      email:
+        description: The users's email address
+        type: string
+      phoneNumber:
+        description: The users's phone number
+        type: string
+      isVerified:
+        description: Indicates if the user has been verified
+        type: boolean
+      roleId:
+        format: int32
+        description: The users's role id
+        type: integer
+      roleName:
+        description: The users's role name
+        type: string
+      isSuspended:
+        description: Indicates if the user's account is suspended
+        type: boolean
+      mustChange:
+        description: Indicates if the user must change the password on the next login
+        type: boolean
+      passwordNeverExpires:
+        description: Indicates if the password never expires
+        type: boolean
+      modifiedDate:
+        format: date-time
+        description: The users's modified date
+        type: string
+      lastLoginDate:
+        format: date-time
+        description: The users's last login date
+        type: string
+      createdVia:
+        description: How the user was created
+        type: string
+  UserListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/User'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  PatchUserGroupMembershipRequest:
+    description: Post group Request
+    type: object
+    properties:
+      removeUsers:
+        description: Optional - list of users' Id to remove from the group
+        type: array
+        items:
+          format: int32
+          type: integer
+      addUsers:
+        description: Optional - list of users' Id to add to the group
+        type: array
+        items:
+          format: int32
+          type: integer
+  PostUserGroupResponse:
+    description: Post User Group Response
+    type: object
+    properties:
+      id:
+        format: int32
+        description: The id of the group
+        type: integer
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  PostUserGroupRequest:
+    description: Post user group Request
+    required:
+    - name
+    type: object
+    properties:
+      name:
+        description: The group name
+        type: string
+      description:
+        description: The group description
+        type: string
+      addAllUsers:
+        description: Optional - if true add all tenant users to the group. Default is false
+        type: boolean
+      users:
+        description: Optional - list of users to add to the group. If addAllUsers is true this list is ignored
+        type: array
+        items:
+          format: int32
+          type: integer

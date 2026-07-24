@@ -1,0 +1,172 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement UserGroupApplicationAccess API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: UserGroupApplicationAccess
+paths:
+  /api/v3/user-group-application-access/{userGroupId}:
+    get:
+      tags:
+      - UserGroupApplicationAccess
+      summary: Get a list of applications a user group has access to
+      description: 'Allowed Scopes: api-tenant, view-users'
+      operationId: UserGroupApplicationAccessV3_GetUserGroupApplicationAccess
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userGroupId
+        in: path
+        description: The user group id can be obtained by calling GET/api/v3/user-management/user-groups
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/UserGroupApplicationAccessListResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - UserGroupApplicationAccess
+      summary: Create user group access for the given user group and application
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserGroupApplicationAccessV3_PostUserGroupApplicationAccess
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userGroupId
+        in: path
+        description: The user group id can be obtained by calling GET/api/v3/user-management/user-groups
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PostUserGroupApplicationAccessRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PostUserGroupApplicationAccessRequest'
+      responses:
+        '202':
+          description: Accepted
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/user-group-application-access/{userGroupId}/{applicationId}:
+    delete:
+      tags:
+      - UserGroupApplicationAccess
+      summary: Delete user group access for the given user group and application
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserGroupApplicationAccessV3_DeleteUserGroupApplicationAccess
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userGroupId
+        in: path
+        description: The user group id can be obtained by calling GET/api/v3/user-management/user-groups
+        required: true
+        type: integer
+        format: int32
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '202':
+          description: Accepted
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  UserGroupApplicationAccess:
+    description: User Group Application Access
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The application name
+        type: string
+      userGroupId:
+        format: int32
+        description: The user group id
+        type: integer
+      userGroupName:
+        description: The user group name
+        type: string
+  PostUserGroupApplicationAccessRequest:
+    description: Post User Group Application Access Request
+    required:
+    - applicationId
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+  UserGroupApplicationAccessListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/UserGroupApplicationAccess'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer

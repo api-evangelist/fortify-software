@@ -1,0 +1,172 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement UserApplicationAccess API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: UserApplicationAccess
+paths:
+  /api/v3/user-application-access/{userId}:
+    get:
+      tags:
+      - UserApplicationAccess
+      summary: Get a list of applications a user has access to
+      description: 'Allowed Scopes: api-tenant, view-users'
+      operationId: UserApplicationAccessV3_GetUserApplicationAccess
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userId
+        in: path
+        description: The user id can be obtained by calling GET /api/v3/users
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/UserApplicationAccessListResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - UserApplicationAccess
+      summary: Create user access for the given user and application(s)
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserApplicationAccessV3_PostUserApplicationAccess
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userId
+        in: path
+        description: The user id can be obtained by calling GET /api/v3/users
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PostUserApplicationAccessRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PostUserApplicationAccessRequest'
+      responses:
+        '202':
+          description: Accepted
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/user-application-access/{userId}/{applicationId}:
+    delete:
+      tags:
+      - UserApplicationAccess
+      summary: Delete user access for the given user and application
+      description: 'Allowed Scopes: api-tenant, manage-users'
+      operationId: UserApplicationAccessV3_DeleteUserApplicationAccess
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: userId
+        in: path
+        description: The user id can be obtained by calling GET /api/v3/users
+        required: true
+        type: integer
+        format: int32
+      - name: applicationId
+        in: path
+        description: The application id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '202':
+          description: Accepted
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  UserApplicationAccess:
+    description: User Application Access
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The application name
+        type: string
+      userId:
+        format: int32
+        description: The user id
+        type: integer
+      accessMethod:
+        description: The access method
+        type: string
+  PostUserApplicationAccessRequest:
+    description: Post User Application Access Request
+    required:
+    - applicationId
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+  UserApplicationAccessListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/UserApplicationAccess'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer

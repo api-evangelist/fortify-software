@@ -1,0 +1,587 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: ApiKeyManagement
+paths:
+  /api/v3/api-keys:
+    get:
+      tags:
+      - ApiKeyManagement
+      summary: Returns a list of API keys
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_GetApiKeys
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApiKeyListResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - ApiKeyManagement
+      summary: Creates a new API key
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_PostApiKey
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: PostApiKeyRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/ApiKeyRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/PostApiKeyResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/api-keys/{apiKeyId}:
+    get:
+      tags:
+      - ApiKeyManagement
+      summary: Returns an API key
+      description: 'Allowed Scopes: api-tenant,'
+      operationId: ApiKeyManagementV3_GetApiKey
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: The Api Key id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApiKey'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - ApiKeyManagement
+      summary: Updates an existing API key
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_PutApiKey
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: The Api Key id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PostApiKeyRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/ApiKeyRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/ApiKeyResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    delete:
+      tags:
+      - ApiKeyManagement
+      summary: Deletes the given ApiKey
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_DeleteApiKey
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: The api key id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DeleteApiKeyResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/DeleteApiKeyResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/api-keys/{apiKeyId}/newsecret:
+    post:
+      tags:
+      - ApiKeyManagement
+      summary: Creates a new secret for an existing api key
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_PostNewSecret
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: The Api Key id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/PostApiKeyResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/api-keys/{apiKeyId}/application-access:
+    get:
+      tags:
+      - ApiKeyManagement
+      summary: Returns a list of Applications assigned to an API Key
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_GetAssignedApplicationsToApiKey
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: apiKeyId
+        in: path
+        description: Api Key Id
+        required: true
+        type: integer
+        format: int32
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ApiKeyApplicationListResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - ApiKeyManagement
+      summary: Assign applications to API Key
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_ApplicationAccess
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: apiKeyId
+        in: path
+        required: true
+        type: integer
+        format: int32
+      - name: model
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApiKeyApplicationAccessRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/ApiKeyResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/api-keys/{apiKeyId}/unassign-application-access:
+    put:
+      tags:
+      - ApiKeyManagement
+      summary: Unassign applications to API Key
+      description: 'Allowed Scopes: api-tenant'
+      operationId: ApiKeyManagementV3_UnassignApplicationAccess
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: apiKeyId
+        in: path
+        required: true
+        type: integer
+        format: int32
+      - name: model
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/ApiKeyUnassignApplicationsRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/ApiKeyResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ApiKeyApplicationAccessRequest:
+    type: object
+    properties:
+      assignAllApplications:
+        description: Assign all applications
+        type: boolean
+      applicationId:
+        description: List of Application ids to be assigned
+        type: array
+        items:
+          format: int32
+          type: integer
+  ApiKeyApplication:
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: Assigned Application Id
+        type: integer
+      applicationName:
+        description: Assigned Application name
+        type: string
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  DeleteApiKeyResponse:
+    description: Delete ApiKey Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the apikey was deleted
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  PostApiKeyResponse:
+    type: object
+    properties:
+      apiKeyId:
+        format: int32
+        description: API Key Id
+        type: integer
+      apiKey:
+        description: API Key
+        type: string
+      secret:
+        description: API Secret
+        type: string
+  ApiKey:
+    type: object
+    properties:
+      apiKeyId:
+        format: int32
+        description: API Key Id
+        type: integer
+      name:
+        description: API Key Name
+        type: string
+      isAuthorized:
+        description: Indicates whether or not the api key is authorized
+        type: boolean
+      apiKey:
+        description: API Key
+        type: string
+      grantType:
+        description: Authorization Grant Type
+        enum:
+        - Authorization_Code
+        - Implicit
+        - Resource_Owner_Password_Credentials
+        - Client_Credentials
+        type: string
+      role:
+        description: The API key role
+        type: string
+      lastLoginIpAddress:
+        description: The last Successful Login IpAddress
+        type: string
+      lastLoginDate:
+        format: date-time
+        description: The last Successful Login Date
+        type: string
+  ApiKeyApplicationListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/ApiKeyApplication'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  ApiKeyListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/ApiKey'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  ApiKeyRequest:
+    required:
+    - name
+    - roleId
+    type: object
+    properties:
+      name:
+        description: API Key Name
+        type: string
+      isAuthorized:
+        description: Authorized app to use API
+        type: boolean
+      roleId:
+        description: The role id. Values can be obtained by calling GET /api/v3/lookup-items?type=ApiRoles
+        enum:
+        - Read_Only
+        - Start_Scans
+        - Manage_Applications
+        - Security_Lead
+        - Manage_Users
+        type: string
+  ApiKeyResponse:
+    type: object
+    properties:
+      message:
+        description: Task Queued Message
+        type: string
+      success:
+        description: Success
+        type: boolean
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  ApiKeyUnassignApplicationsRequest:
+    type: object
+    properties:
+      unassignAllApplications:
+        description: Unassigns all applications
+        type: boolean
+      applicationId:
+        description: List of Application ids to be unassigned
+        type: array
+        items:
+          format: int32
+          type: integer

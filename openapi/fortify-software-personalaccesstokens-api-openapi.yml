@@ -1,0 +1,368 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement PersonalAccessTokens API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: PersonalAccessTokens
+paths:
+  /api/v3/personal-access-tokens/{personalAccessTokenId}:
+    get:
+      tags:
+      - PersonalAccessTokens
+      summary: Get a specific personal access token
+      description: 'Allowed Scopes: api-tenant'
+      operationId: PersonalAccessTokensV3_GetPersonalAccessToken
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: personalAccessTokenId
+        in: path
+        description: The personal access token id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PersonalAccessTokenModel'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - PersonalAccessTokens
+      summary: Update an existing personal access token
+      description: 'Allowed Scopes: api-tenant'
+      operationId: PersonalAccessTokensV3_PutPersonalAccessToken
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: personalAccessTokenId
+        in: path
+        description: The personal access token ID
+        required: true
+        type: integer
+        format: int32
+      - name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PutPersonalAccessTokenRequest'
+      responses:
+        '200':
+          description: Ok
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+    delete:
+      tags:
+      - PersonalAccessTokens
+      summary: Deletes a personal access token
+      description: 'Allowed Scopes: api-tenant'
+      operationId: PersonalAccessTokensV3_DeletePersonalAccessToken
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: personalAccessTokenId
+        in: path
+        description: The personal access token ID
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+  /api/v3/personal-access-tokens:
+    get:
+      tags:
+      - PersonalAccessTokens
+      summary: Returns a list of personal access tokens.
+      description: "Allowed Scopes: api-tenant\r\n            \r\nFor security leads the returned list includes all personal access tokens in the tenant. Users in other roles can only query their own personal access tokens."
+      operationId: PersonalAccessTokensV3_GetPersonalAccessTokens
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />The supported field names are name and userName. Note that filtering on userName is only available to security leads.\r\n<br /><br />Filtering is not supported for the following fields: allowedScopes, id, isAuthorized, lastSuccessfulLoginDate, lastSuccessfulLoginIpAddress, secretExpirationDate, secretLifetimeDays, userId"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PersonalAccessTokenModelListResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - PersonalAccessTokens
+      summary: Creates a personal access token.
+      description: "Allowed Scopes: api-tenant\r\n            \r\nThe reqeust body should include either secretLifetimeDays or secretExpirationDate. If both are specified secretLifetimeDays is ignored."
+      operationId: PersonalAccessTokensV3_PostPersonalAccessToken
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PostPersonalAccessTokenRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/CreatePersonalAccessTokenResult'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+  /api/v3/personal-access-tokens/{personalAccessTokenId}/secret:
+    put:
+      tags:
+      - PersonalAccessTokens
+      summary: Creates a new personal access token secret.
+      description: "Allowed Scopes: api-tenant\r\n            \r\nCreating a new personal access token secret will void the current secret.\r\n            \r\nThe reqeust body should include either secretLifetimeDays or secretExpirationDate. If both are specified secretLifetimeDays is ignored."
+      operationId: PersonalAccessTokensV3_PutPersonalAccessTokenSecret
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: personalAccessTokenId
+        in: path
+        description: The personal access token ID
+        required: true
+        type: integer
+        format: int32
+      - name: request
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/PutPersonalAccessTokenSecretRequest'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/CreatePersonalAccessTokenResult'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  CreatePersonalAccessTokenResult:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      secret:
+        type: string
+  PersonalAccessTokenModelListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/PersonalAccessTokenModel'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  PutPersonalAccessTokenRequest:
+    type: object
+    properties:
+      name:
+        description: The name of the personal access token
+        type: string
+      isAuthorized:
+        description: Flag indicating if the token is authorized to use the API
+        type: boolean
+      allowedScopes:
+        description: Comma delimited list of tenant API scopes the token can be used for
+        type: string
+  PostPersonalAccessTokenRequest:
+    required:
+    - name
+    - isAuthorized
+    - allowedScopes
+    type: object
+    properties:
+      name:
+        description: The name of the personal access token
+        type: string
+      isAuthorized:
+        description: Flag indicating if the token is authorized to use the API
+        type: boolean
+      allowedScopes:
+        description: Comma delimited list of tenant API scopes the token can be used for
+        type: string
+      secretLifetimeDays:
+        format: int32
+        description: Number of days the token's secret is valid for
+        type: integer
+      secretExpirationDate:
+        format: date-time
+        description: Date in MM/dd/yyyy format on which the secret should expire and after which will no longer be valid
+        type: string
+  PersonalAccessTokenModel:
+    type: object
+    properties:
+      id:
+        format: int32
+        type: integer
+      name:
+        type: string
+      isAuthorized:
+        type: boolean
+      secretExpirationDate:
+        format: date-time
+        type: string
+      secretLifetimeDays:
+        format: int32
+        type: integer
+      allowedScopes:
+        type: string
+      lastSuccessfulLoginDate:
+        format: date-time
+        type: string
+      lastSuccessfulLoginIpAddress:
+        type: string
+      userId:
+        format: int32
+        type: integer
+      userName:
+        type: string
+  PutPersonalAccessTokenSecretRequest:
+    type: object
+    properties:
+      secretLifetimeDays:
+        format: int32
+        description: Number of days the token's secret is valid for
+        type: integer
+      secretExpirationDate:
+        format: date-time
+        description: Date in MM/dd/yyyy format on which the secret should expire and after which will no longer be valid
+        type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string

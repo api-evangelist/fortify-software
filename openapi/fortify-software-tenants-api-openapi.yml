@@ -1,0 +1,106 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Tenants API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Tenants
+paths:
+  /api/v3/tenants/features:
+    get:
+      tags:
+      - Tenants
+      summary: Get tenant features
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: TenantsV3_GetFeatures
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/TenantFeatureListResponse'
+        '401':
+          description: Unauthorized
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/tenants:
+    get:
+      tags:
+      - Tenants
+      summary: Get tenant data
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: TenantsV3_GetTenant
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetTenantResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  GetTenantResponse:
+    description: Get Tenant Response
+    type: object
+    properties:
+      tenantName:
+        description: The tenant name
+        type: string
+      tenantCode:
+        description: The tenant code
+        type: string
+      timeZone:
+        description: The tenant timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+  TenantFeatureListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/TenantFeature'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  TenantFeature:
+    description: Tenant Feature
+    type: object
+    properties:
+      id:
+        format: int32
+        description: The tenant feature id
+        type: integer
+      name:
+        description: The tenant feature name
+        type: string

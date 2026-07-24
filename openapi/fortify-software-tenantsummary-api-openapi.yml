@@ -1,0 +1,209 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement TenantSummary API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: TenantSummary
+paths:
+  /api/v3/tenant-summary:
+    get:
+      tags:
+      - TenantSummary
+      summary: Retrieves a summary of the tenant
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: TenantSummaryV3_GetTenantSummary
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: daysFrom
+        in: query
+        description: Days back to look
+        required: false
+        type: integer
+        format: int32
+      - name: sdlcStatus
+        in: query
+        description: The SDLC Status to retrieve information about
+        required: false
+        type: string
+        enum:
+        - Production
+        - QA
+        - Development
+        - Retired
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/TenantSummaryListResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  TenantSummary:
+    description: Tenant Summary
+    type: object
+    properties:
+      totalReleaseCount:
+        format: int32
+        description: The number of releases
+        type: integer
+      scannedApplicationCount:
+        format: int32
+        description: The number of scanned applications
+        type: integer
+      totalAnalysisCount:
+        format: int32
+        description: The number of all analyses
+        type: integer
+      staticAnalysisCount:
+        format: int32
+        description: The number of static analyses
+        type: integer
+      dynamicAnalysisCount:
+        format: int32
+        description: The number of dynamic analyses
+        type: integer
+      mobileAnalysisCount:
+        format: int32
+        description: The number of mobile analyses
+        type: integer
+      staticAnalysisDVIdx:
+        format: int64
+        description: The static analysis dvidx
+        type: integer
+      dynamicAnalysisDVIdx:
+        format: int64
+        description: The dynamic analysis dvidx
+        type: integer
+      mobileAnalysisDVIdx:
+        format: int64
+        description: The mobile analysis dvidx
+        type: integer
+      criticalCount:
+        format: int32
+        description: The number of critical issues
+        type: integer
+      highCount:
+        format: int32
+        description: The number of high issues
+        type: integer
+      mediumCount:
+        format: int32
+        description: The number of medium issues
+        type: integer
+      lowCount:
+        format: int32
+        description: The number of low issues
+        type: integer
+      criticalUrl:
+        description: The critical url
+        type: string
+      highUrl:
+        description: The high url
+        type: string
+      mediumUrl:
+        description: The medium url
+        type: string
+      lowUrl:
+        description: The low url
+        type: string
+      unassessedCount:
+        format: int32
+        description: The number of unaccessed applications
+        type: integer
+      oneStarRatingCount:
+        format: int32
+        description: The number of one star applications
+        type: integer
+      twoStarRatingCount:
+        format: int32
+        description: The number of two star applications
+        type: integer
+      threeStarRatingCount:
+        format: int32
+        description: The number of three star applications
+        type: integer
+      fourStarRatingCount:
+        format: int32
+        description: The number of four star applications
+        type: integer
+      fiveStarRatingCount:
+        format: int32
+        description: The number of five star applications
+        type: integer
+      oneStarRatingDVIdx:
+        format: int64
+        description: The one star rating dvidx
+        type: integer
+      twoStarRatingDVIdx:
+        format: int64
+        description: The two star rating dvidx
+        type: integer
+      threeStarRatingDVIdx:
+        format: int64
+        description: The three star rating dvidx
+        type: integer
+      fourStarRatingDVIdx:
+        format: int64
+        description: The four star rating dvidx
+        type: integer
+      fiveStarRatingDVIdx:
+        format: int64
+        description: The five star rating dvidx
+        type: integer
+  TenantSummaryListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/TenantSummary'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string

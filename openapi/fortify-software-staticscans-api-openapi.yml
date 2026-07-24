@@ -1,0 +1,824 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement StaticScans API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: StaticScans
+paths:
+  /api/v3/releases/{releaseId}/static-scans/start-scan:
+    post:
+      tags:
+      - StaticScans
+      summary: Start a static scan
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: StaticScansV3_StartScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: assessmentTypeId
+        in: query
+        description: The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        required: true
+        type: integer
+        format: int32
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: entitlementId
+        in: query
+        description: The entitlement id to consume
+        required: true
+        type: integer
+        format: int32
+      - name: entitlementFrequencyType
+        in: query
+        description: The entitlement frequency type
+        required: true
+        type: string
+        enum:
+        - SingleScan
+        - Subscription
+      - name: technologyStack
+        in: query
+        description: The technology stack<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes
+        required: false
+        type: string
+      - name: languageLevel
+        in: query
+        description: The language level<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels
+        required: false
+        type: string
+      - name: isRemediationScan
+        in: query
+        description: Indicates of the scan is a remediation scan. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: doSonatypeScan
+        in: query
+        description: Obsolete. Use doOpenSourceScan instead. This parameter may be removed in a future release. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: excludeThirdPartyLibs
+        in: query
+        description: Indicates if third party libraries should be excluded. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: scanPreferenceType
+        in: query
+        description: This parameter is depcrecated.
+        required: false
+        type: string
+        enum:
+        - Standard
+        - Express
+      - name: auditPreferenceType
+        in: query
+        description: The audit preference type
+        required: false
+        type: string
+        enum:
+        - Manual
+        - Automated
+      - name: fallbackToActiveEntitlement
+        in: query
+        description: Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified.
+        required: false
+        type: boolean
+      - name: isBundledAssessment
+        in: query
+        description: Indicates if the assessment is a bundled assessment. If not supplied legacy behavior will apply. Value defaults to null if not specified.
+        required: false
+        type: boolean
+      - name: parentAssessmentTypeId
+        in: query
+        description: The parent assessment type id for the bundled assessment. If not supplied legacy behavior will apply
+        required: false
+        type: integer
+        format: int32
+      - name: notes
+        in: query
+        description: The notes about the scan.
+        required: false
+        type: string
+      - name: scanMethodType
+        in: query
+        description: The method of starting a scan
+        required: false
+        type: string
+        enum:
+        - IDE
+        - CICD
+        - Other
+      - name: scanTool
+        in: query
+        description: The tool used for scanning
+        required: false
+        type: string
+      - name: scanToolVersion
+        in: query
+        description: The version for the scan tool used for scanning
+        required: false
+        type: string
+      - name: doOpenSourceScan
+        in: query
+        description: Indicates if an open source scan should be included. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: doBinaryScan
+        in: query
+        description: Indicates that mixed mode scanning should be used. Value defaults to null if not specified.
+        required: false
+        type: boolean
+      - name: includeFortifyAviator
+        in: query
+        description: Indicates whether SAST Aviator Addon Service is requested. Value defaults to null if not specified.
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostStartScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v3/releases/{releaseId}/static-scans/start-scan-with-defaults:
+    post:
+      tags:
+      - StaticScans
+      summary: Start a static scan using the default settings
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: StaticScansV3_StartScanWithDefaults
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: isRemediationScan
+        in: query
+        description: Indicates of the scan is a remediation scan. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: notes
+        in: query
+        description: The notes about the scan.
+        required: false
+        type: string
+      - name: scanMethodType
+        in: query
+        description: The method of starting a scan
+        required: false
+        type: string
+        enum:
+        - IDE
+        - CICD
+        - Other
+      - name: scanTool
+        in: query
+        description: The tool used for scanning
+        required: false
+        type: string
+      - name: scanToolVersion
+        in: query
+        description: The version for the scan tool used for scanning
+        required: false
+        type: string
+      - name: fallbackToActiveEntitlement
+        in: query
+        description: Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified.
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostStartScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v3/releases/{releaseId}/static-scans/start-scan-advanced:
+    post:
+      tags:
+      - StaticScans
+      summary: Start a static scan using advanced options
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: StaticScansV3_StartScanAdvanced
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: entitlementPreferenceType
+        in: query
+        description: The entitlement preference type
+        required: true
+        type: string
+        enum:
+        - SingleScanOnly
+        - SubscriptionOnly
+        - SingleScanFirstThenSubscription
+        - SubscriptionFirstThenSingleScan
+      - name: purchaseEntitlement
+        in: query
+        description: Indicates if an entitlement should be purchased if one is not available. Value defaults to true if not specified.
+        required: true
+        type: boolean
+      - name: remdiationScanPreferenceType
+        in: query
+        description: The remdiation scan preference type
+        required: true
+        type: string
+        enum:
+        - RemediationScanIfAvailable
+        - RemediationScanOnly
+        - NonRemediationScanOnly
+      - name: inProgressScanActionType
+        in: query
+        description: The action to take for in-progress scans for the given release
+        required: true
+        type: string
+        enum:
+        - DoNotStartScan
+        - CancelInProgressScan
+        - Queue
+      - name: scanMethodType
+        in: query
+        description: The method of starting a scan
+        required: true
+        type: string
+        enum:
+        - IDE
+        - CICD
+        - Other
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: bsiToken
+        in: query
+        description: The build server integration token for the release
+        required: false
+        type: string
+      - name: notes
+        in: query
+        description: The notes about the scan.
+        required: false
+        type: string
+      - name: scanTool
+        in: query
+        description: The tool used for scanning
+        required: false
+        type: string
+      - name: scanToolVersion
+        in: query
+        description: The version for the scan tool used for scanning
+        required: false
+        type: string
+      - name: entitlementId
+        in: query
+        description: The entitlement id to consume
+        required: false
+        type: integer
+        format: int32
+      - name: fallbackToActiveEntitlement
+        in: query
+        description: Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified.
+        required: false
+        type: boolean
+      - name: includeFortifyAviator
+        in: query
+        description: Indicates whether SAST Aviator Addon Service is requested. Value defaults to null if not specified.
+        required: false
+        type: boolean
+      - name: doOpenSourceScan
+        in: query
+        description: Indicates if an open source scan should be included. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: assessmentTypeId
+        in: query
+        description: The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        required: false
+        type: integer
+        format: int32
+      - name: auditPreferenceType
+        in: query
+        description: The audit preference type
+        required: false
+        type: string
+        enum:
+        - Manual
+        - Automated
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PostStartScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v3/releases/{releaseId}/static-scans/import-scan:
+    put:
+      tags:
+      - StaticScans
+      summary: Saves the contents to import scan file
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: StaticScansV3_PutImportScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release Id of the scan to import
+        required: true
+        type: integer
+        format: int32
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: fileLength
+        in: query
+        description: The number of bytes of the file being imported
+        required: true
+        type: integer
+        format: int64
+      - name: importScanSessionId
+        in: query
+        description: The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutImportScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v3/releases/{releaseId}/static-scans/scan-setup:
+    get:
+      tags:
+      - StaticScans
+      summary: Get static scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: StaticScansV3_GetStaticScanSetup
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: ''
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/StaticScanSetup'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - StaticScans
+      summary: Saves static scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans.'
+      operationId: StaticScansV3_PutStaticScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutStaticScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutStaticScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutStaticScanSetupResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PutStaticScanSetupResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/static-scans/import-sarif:
+    put:
+      tags:
+      - StaticScans
+      summary: Imports a Static Analysis Resource Interchange Format (SARIF) file
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: StaticScansV3_PutImportSarifScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release Id of the scan to import
+        required: true
+        type: integer
+        format: int32
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: fileLength
+        in: query
+        description: The number of bytes of the file being imported
+        required: true
+        type: integer
+        format: int64
+      - name: importScanSessionId
+        in: query
+        description: The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ImportSarifScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  PostStartScanResponse:
+    description: Post Start Scan Response
+    type: object
+    properties:
+      scanId:
+        format: int32
+        description: The id of the scan that was created
+        type: integer
+      messages:
+        description: List of informational messages
+        type: array
+        items:
+          type: string
+      legalMessage:
+        description: Legal Disclaimer Message
+        type: string
+  PutStaticScanSetupResponse:
+    description: Put Static Scan Setup Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the static scan settings were updated
+        type: boolean
+      bsiToken:
+        description: The build server integration token
+        type: string
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+      messages:
+        description: List of informational messages
+        type: array
+        items:
+          type: string
+      legalMessage:
+        description: Legal messages
+        type: string
+  PutImportScanResponse:
+    description: PutImportScanResponse
+    type: object
+    properties:
+      referenceId:
+        description: Reference Id
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+  ImportSarifScanResponse:
+    type: object
+    properties:
+      referenceId:
+        description: Reference Id
+        type: string
+  PutStaticScanSetupRequest:
+    description: PutStaticScanSetupRequest
+    type: object
+    properties:
+      assessmentTypeId:
+        format: int32
+        description: The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementFrequencyType:
+        description: The EntitlementFrequencyType
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      EntitlementId:
+        format: int32
+        description: The EntitlementId.
+        type: integer
+      technologyStackId:
+        format: int32
+        description: The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes
+        type: integer
+      languageLevelId:
+        format: int32
+        description: The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels
+        type: integer
+      performOpenSourceAnalysis:
+        description: Indicates if open source analysis should be performed
+        type: boolean
+      auditPreferenceType:
+        description: The AuditPreferenceType
+        enum:
+        - Manual
+        - Automated
+        type: string
+      includeThirdPartyLibraries:
+        description: Indicates if third party libraries should be included
+        type: boolean
+      useSourceControl:
+        description: Indicates if source control should be used
+        type: boolean
+      scanBinary:
+        description: Indicates if source control should be used
+        type: boolean
+      includeFortifyAviator:
+        type: boolean
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  StaticScanSetup:
+    description: StaticScanSetup
+    type: object
+    properties:
+      assessmentTypeId:
+        format: int32
+        description: The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: The assigned entitlementId
+        type: integer
+      entitlementFrequencyType:
+        description: The EntitlementFrequencyType.
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      releaseId:
+        format: int32
+        description: The ReleaseId
+        type: integer
+      technologyStackId:
+        format: int32
+        description: The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes
+        type: integer
+      technologyStack:
+        description: The TechnologyStack. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes
+        type: string
+      languageLevelId:
+        format: int32
+        description: The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels
+        type: integer
+      languageLevel:
+        description: The LanguageLevel. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels
+        type: string
+      performOpenSourceAnalysis:
+        description: Indicates if open source analysis should be performed
+        type: boolean
+      auditPreferenceType:
+        description: The AuditPreferenceType.
+        enum:
+        - Manual
+        - Automated
+        type: string
+      includeThirdPartyLibraries:
+        description: Indicates if third party libraries should be included
+        type: boolean
+      useSourceControl:
+        description: Indicates if source control should be used
+        type: boolean
+      scanBinary:
+        description: Indicates if binary files should be scanned. AKA "Mixed Mode" scanning
+        type: boolean
+      bsiToken:
+        description: The build server integration token
+        type: string
+      includeFortifyAviator:
+        description: Indicates whether FortifyAviator Addon Service is enabled
+        type: boolean

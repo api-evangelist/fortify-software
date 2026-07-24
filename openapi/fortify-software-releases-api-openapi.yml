@@ -1,0 +1,1743 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement Releases API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: Releases
+paths:
+  /api/v3/releases/{releaseId}:
+    get:
+      tags:
+      - Releases
+      summary: Returns the specific release
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ReleasesV3_GetRelease
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Release'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    put:
+      tags:
+      - Releases
+      summary: Updates an existing release
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ReleasesV3_PutRelease
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutReleaseRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutReleaseRequest'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutReleaseResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/PutReleaseResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/PutReleaseResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    delete:
+      tags:
+      - Releases
+      summary: Deletes the given release
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ReleasesV3_DeleteRelease
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/DeleteReleaseResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/DeleteReleaseResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases:
+    get:
+      tags:
+      - Releases
+      summary: Returns a list of releases
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ReleasesV3_GetReleases
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: suspended"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      - name: modifiedStartDate
+        in: query
+        description: The modified on or after date.
+        required: false
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ReleaseListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+    post:
+      tags:
+      - Releases
+      summary: Creates a new release
+      description: 'Allowed Scopes: api-tenant, manage-apps'
+      operationId: ReleasesV3_PostRelease
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: requestModel
+        in: body
+        description: PostReleaseRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PostReleaseRequest'
+      responses:
+        '201':
+          description: Created
+          schema:
+            $ref: '#/definitions/PostReleaseResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/scans/{scanId}/polling-summary:
+    get:
+      tags:
+      - Releases
+      summary: Returns Scan status for a specific scan
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ReleasesV3_GetReleaseScanByScanId
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PollingScanSummary'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/fpr:
+    get:
+      tags:
+      - Releases
+      summary: Get the fpr for the given release
+      description: 'Allowed Scopes: api-tenant, view-issues'
+      operationId: ReleasesV3_GetReleasesFPR
+      consumes: []
+      produces:
+      - application/octet-stream
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: scanType
+        in: query
+        description: The scan type
+        required: true
+        type: string
+        enum:
+        - Static
+        - Dynamic
+        - Mobile
+        - Monitoring
+        - Network
+        - OpenSource
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: file
+        '202':
+          description: Accepted
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/category-rollups:
+    get:
+      tags:
+      - Releases
+      summary: List and count of vulnerabilities categories, by severity for this release
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ReleasesV3_CategoryRollups
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: showFixed
+        in: query
+        description: Indicates of vulnerabilities marked as fixed should be included. Value defaults to false if not specified.
+        required: false
+        type: boolean
+      - name: vulnerabilitiesSeverityType
+        in: query
+        required: false
+        type: string
+        enum:
+        - Low
+        - Medium
+        - High
+        - Critical
+        - Best_Practice
+        - Info
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/CategoryRollupsResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/scans/{scanId}:
+    get:
+      tags:
+      - Releases
+      summary: Returns summary information for the requested scan id
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ReleasesV3_GetReleaseScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Scan'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/scans:
+    get:
+      tags:
+      - Releases
+      summary: Get a list of scans for a release
+      description: 'Allowed Scopes: api-tenant, view-apps'
+      operationId: ReleasesV3_GetScansByReleaseId
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ScanListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/audit-action:
+    post:
+      tags:
+      - Releases
+      summary: Sets the audit action for the given release
+      description: 'Allowed Scopes: api-tenant, manage-issues'
+      operationId: ReleasesV3_PostAuditAction
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PostAuditActionRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PostAuditActionRequest'
+      responses:
+        '204':
+          description: NoContent
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/audit-options:
+    get:
+      tags:
+      - Releases
+      summary: Get audit options for the given release
+      description: 'Allowed Scopes: api-tenant, manage-issues'
+      operationId: ReleasesV3_GetAuditOptions
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetAuditOptionsResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/static-scan-options:
+    get:
+      tags:
+      - Releases
+      summary: Get a list of options available for starting a static scan
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: ReleasesV3_GetStaticScanOptions
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: technologyStack
+        in: query
+        description: The technology stack<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes
+        required: false
+        type: string
+      - name: languageLevel
+        in: query
+        description: The language level<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels
+        required: false
+        type: string
+      - name: assessmentTypeId
+        in: query
+        description: The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types<br /><br />If this parameter is supplied entitlementFrequencyType is also required
+        required: false
+        type: integer
+        format: int32
+      - name: entitlementFrequencyType
+        in: query
+        description: The entitlement frequency type<br>If this parameter is supplied assessmentTypeId is also required</br>
+        required: false
+        type: string
+        enum:
+        - SingleScan
+        - Subscription
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetStaticScanOptionsResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/assessment-types:
+    get:
+      tags:
+      - Releases
+      summary: Get a list of available assessment types for the given release
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: ReleasesV3_GetAssessmentTypes
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: scanType
+        in: query
+        description: The scan type
+        required: true
+        type: string
+        enum:
+        - Static
+        - Dynamic
+        - Mobile
+        - Monitoring
+        - Network
+        - OpenSource
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: suspended"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ReleaseAssessmentTypeListResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/import-scan-session-id:
+    get:
+      tags:
+      - Releases
+      summary: Initiates an import scan session
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: ReleasesV3_GetImportScanSessionId
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release Id of the scan to import
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetImportScanSessionIdResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/open-source-scans/import-cyclonedx-sbom:
+    put:
+      tags:
+      - Releases
+      summary: Imports a CycloneDx Software Bill of Materials (SBOM)
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: ReleasesV3_PutImportScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: fragNo
+        in: query
+        description: -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent
+        required: true
+        type: integer
+        format: int64
+      - name: offset
+        in: query
+        description: The offset of the bytes sent. 0 indicates the first bytes
+        required: true
+        type: integer
+        format: int64
+      - name: importScanSessionId
+        in: query
+        description: The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id
+        required: true
+        type: string
+      - name: releaseId
+        in: path
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PutImportScanResponse'
+        '202':
+          description: Accepted
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '500':
+          description: InternalServerError
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /api/v3/releases/{releaseId}/scans/{scanId}/cancel-scan:
+    post:
+      tags:
+      - Releases
+      summary: Cancels a scan
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: ReleasesV3_PostCancelScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '202':
+          description: Accepted
+          schema:
+            $ref: '#/definitions/PostCancelScanResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/static-scan-bsi-token:
+    get:
+      tags:
+      - Releases
+      summary: Get the build server integration token for the given release
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: ReleasesV3_GetStaticScanBSIToken
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: The release id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetStaticScanBSITokenResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ScanPauseDetailPolling:
+    type: object
+    properties:
+      Reason:
+        type: string
+      Notes:
+        type: string
+  LookupItem:
+    description: Lookup Item
+    type: object
+    properties:
+      value:
+        description: The value property
+        type: string
+      text:
+        description: The text property
+        type: string
+      group:
+        description: The group property
+        type: string
+  PutImportScanResponse:
+    description: PutImportScanResponse
+    type: object
+    properties:
+      referenceId:
+        description: Reference Id
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+  Scan:
+    description: Scan
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      applicationName:
+        description: The application name
+        type: string
+      releaseId:
+        format: int32
+        description: The release id
+        type: integer
+      releaseName:
+        description: The release name
+        type: string
+      scanId:
+        format: int32
+        description: The scan id
+        type: integer
+      scanTypeId:
+        format: int32
+        description: The scan type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: integer
+      scanType:
+        description: The scan type. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      assessmentTypeName:
+        description: The assessment type name. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: string
+      analysisStatusTypeId:
+        format: int32
+        description: The analysis status type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      analysisStatusType:
+        description: The analysis status type. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      startedDateTime:
+        format: date-time
+        description: The scan started date time
+        type: string
+      completedDateTime:
+        format: date-time
+        description: The scan completed date time
+        type: string
+      totalIssues:
+        format: int32
+        description: Total number of issues
+        type: integer
+      issueCountCritical:
+        format: int32
+        description: Total number of critical issues
+        type: integer
+      issueCountHigh:
+        format: int32
+        description: Total number of high issues
+        type: integer
+      issueCountMedium:
+        format: int32
+        description: Total number of medium issues
+        type: integer
+      issueCountLow:
+        format: int32
+        description: Total number of low issues
+        type: integer
+      starRating:
+        format: int32
+        description: The star rating
+        type: integer
+      notes:
+        description: Scan notes
+        type: string
+      isFalsePositiveChallenge:
+        description: Indicates if the scan is a false positive challenge
+        type: boolean
+      isRemediationScan:
+        description: Indicates if the scan is a remediation scan
+        type: boolean
+      entitlementId:
+        format: int32
+        description: The entitlement id used for the given scan
+        type: integer
+      entitlementUnitsConsumed:
+        format: int32
+        description: The number of entitlement units used for the given scan
+        type: integer
+      isSubscriptionEntitlement:
+        description: Indicates if the entitlement used for the given scan is a subscription entitlement
+        type: boolean
+      pauseDetails:
+        description: The details for each time the scan has been paused/resumed.
+        type: array
+        items:
+          $ref: '#/definitions/ScanPauseDetail'
+      cancelReason:
+        description: Cancel Reason
+        type: string
+      analysisStatusReasonNotes:
+        description: The Analysis Status Reason Notes
+        type: string
+      scanMethodTypeId:
+        format: int32
+        description: The scan method type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: integer
+      scanMethodTypeName:
+        description: The scan method type name. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanMethodTypes
+        type: string
+      scanTool:
+        description: The tool used for scanning
+        type: string
+      scanToolVersion:
+        description: The version for the scan tool used for scanning
+        type: string
+      attributes:
+        description: Scan attributes
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  ScanPauseDetail:
+    description: Scan Pause Details
+    type: object
+    properties:
+      pausedOn:
+        format: date-time
+        description: The scan paused date/time.
+        type: string
+      reason:
+        description: The reason the scan was paused.
+        type: string
+      notes:
+        description: Optional notes regarding the scan paused.
+        type: string
+  PollingScanSummary:
+    type: object
+    properties:
+      ScanId:
+        format: int32
+        type: integer
+      OpenSourceScanId:
+        format: int32
+        type: integer
+      TenantId:
+        format: int32
+        type: integer
+      AnalysisStatusId:
+        format: int32
+        type: integer
+      OpenSourceStatusId:
+        format: int32
+        type: integer
+      QueuePositionWithinApplication:
+        format: int32
+        type: integer
+      AnalysisStatusTypeValue:
+        type: string
+      AnalysisStatusReasonId:
+        format: int32
+        type: integer
+      AnalysisStatusReason:
+        type: string
+      AnalysisStatusReasonNotes:
+        type: string
+      IssueCountCritical:
+        format: int32
+        type: integer
+      IssueCountHigh:
+        format: int32
+        type: integer
+      IssueCountMedium:
+        format: int32
+        type: integer
+      IssueCountLow:
+        format: int32
+        type: integer
+      PassFailStatus:
+        type: boolean
+      PassFailReasonType:
+        type: string
+      PauseDetails:
+        type: array
+        items:
+          $ref: '#/definitions/ScanPauseDetailPolling'
+      ScanType:
+        format: int32
+        type: integer
+  ApplicationAttributeExtended:
+    description: Application Attribute Extended
+    type: object
+    properties:
+      name:
+        description: Name of the attribute
+        type: string
+      id:
+        format: int32
+        description: Id of the attribute
+        type: integer
+      value:
+        description: Value of the attribute
+        type: string
+  ReleaseAssessmentType:
+    description: Release Assessment Type
+    type: object
+    properties:
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      name:
+        description: The assessment type name
+        type: string
+      scanType:
+        description: The scan type name. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: string
+      scanTypeId:
+        format: int32
+        description: The scan type id. Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes
+        type: integer
+      entitlementId:
+        format: int32
+        description: The entitlement id. -1 indicates the assessment type is available for purchase
+        type: integer
+      frequencyType:
+        description: The entitlement frequency type id
+        type: string
+      frequencyTypeId:
+        format: int32
+        description: The entitlement frequency type id
+        type: integer
+      units:
+        format: int32
+        description: The number of units the scan will consume
+        type: integer
+      unitsAvailable:
+        format: int32
+        description: The number of units available
+        type: integer
+      subscriptionEndDate:
+        format: date-time
+        description: The subscription end date for the entitlement
+        type: string
+      isRemediation:
+        description: Indicates if a remediation scan is available for the assessment type
+        type: boolean
+      remediationScansAvailable:
+        format: int32
+        description: The number of remediation scans available for the release and assessment type
+        type: integer
+      isBundledAssessment:
+        description: Indicates if the assessment type is a bundled assessment
+        type: boolean
+      parentAssessmentTypeId:
+        format: int32
+        description: The parent assessment type id for the bundled assessment
+        type: integer
+      parentAssessmentTypeName:
+        description: The parent assessment type name
+        type: string
+      parentAssessmentTypeScanType:
+        description: The parent assessment type scan type name
+        type: string
+      parentAssessmentTypeScanTypeId:
+        format: int32
+        description: The parent assessment type scan type id
+        type: integer
+      entitlementDescription:
+        description: The entitlement description
+        type: string
+      assessmentCategory:
+        type: string
+  CategoryCount:
+    description: Category Count
+    type: object
+    properties:
+      category:
+        description: The category name
+        type: string
+      count:
+        format: int32
+        description: The count for the category
+        type: integer
+  GetImportScanSessionIdResponse:
+    description: Get Import Scan Session Id Response
+    type: object
+    properties:
+      importScanSessionId:
+        description: The unique importId to use for the session
+        type: string
+  ScanOption:
+    description: Scan Option
+    type: object
+    properties:
+      id:
+        format: int32
+        description: The scan option id
+        type: integer
+      name:
+        description: The scan option name
+        type: string
+      lastSelectedOption:
+        description: The last selected option
+        type: string
+      options:
+        description: List of options
+        type: array
+        items:
+          $ref: '#/definitions/LookupItem'
+  ReleaseAssessmentTypeListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/ReleaseAssessmentType'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  ApplicationAttribute:
+    description: Attribute
+    type: object
+    properties:
+      id:
+        format: int32
+        description: Id of the attribute
+        type: integer
+      value:
+        description: Value of the attribute
+        type: string
+  GetStaticScanOptionsResponse:
+    description: Get Static Scan Options Response
+    type: object
+    properties:
+      items:
+        description: List of scan option items
+        type: array
+        items:
+          $ref: '#/definitions/ScanOption'
+  PutReleaseRequest:
+    description: Put Release Request
+    required:
+    - releaseName
+    - sdlcStatusType
+    type: object
+    properties:
+      releaseName:
+        description: The release name
+        type: string
+      releaseDescription:
+        description: The release description
+        type: string
+      sdlcStatusType:
+        description: The release SDLC status type
+        enum:
+        - Production
+        - QA
+        - Development
+        - Retired
+        type: string
+      ownerId:
+        format: int32
+        description: The owner id for the release
+        type: integer
+      microserviceId:
+        format: int32
+        description: The ID of the microservice
+        type: integer
+      attributes:
+        description: 'Release attributes. This is an array of key/value objects. Example, [{"Attribute 1": "value 1"}, {"Attribute 2": "value 2"}, {"Attribute 3": "value 3"} ]'
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttribute'
+  PostAuditActionRequest:
+    description: Post Audit Action Request
+    required:
+    - auditAction
+    type: object
+    properties:
+      auditAction:
+        description: The audit action
+        enum:
+        - Cancel
+        - Start
+        - Submit
+        type: string
+  PutReleaseResponse:
+    description: Put Release Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the release was updated
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  Release:
+    description: Release
+    type: object
+    properties:
+      releaseId:
+        format: int32
+        description: Release identifier
+        type: integer
+      releaseName:
+        description: Name of the release
+        type: string
+      releaseDescription:
+        description: Description of the release
+        type: string
+      suspended:
+        description: Indicates whether or not the release is suspended
+        type: boolean
+      releaseCreatedDate:
+        format: date-time
+        description: The date the release was created
+        type: string
+      microserviceName:
+        description: Name of the microservice
+        type: string
+      microserviceId:
+        format: int32
+        description: ID of the microservice
+        type: integer
+      applicationId:
+        format: int32
+        description: Application id
+        type: integer
+      applicationName:
+        description: Name of the application
+        type: string
+      currentAnalysisStatusTypeId:
+        format: int32
+        description: Current ananlysis status type id. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      currentAnalysisStatusType:
+        description: Current ananlysis status type. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      rating:
+        format: int32
+        description: The current star rating (1-5)
+        type: integer
+      critical:
+        format: int32
+        description: Number of critical vulnerabilities
+        type: integer
+      high:
+        format: int32
+        description: Number of high vulnerabilities
+        type: integer
+      medium:
+        format: int32
+        description: Number of medium vulnerabilities
+        type: integer
+      low:
+        format: int32
+        description: Number of low vulnerabilities
+        type: integer
+      staticCritical:
+        format: int32
+        description: Number of critical vulnerabilities from static scans
+        type: integer
+      staticHigh:
+        format: int32
+        description: Number of high vulnerabilities from static scans
+        type: integer
+      staticMedium:
+        format: int32
+        description: Number of medium vulnerabilities from static scans
+        type: integer
+      staticLow:
+        format: int32
+        description: Number of low vulnerabilities from static scans
+        type: integer
+      dynamicCritical:
+        format: int32
+        description: Number of critical vulnerabilities from dynamic scans
+        type: integer
+      dynamicHigh:
+        format: int32
+        description: Number of high vulnerabilities from dynamic scans
+        type: integer
+      dynamicMedium:
+        format: int32
+        description: Number of medium vulnerabilities from dynamic scans
+        type: integer
+      dynamicLow:
+        format: int32
+        description: Number of low vulnerabilities from dynamic scans
+        type: integer
+      mobileCritical:
+        format: int32
+        description: Number of critical vulnerabilities from mobile scans
+        type: integer
+      mobileHigh:
+        format: int32
+        description: Number of high vulnerabilities from mobile scans
+        type: integer
+      mobileMedium:
+        format: int32
+        description: Number of medium vulnerabilities from mobile scans
+        type: integer
+      mobileLow:
+        format: int32
+        description: Number of low vulnerabilities from mobile scans
+        type: integer
+      openSourceCritical:
+        format: int32
+        description: Number of critical vulnerabilities for open source scans.
+        type: integer
+      openSourceHigh:
+        format: int32
+        description: Number of high vulnerabilities for open source scans.
+        type: integer
+      openSourceMedium:
+        format: int32
+        description: Number of medium vulnerabilities for open source scans.
+        type: integer
+      openSourceLow:
+        format: int32
+        description: Number of low vulnerabilities for open source scans.
+        type: integer
+      currentStaticScanId:
+        format: int32
+        description: Current static scan identifier
+        type: integer
+      currentDynamicScanId:
+        format: int32
+        description: Current dynamic scan identifier
+        type: integer
+      currentMobileScanId:
+        format: int32
+        description: Current Mobile Scan Id
+        type: integer
+      staticAnalysisStatusType:
+        description: Current status of the static scan on this release (null if no static scan). Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      dynamicAnalysisStatusType:
+        description: Current status of the dynamic scan on this release (null if no dynamic scan). Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      mobileAnalysisStatusType:
+        description: Current status of the mobile scan on this release (null if no mobile scan). Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: string
+      staticAnalysisStatusTypeId:
+        format: int32
+        description: Current status of the static scan as a numberic identifier. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      dynamicAnalysisStatusTypeId:
+        format: int32
+        description: Current status of the dynamic scan as a numberic identifier. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      mobileAnalysisStatusTypeId:
+        format: int32
+        description: Current status of the mobile scan as a numberic identifier. Values can be obtained by calling GET /api/v3/lookup-items?type=AnalysisStatusTypes
+        type: integer
+      staticScanDate:
+        format: date-time
+        description: Static scan completed date
+        type: string
+      dynamicScanDate:
+        format: date-time
+        description: Dynamic scan completed date
+        type: string
+      mobileScanDate:
+        format: date-time
+        description: Mobile scan completed date
+        type: string
+      issueCount:
+        format: int32
+        description: Total number of issues
+        type: integer
+      isPassed:
+        description: Pass/Failed status
+        type: boolean
+      passFailReasonTypeId:
+        format: int32
+        description: Reason for the scan pass/fail id. Values can be obtained by calling GET /api/v3/lookup-items?type=PassFailReasonTypes
+        type: integer
+      passFailReasonType:
+        description: Reason for the scan pass/fail. Values can be obtained by calling GET /api/v3/lookup-items?type=PassFailReasonTypes
+        type: string
+      sdlcStatusTypeId:
+        format: int32
+        description: SDLC Status Type Id. Values can be obtained by calling GET /api/v3/lookup-items?type=SDLCStatusTypes
+        type: integer
+      sdlcStatusType:
+        description: SDLC Status Type. Values can be obtained by calling GET /api/v3/lookup-items?type=SDLCStatusTypes
+        type: string
+      ownerId:
+        format: int32
+        description: Owner Id
+        type: integer
+      IsDebrickedScanEnabled:
+        description: Is Debricked Scan Enabled
+        type: boolean
+      attributes:
+        description: Release attributes
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttributeExtended'
+  GetAuditOptionsResponse:
+    description: Get Audit Options Response
+    type: object
+    properties:
+      releaseId:
+        format: int32
+        description: The release id
+        type: integer
+      auditProcessing:
+        description: Indicates if an audit is current processing
+        type: boolean
+      canAudit:
+        description: Indicates if the user can audit
+        type: boolean
+      canChallenge:
+        description: Indicates if the user can challenge
+        type: boolean
+      canEdit:
+        description: Indicates if the user can edit
+        type: boolean
+      inAuditMode:
+        description: Indicates if the release is in audit mode
+        type: boolean
+  ScanListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Scan'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  CategoryRollupsResponse:
+    description: Category Rollups Response
+    type: object
+    properties:
+      items:
+        description: List of category count items
+        type: array
+        items:
+          $ref: '#/definitions/CategoryCount'
+  DeleteReleaseResponse:
+    description: Delete Release Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the release was deleted
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  GetStaticScanBSITokenResponse:
+    description: Get Static Scan BSI Token Response
+    type: object
+    properties:
+      bsiToken:
+        description: The build server integration token
+        type: string
+  PostCancelScanResponse:
+    description: Post Cancel Scan Response
+    type: object
+    properties:
+      success:
+        description: Indicates if the request was successful
+        type: boolean
+      message:
+        description: Message returned for the request
+        type: string
+  PostReleaseResponse:
+    description: Post Release Response
+    type: object
+    properties:
+      releaseId:
+        format: int32
+        description: The id of the release that was created
+        type: integer
+      success:
+        description: Indicates if the application was created
+        type: boolean
+      errors:
+        description: A list of errors encountered
+        type: array
+        items:
+          type: string
+  PostReleaseRequest:
+    description: Post Release Request
+    required:
+    - applicationId
+    - releaseName
+    - sdlcStatusType
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        description: The application id
+        type: integer
+      releaseName:
+        description: The release name
+        type: string
+      releaseDescription:
+        description: The release description
+        type: string
+      copyState:
+        description: Indicates if copy state is used
+        type: boolean
+      copyStateReleaseId:
+        format: int32
+        description: The release id to use if CopyState is trueS
+        type: integer
+      sdlcStatusType:
+        description: The release SDLC status type
+        enum:
+        - Production
+        - QA
+        - Development
+        - Retired
+        type: string
+      microserviceId:
+        format: int32
+        description: The id of the Microservice to be associated with this version
+        type: integer
+      attributes:
+        description: 'Release attributes. This is an array of key/value objects. Example, [{"Attribute 1": "value 1"}, {"Attribute 2": "value 2"}, {"Attribute 3": "value 3"} ]'
+        type: array
+        items:
+          $ref: '#/definitions/ApplicationAttribute'
+  ReleaseListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/Release'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer

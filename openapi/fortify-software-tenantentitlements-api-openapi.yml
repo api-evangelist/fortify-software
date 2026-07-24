@@ -1,0 +1,149 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement TenantEntitlements API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: TenantEntitlements
+paths:
+  /api/v3/tenant-entitlements:
+    get:
+      tags:
+      - TenantEntitlements
+      summary: Returns a list of active tenant entitlements
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: TenantEntitlementsV3_Get
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetTenantEntitlementResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/tenant-open-source-entitlements:
+    get:
+      tags:
+      - TenantEntitlements
+      summary: Returns a list of active open source entitlements for tenant
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: TenantEntitlementsV3_GetOpenSourceEntitlements
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetTenantOpenSourceEntitlementsResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  GetTenantEntitlementResponse:
+    description: Tenant entitlements response
+    type: object
+    properties:
+      subscriptionTypeId:
+        format: int32
+        description: The subscription type id
+        type: integer
+      subscriptionType:
+        description: The subscription type
+        type: string
+      tenantEntitlements:
+        description: The list of tenant entitlements
+        type: array
+        items:
+          $ref: '#/definitions/TenantEntitlement'
+  TenantEntitlement:
+    description: Tenant entitlement
+    type: object
+    properties:
+      entitlementId:
+        format: int32
+        description: The entitlement id
+        type: integer
+      entitlementType:
+        description: The entitlement type
+        type: string
+      analysisType:
+        description: The Analysis type
+        type: string
+      entitlementDescription:
+        description: The entitlement description
+        type: string
+      unitsPurchased:
+        format: int32
+        description: The units purchased
+        type: integer
+      unitsConsumed:
+        format: int32
+        description: The units consumed
+        type: integer
+      developerCount:
+        format: int32
+        description: The developers purchased
+        type: integer
+      startDate:
+        format: date-time
+        description: The start date of the entitlement
+        type: string
+      endDate:
+        format: date-time
+        description: The end date of the entitlement
+        type: string
+      extendedProperties:
+        $ref: '#/definitions/TenantEntitlementExtendedProperties'
+        description: Extended properties for the entitlement
+  TenantEntitlementExtendedProperties:
+    description: Extended properties
+    type: object
+    properties:
+      assessmentTypeId:
+        format: int32
+        description: The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      frequencyTypeId:
+        format: int32
+        description: The frequency type id
+        type: integer
+      frequencyType:
+        description: The frequency type
+        type: string
+      subscriptionLength:
+        description: The subscription lenght
+        type: string
+  GetTenantOpenSourceEntitlementsResponse:
+    description: Tenant OpenSource entitlements response
+    type: object
+    properties:
+      entitlementTypeId:
+        format: int32
+        description: The entitlement type id
+        type: integer
+      tenant-Oss-Entitlements:
+        type: array
+        items:
+          $ref: '#/definitions/TenantEntitlement'

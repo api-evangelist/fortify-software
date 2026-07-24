@@ -1,0 +1,229 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement OpenSourceComponents API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: OpenSourceComponents
+paths:
+  /api/v3/applications/open-source-components:
+    get:
+      tags:
+      - OpenSourceComponents
+      summary: Retrieve a collection of open source components.
+      description: 'Allowed Scopes: api-tenant, view-tenant-data'
+      operationId: OpenSourceComponentsV3_GetOpenSourceComponents
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: openSourceScanType
+        in: query
+        description: The source of component data.
+        required: false
+        type: string
+        enum:
+        - Sonatype
+        - CycloneDx
+        - Debricked
+      - name: filters
+        in: query
+        description: "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: licenses, packageUrl, vulnerabilityCounts"
+        required: false
+        type: string
+      - name: orderBy
+        in: query
+        description: The field name to order the results by.
+        required: false
+        type: string
+      - name: orderByDirection
+        in: query
+        description: The direction to order the results by. ASC and DESC are valid values.
+        required: false
+        type: string
+      - name: fields
+        in: query
+        description: Comma separated list of fields to return.
+        required: false
+        type: string
+      - name: offset
+        in: query
+        description: Offset of the starting record. 0 indicates the first record.
+        required: false
+        type: integer
+        format: int32
+      - name: limit
+        in: query
+        description: Maximum records to return. The maximum value allowed is 50.
+        required: false
+        type: integer
+        format: int32
+      - name: returnTotalComponentCount
+        in: query
+        description: If true return the total number of components. Default is true.
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/OpenSourceComponentListResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/open-source-scans/{scanId}/sbom:
+    get:
+      tags:
+      - OpenSourceComponents
+      summary: Download the Open Source SBOM file
+      description: 'Allowed Scopes: api-tenant, view-issues'
+      operationId: OpenSourceComponentsV3_DownloadOpenSourceSbomFile
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: scanId
+        in: path
+        description: The scan id
+        required: true
+        type: integer
+        format: int32
+      - name: format
+        in: query
+        description: The format of the SBOM file (e.g., "CycloneDx" or "SPDx")
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            type: string
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '403':
+          description: Forbidden
+        '404':
+          description: NotFound
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  OpenSourceComponentListResponse:
+    description: Generic List Response
+    type: object
+    properties:
+      items:
+        description: The list of items
+        type: array
+        items:
+          $ref: '#/definitions/OpenSourceComponent'
+      totalCount:
+        format: int32
+        description: Total count of items
+        type: integer
+      offset:
+        format: int32
+        description: Offset of the starting record. 0 indicates the first record.
+        type: integer
+      limit:
+        format: int32
+        description: Maximum records to return.
+        type: integer
+  OpenSourceComponentLicense:
+    type: object
+    properties:
+      name:
+        type: string
+  OpenSourceComponent:
+    type: object
+    properties:
+      componentHash:
+        type: string
+      componentName:
+        type: string
+      componentVersionName:
+        type: string
+      licenses:
+        type: array
+        items:
+          $ref: '#/definitions/OpenSourceComponentLicense'
+      vulnerabilityCounts:
+        type: array
+        items:
+          $ref: '#/definitions/VulnerabilityCount'
+      releases:
+        type: array
+        items:
+          $ref: '#/definitions/OpenSourceComponentRelease'
+      packageUrl:
+        type: string
+      scanTool:
+        type: string
+  VulnerabilityCount:
+    type: object
+    properties:
+      severityId:
+        format: int32
+        type: integer
+        readOnly: true
+      severity:
+        type: string
+        readOnly: true
+      count:
+        format: int32
+        type: integer
+  OpenSourceComponentRelease:
+    type: object
+    properties:
+      applicationId:
+        format: int32
+        type: integer
+      applicationName:
+        type: string
+      releaseId:
+        format: int32
+        type: integer
+      releaseName:
+        type: string

@@ -1,0 +1,1156 @@
+swagger: '2.0'
+info:
+  version: v3
+  title: OpenText™ Core Application Security Web API Explorer ApiKeyManagement DastAutomatedScans API
+host: api.ams.fortify.com
+schemes:
+- https
+tags:
+- name: DastAutomatedScans
+paths:
+  /api/v3/releases/{releaseId}/dast-automated-scans/scan-setup:
+    get:
+      tags:
+      - DastAutomatedScans
+      summary: Get Dast Automated scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DastAutomatedScansV3_GetDastAutomatedScanSetup
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/GetDastAutomatedScanSetupResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: NotFound
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/website-scan-setup:
+    put:
+      tags:
+      - DastAutomatedScans
+      summary: Saves Dast Automated Website scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DastAutomatedScansV3_PutDastAutomatedWebsiteScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutDastAutomatedWebsiteScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutDastAutomatedWebsiteScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/workflow-scan-setup:
+    put:
+      tags:
+      - DastAutomatedScans
+      summary: Saves Dast Automated Workflow scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DastAutomatedScansV3_PutDastAutomatedWorkflowScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutDastAutomatedWorkflowScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutDastAutomatedWorkflowScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/openapi-scan-setup:
+    put:
+      tags:
+      - DastAutomatedScans
+      summary: Saves Dast Automated Open API scan setup details
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DastAutomatedScansV3_PutDastAutomatedOpenApiScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutDastAutomatedOpenApiScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutDastAutomatedOpenApiScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/graphql-scan-setup:
+    put:
+      tags:
+      - DastAutomatedScans
+      summary: Saves Dast Automated GraphQL scan setup details
+      operationId: DastAutomatedScansV3_PutDastAutomatedGraphQlScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutDastAutomatedGraphQLScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutDastAutomatedGraphQLScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/grpc-scan-setup:
+    put:
+      tags:
+      - DastAutomatedScans
+      summary: Saves Dast Automated GRPC scan setup details
+      operationId: DastAutomatedScansV3_PutDastAutomatedGrpcScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutDastAutomatedGrpcScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutDastAutomatedGrpcScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/postman-scan-setup:
+    put:
+      tags:
+      - DastAutomatedScans
+      summary: Saves Dast Automated Postman scan setup details
+      operationId: DastAutomatedScansV3_PutDastAutomatedPostmanScanSetup
+      consumes:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      - application/x-www-form-urlencoded
+      - multipart/form-data
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      - name: requestModel
+        in: body
+        description: PutDastAutomatedPostmanScanSetupRequest model
+        required: true
+        schema:
+          $ref: '#/definitions/PutDastAutomatedPostmanScanSetupRequest'
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/scan-setup/file-upload:
+    patch:
+      tags:
+      - DastAutomatedScans
+      summary: Uploads a Dast Automated file to release
+      operationId: DastAutomatedScansV3_PatchDastAutomatedScanFileUpload
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID
+        required: true
+        type: integer
+        format: int32
+      - name: dastFileType
+        in: query
+        description: DAST Automated file type
+        required: true
+        type: string
+        enum:
+        - OpenAPIDefinition
+        - PostmanCollection
+        - GraphQLDefinition
+        - GRPCDefinition
+        - WorkflowDrivenMacro
+        - LoginMacro
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/PatchDastAutomatedScanManifestResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+  /api/v3/releases/{releaseId}/dast-automated-scans/start-scan:
+    post:
+      tags:
+      - DastAutomatedScans
+      summary: Starts a DAST Automated scan using the current scan setup settings
+      description: 'Allowed Scopes: api-tenant, start-scans'
+      operationId: DastAutomatedScansV3_StartDastAutomatedScan
+      consumes: []
+      produces:
+      - application/json
+      - text/json
+      - application/xml
+      - text/xml
+      parameters:
+      - name: releaseId
+        in: path
+        description: Release ID of the scan to start
+        required: true
+        type: integer
+        format: int32
+      - name: networkName
+        in: query
+        description: Network Name
+        required: false
+        type: string
+      - name: fallbackToActiveEntitlement
+        in: query
+        description: Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified.
+        required: false
+        type: boolean
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/StartDastAutomatedScanResponse'
+        '400':
+          description: BadRequest
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '422':
+          description: UnprocessableEntity
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+        '429':
+          description: TooManyRequests
+        '500':
+          description: InternalServerError
+definitions:
+  PutDastAutomatedGraphQLScanSetupRequest:
+    required:
+    - sourceType
+    - sourceUrn
+    - assessmentTypeId
+    - entitlementId
+    - entitlementFrequencyType
+    - dynamicScanEnvironmentFacingType
+    - timeZone
+    type: object
+    properties:
+      sourceType:
+        description: Specifies whether source is file ID or URL
+        enum:
+        - FileId
+        - Url
+        type: string
+      sourceUrn:
+        description: File ID or URL
+        type: string
+      schemeType:
+        description: Api scheme type (Http, Https, or HttpHttps)
+        type: string
+      host:
+        description: API host name or IP address with port number
+        type: string
+      servicePath:
+        description: Directory path for the API service
+        type: string
+      timeBoxInHours:
+        format: int32
+        description: Time limit in hours for Automated scan duration
+        type: integer
+      assessmentTypeId:
+        format: int32
+        description: Assessment type ID. Values are obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement ID. Values are obtained by calling GET /api/v3/tenant-entitlements
+        type: integer
+      entitlementFrequencyType:
+        description: Entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      timeZone:
+        description: Timezone. Values are obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site, otherwise false
+        type: boolean
+      networkAuthenticationSettings:
+        $ref: '#/definitions/NetworkAuthenticationSettings'
+        description: Network authentication settings
+      requestFalsePositiveRemoval:
+        description: True if requesting one-time false positive removal, otherwise false
+        type: boolean
+      networkName:
+        type: string
+  GraphQl:
+    type: object
+    properties:
+      sourceType:
+        description: Specifies whether source is file ID or URL
+        enum:
+        - FileId
+        - Url
+        type: string
+      sourceUrn:
+        description: File ID or URL
+        type: string
+      schemeType:
+        description: Api scheme type (Http, Https, or HttpHttps)
+        type: string
+      host:
+        description: API host name or IP address with port number
+        type: string
+      servicePath:
+        description: Directory path for the API service
+        type: string
+  FileDetails:
+    type: object
+    properties:
+      fileId:
+        format: int32
+        description: 'Uploaded file details: file Id'
+        type: integer
+      fileName:
+        description: 'Uploaded file details: file Name'
+        type: string
+      fileType:
+        description: 'Uploaded file details: file Type'
+        type: string
+  API:
+    type: object
+    properties:
+      apiType:
+        description: Api type
+        enum:
+        - NotSet
+        - OpenApi
+        - GRPC
+        - GraphQL
+        - Postman
+        type: string
+      openAPI:
+        $ref: '#/definitions/OpenApi'
+        description: OpenApi scan details
+      graphQL:
+        $ref: '#/definitions/GraphQl'
+        description: GraphQL Api scan details
+      gRPC:
+        $ref: '#/definitions/Grpc'
+        description: gRPC Api scan details
+      postman:
+        $ref: '#/definitions/Postman'
+        description: Postman Api scan details
+  PatchDastAutomatedScanManifestResponse:
+    type: object
+    properties:
+      fileId:
+        format: int32
+        type: integer
+      hosts:
+        type: array
+        items:
+          type: string
+  GetDastAutomatedScanSetupResponse:
+    type: object
+    properties:
+      assessmentTypeId:
+        format: int32
+        description: Assessment type ID. Values are obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      timeZone:
+        description: Timezone. Values are obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      entitlementId:
+        format: int32
+        description: Entitlement ID. Values are obtained by calling GET /api/v3/tenant-entitlements
+        type: integer
+      entitlementFrequencyType:
+        description: Entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      scanType:
+        description: Scan type. Values can be obtained by calling GET /api/v3/lookup-items?type=DastAutomatedScanTypes
+        type: string
+      policy:
+        description: Policy type to scan the site. Values are obtained by calling api/v3/lookup-items?type=DastAutomatedScanPolicies
+        enum:
+        - Standard
+        - Api
+        - CriticalsAndHighs
+        - PassiveScan
+        type: string
+      websiteAssessment:
+        $ref: '#/definitions/Website'
+        description: Website assessment
+      apiAssessment:
+        $ref: '#/definitions/API'
+        description: API assessment
+      timeBoxInHours:
+        format: int32
+        description: Time limit in hours for Automated scan duration
+        type: integer
+      workflowdrivenAssessment:
+        $ref: '#/definitions/WorkflowDriven'
+        description: Workflow driven assessment
+      loginMacroFileId:
+        format: int32
+        description: Login macro file ID. Value is obtained by uploading login macro
+        type: integer
+      requiresSiteAuthentication:
+        description: True if site authentication is required to scan the site, otherwise false
+        type: boolean
+      allowFormSubmissions:
+        description: True to allow form submissions, otherwise false
+        type: boolean
+      allowSameHostRedirects:
+        description: True to allow HTTP (:80) and HTTPS (:443) of the specified scan host, otherwise false
+        type: boolean
+      restrictToDirectoryAndSubdirectories:
+        description: True to restrict to directory and subdirectories, otherwise false
+        type: boolean
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site, otherwise false
+        type: boolean
+      networkAuthenticationSettings:
+        $ref: '#/definitions/NetworkAuthenticationSettings'
+        description: Network authentication settings
+      fileDetails:
+        description: Uploaded file details
+        type: array
+        items:
+          $ref: '#/definitions/FileDetails'
+      requestFalsePositiveRemoval:
+        description: True if requesting one-time false positive removal, otherwise false
+        type: boolean
+      hasUtilizedAdditionalServices:
+        description: True When the prior DAST Automated scan completed successfully using Add on services, otherwise false
+        type: boolean
+      networkName:
+        type: string
+  WorkflowDrivenMacrosRequest:
+    required:
+    - fileId
+    - allowedHosts
+    type: object
+    properties:
+      fileId:
+        format: int32
+        description: Workflow-driven macro file ID. Value is obtained by uploading workflow-driven macro
+        type: integer
+      allowedHosts:
+        description: Hostname or IP address with port number. Value is obtained by uploading workflow-driven macro
+        type: array
+        items:
+          type: string
+  PutDastAutomatedOpenApiScanSetupRequest:
+    required:
+    - sourceType
+    - sourceUrn
+    - assessmentTypeId
+    - entitlementId
+    - entitlementFrequencyType
+    - dynamicScanEnvironmentFacingType
+    - timeZone
+    type: object
+    properties:
+      sourceType:
+        description: Specifies whether source is file ID or URL
+        enum:
+        - FileId
+        - Url
+        type: string
+      sourceUrn:
+        description: File ID or URL
+        type: string
+      apiKey:
+        description: API key
+        type: string
+      timeBoxInHours:
+        format: int32
+        description: Time limit in hours for Automated scan duration
+        type: integer
+      assessmentTypeId:
+        format: int32
+        description: Assessment type ID. Values are obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement ID. Values are obtained by calling GET /api/v3/tenant-entitlements
+        type: integer
+      entitlementFrequencyType:
+        description: Entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      timeZone:
+        description: Timezone. Values are obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site, otherwise false
+        type: boolean
+      networkAuthenticationSettings:
+        $ref: '#/definitions/NetworkAuthenticationSettings'
+        description: Network authentication settings
+      requestFalsePositiveRemoval:
+        description: True if requesting one-time false positive removal, otherwise false
+        type: boolean
+      networkName:
+        type: string
+  Exclusion:
+    type: object
+    properties:
+      value:
+        description: URL fragment to exclude from scanning.
+        type: string
+  WorkflowDrivenMacrosResponse:
+    type: object
+    properties:
+      fileId:
+        format: int32
+        description: Workflow-driven macro file ID. Value is obtained by uploading workflow-driven macro
+        type: integer
+      allowedHosts:
+        description: Hostname or IP address with port number. Value is obtained by uploading workflow-driven macro
+        type: array
+        items:
+          type: string
+  Website:
+    type: object
+    properties:
+      dynamicSiteUrl:
+        description: The dynamic site url
+        type: string
+      requestLoginMacroFileCreation:
+        description: True if requesting one-time creation of login macro file by testing team, otherwise false
+        type: boolean
+      loginMacroFileCreationDetails:
+        $ref: '#/definitions/LoginMacroFileCreationDetails'
+        description: Login macro file creation details
+      enableRedundantPageDetection:
+        description: True to enable comparison of page structure to identify and exclude processing of redundant resources, otherwise false
+        type: boolean
+      exclusionsList:
+        description: List of exclusions.
+        type: array
+        items:
+          $ref: '#/definitions/Exclusion'
+  PutDastAutomatedPostmanScanSetupRequest:
+    required:
+    - collectionFileIds
+    - assessmentTypeId
+    - entitlementId
+    - entitlementFrequencyType
+    - dynamicScanEnvironmentFacingType
+    - timeZone
+    type: object
+    properties:
+      collectionFileIds:
+        description: Postman collection file ID. Value is obtained by uploading Postman collection
+        type: array
+        items:
+          format: int32
+          type: integer
+      timeBoxInHours:
+        format: int32
+        description: Time limit in hours for Automated scan duration
+        type: integer
+      assessmentTypeId:
+        format: int32
+        description: Assessment type ID. Values are obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement ID. Values are obtained by calling GET /api/v3/tenant-entitlements
+        type: integer
+      entitlementFrequencyType:
+        description: Entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      timeZone:
+        description: Timezone. Values are obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site, otherwise false
+        type: boolean
+      networkAuthenticationSettings:
+        $ref: '#/definitions/NetworkAuthenticationSettings'
+        description: Network authentication settings
+      requestFalsePositiveRemoval:
+        description: True if requesting one-time false positive removal, otherwise false
+        type: boolean
+      networkName:
+        type: string
+  LoginMacroFileCreationDetails:
+    type: object
+    properties:
+      primaryUsername:
+        description: 'Login macro settings: primary username to login with'
+        type: string
+      primaryPassword:
+        description: 'Login macro settings: primary account password to login with'
+        type: string
+      secondaryUsername:
+        description: 'Login macro settings: secondary username to login with'
+        type: string
+      secondaryPassword:
+        description: 'Login macro settings: secondary account password to login with'
+        type: string
+  PutDastAutomatedWorkflowScanSetupRequest:
+    required:
+    - workflowDrivenMacro
+    - policy
+    - assessmentTypeId
+    - entitlementId
+    - entitlementFrequencyType
+    - dynamicScanEnvironmentFacingType
+    - timeZone
+    type: object
+    properties:
+      workflowDrivenMacro:
+        description: Workflow driven macro fileIds
+        type: array
+        items:
+          $ref: '#/definitions/WorkflowDrivenMacrosRequest'
+      policy:
+        description: Policy type to scan the website. Values are obtained by calling api/v3/lookup-items?type=DastAutomatedScanPolicies
+        enum:
+        - Standard
+        - CriticalsAndHighs
+        - PassiveScan
+        type: string
+      assessmentTypeId:
+        format: int32
+        description: Assessment type ID. Values are obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement ID. Values are obtained by calling GET /api/v3/tenant-entitlements
+        type: integer
+      entitlementFrequencyType:
+        description: Entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      timeZone:
+        description: Timezone. Values are obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site, otherwise false
+        type: boolean
+      networkAuthenticationSettings:
+        $ref: '#/definitions/NetworkAuthenticationSettings'
+        description: Network authentication settings
+      requestFalsePositiveRemoval:
+        description: True if requesting one-time false positive removal, otherwise false
+        type: boolean
+      networkName:
+        type: string
+  WorkflowDriven:
+    type: object
+    properties:
+      workflowDrivenMacro:
+        description: Workflow driven macro fileIds
+        type: array
+        items:
+          $ref: '#/definitions/WorkflowDrivenMacrosResponse'
+  NetworkAuthenticationSettings:
+    type: object
+    properties:
+      networkAuthenticationType:
+        description: Network authentication type. Values are obtained by calling GET /api/v3/lookup-items?type=NetworkAuthenticationType
+        enum:
+        - Basic
+        - NTLM
+        - Kerberos
+        - Digest
+        - Automatic
+        - ADFS_CBT
+        type: string
+      userName:
+        description: Network username
+        type: string
+      password:
+        description: Network password
+        type: string
+  Error:
+    description: Error
+    type: object
+    properties:
+      errorCode:
+        format: int32
+        description: The error code
+        type: integer
+      message:
+        description: The error message
+        type: string
+  ErrorResponse:
+    description: Error Response
+    type: object
+    properties:
+      errors:
+        description: List of errors
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  StartDastAutomatedScanResponse:
+    description: Start DAST Automated scan response
+    type: object
+    properties:
+      scanId:
+        format: int32
+        description: The id of the scan that was started
+        type: integer
+  PutDastAutomatedGrpcScanSetupRequest:
+    required:
+    - fileId
+    - schemeType
+    - host
+    - servicePath
+    - assessmentTypeId
+    - entitlementId
+    - entitlementFrequencyType
+    - dynamicScanEnvironmentFacingType
+    - timeZone
+    type: object
+    properties:
+      fileId:
+        format: int32
+        description: gRPC file ID. Value is obtained by uploading proto file
+        type: integer
+      schemeType:
+        description: API scheme type (Http, Https, or HttpHttps)
+        type: string
+      host:
+        description: API host name or IP address with port number
+        type: string
+      servicePath:
+        description: Directory path for the API service
+        type: string
+      timeBoxInHours:
+        format: int32
+        description: Time limit in hours for Automated scan duration
+        type: integer
+      assessmentTypeId:
+        format: int32
+        description: Assessment type ID. Values are obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement ID. Values are obtained by calling GET /api/v3/tenant-entitlements
+        type: integer
+      entitlementFrequencyType:
+        description: Entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      timeZone:
+        description: Timezone. Values are obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site, otherwise false
+        type: boolean
+      networkAuthenticationSettings:
+        $ref: '#/definitions/NetworkAuthenticationSettings'
+        description: Network authentication settings
+      requestFalsePositiveRemoval:
+        description: True if requesting one-time false positive removal, otherwise false
+        type: boolean
+      networkName:
+        type: string
+  Grpc:
+    type: object
+    properties:
+      fileId:
+        format: int32
+        description: gRPC file ID. Value is obtained by uploading proto file
+        type: integer
+      schemeType:
+        description: API scheme type (Http, Https, or HttpHttps)
+        type: string
+      host:
+        description: API host name or IP address with port number
+        type: string
+      servicePath:
+        description: Directory path for the API service
+        type: string
+  Postman:
+    type: object
+    properties:
+      collectionFileIds:
+        description: Postman collection file ID. Value is obtained by uploading Postman collection
+        type: array
+        items:
+          format: int32
+          type: integer
+  OpenApi:
+    type: object
+    properties:
+      sourceType:
+        description: Specifies whether source is file ID or URL
+        enum:
+        - FileId
+        - Url
+        type: string
+      sourceUrn:
+        description: File ID or URL
+        type: string
+      apiKey:
+        description: API key
+        type: string
+  PutDastAutomatedWebsiteScanSetupRequest:
+    required:
+    - dynamicSiteUrl
+    - policy
+    - assessmentTypeId
+    - entitlementId
+    - entitlementFrequencyType
+    - dynamicScanEnvironmentFacingType
+    - timeZone
+    type: object
+    properties:
+      dynamicSiteUrl:
+        description: Dynamic site URL
+        type: string
+      enableRedundantPageDetection:
+        description: True to enable comparison of page structure to identify and exclude processing of redundant resources, otherwise false
+        type: boolean
+      loginMacroFileId:
+        format: int32
+        description: Login macro file ID. Value is obtained by uploading login macro
+        type: integer
+      requiresSiteAuthentication:
+        description: True if site authentication is required to scan the site, otherwise false
+        type: boolean
+      exclusionsList:
+        description: List of exclusions.
+        type: array
+        items:
+          $ref: '#/definitions/Exclusion'
+      restrictToDirectoryAndSubdirectories:
+        description: True to restrict to directory and subdirectories, otherwise false
+        type: boolean
+      policy:
+        description: Policy type to scan the site. Values are obtained by calling api/v3/lookup-items?type=DastAutomatedScanPolicies
+        enum:
+        - Standard
+        - CriticalsAndHighs
+        - PassiveScan
+        type: string
+      timeBoxInHours:
+        format: int32
+        description: Time limit in hours for Automated scan duration
+        type: integer
+      requestLoginMacroFileCreation:
+        description: True if requesting one-time creation of login macro file by testing team, otherwise false
+        type: boolean
+      loginMacroFileCreationDetails:
+        $ref: '#/definitions/LoginMacroFileCreationDetails'
+        description: Login macro file creation details
+      assessmentTypeId:
+        format: int32
+        description: Assessment type ID. Values are obtained by calling GET /api/v3/releases/{releaseId}/assessment-types
+        type: integer
+      entitlementId:
+        format: int32
+        description: Entitlement ID. Values are obtained by calling GET /api/v3/tenant-entitlements
+        type: integer
+      entitlementFrequencyType:
+        description: Entitlement frequency type
+        enum:
+        - SingleScan
+        - Subscription
+        type: string
+      dynamicScanEnvironmentFacingType:
+        description: Type of environment the server is running in
+        enum:
+        - Internal
+        - External
+        type: string
+      timeZone:
+        description: Timezone. Values are obtained by calling GET /api/v3/lookup-items?type=TimeZones
+        type: string
+      requiresNetworkAuthentication:
+        description: True if network connection is required to scan the site, otherwise false
+        type: boolean
+      networkAuthenticationSettings:
+        $ref: '#/definitions/NetworkAuthenticationSettings'
+        description: Network authentication settings
+      requestFalsePositiveRemoval:
+        description: True if requesting one-time false positive removal, otherwise false
+        type: boolean
+      networkName:
+        type: string
