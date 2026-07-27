@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/fortify-software-fod-openapi.json
+docs: https://www.microfocus.com/documentation/fortify-on-demand/
+notes: >-
+  Scopes extracted verbatim from the "Allowed Scopes:" clause in every operation
+  description of the Fortify on Demand v3 Swagger document, cross-referenced with
+  the FoD API access documentation. FoD uses OAuth 2.0 client-credentials; the
+  requested `scope` gates operation access. `api-tenant` is the broad tenant scope;
+  the view-*/manage-* pairs are read vs. read-write per domain.
+schemes:
+- name: OAuth2ClientCredentials
+  source: openapi/fortify-software-fod-openapi.json
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.ams.fortify.com/oauth/token
+scopes:
+- scope: api-tenant
+  description: Broad tenant-level API access scope.
+- scope: view-apps
+  description: Read access to applications and releases.
+- scope: manage-apps
+  description: Read-write access to applications and releases.
+- scope: view-issues
+  description: Read access to vulnerabilities / issues.
+- scope: manage-issues
+  description: Read-write access to vulnerabilities / issues (audit, suppress, comment).
+- scope: start-scans
+  description: Permission to start static, dynamic, mobile and open-source scans.
+- scope: view-reports
+  description: Read access to reports and data exports.
+- scope: manage-reports
+  description: Read-write access to create and manage reports and data exports.
+- scope: view-users
+  description: Read access to users and user groups.
+- scope: manage-users
+  description: Read-write access to users and user groups.
+- scope: manage-user
+  description: Manage an individual user account.
+- scope: view-tenant-data
+  description: Read access to tenant-level data (entitlements, summaries, heatmaps).
+- scope: manage-notifications
+  description: Read-write access to notifications.

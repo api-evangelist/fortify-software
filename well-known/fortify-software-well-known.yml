@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+notes: >-
+  Probed /.well-known/ discovery surface on the FoD API host and the OpenText
+  parent domain. The API host publishes none; the OpenText corporate domain
+  publishes an RFC 9116 security.txt (Fortify is an OpenText product), saved
+  verbatim as fortify-software-security.txt.
+hosts:
+- host: https://api.ams.fortify.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.opentext.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: fortify-software-security.txt

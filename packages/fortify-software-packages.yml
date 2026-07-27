@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/fortify
+notes: >-
+  First-party Fortify/OpenText client tooling published under the github.com/fortify
+  organization, plus one widely used community Python client. fcli is the flagship
+  cross-product CLI (see cli/fortify-software-cli.yml).
+packages:
+- language: java
+  registry: github
+  name: fcli
+  url: https://github.com/fortify/fcli
+  install: 'download release binary from https://github.com/fortify/fcli/releases'
+  official: true
+  description: Cross-product Fortify command-line utility (FoD, SSC, ScanCentral, SAST/DAST).
+- language: java
+  registry: github
+  name: ssc-restapi-client
+  url: https://github.com/fortify/ssc-restapi-client
+  install: 'build from source (Maven); Swagger-generated Java client'
+  official: true
+  description: Swagger-generated Java REST API client for Fortify Software Security Center.
+- language: java
+  registry: github
+  name: fortify-client-api
+  url: https://github.com/fortify/fortify-client-api
+  install: 'build from source (Maven)'
+  official: true
+  description: Shared Java libraries used by various Fortify tools (FoD + SSC clients).
+- language: javascript
+  registry: github
+  name: fortify-setup-js
+  url: https://github.com/fortify/fortify-setup-js
+  install: 'from source'
+  official: true
+  description: Fortify setup TypeScript library used by the Fortify GitHub Actions.
+- language: python
+  registry: pypi
+  name: fortifyapi
+  url: https://pypi.org/project/fortifyapi/
+  install: pip install fortifyapi
+  official: false
+  description: >-
+    Community-maintained Python client for Fortify Software Security Center
+    (github.com/fortifyadmin/fortifyapi) — not published by OpenText.

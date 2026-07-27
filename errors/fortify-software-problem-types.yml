@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/fortify-software-fod-openapi.json
+format: custom
+envelope:
+  schema: ErrorResponse
+  shape: '{ "errors": [ { "errorCode": <int>, "message": <string> } ] }'
+  notes: >-
+    Fortify on Demand returns a JSON error envelope with an `errors` array of
+    `{ errorCode, message }` objects (definitions ErrorResponse / Error). This is
+    not RFC 9457 problem+json. Errors are keyed by HTTP status; the derived list
+    below reflects the response codes declared across the 158 operations.
+problems:
+- status: 400
+  title: Bad Request
+  description: Request validation failed (malformed body, invalid parameter values).
+  occurrences: 89
+- status: 401
+  title: Unauthorized
+  description: Missing, expired or invalid bearer token / credentials.
+  occurrences: 158
+- status: 403
+  title: Forbidden
+  description: Authenticated but the token lacks the required scope for the operation.
+  occurrences: 86
+- status: 404
+  title: Not Found
+  description: The referenced application, release, scan, report or resource does not exist.
+  occurrences: 110
+- status: 422
+  title: Unprocessable Entity
+  description: Semantically invalid request (e.g. scan cannot start in current state).
+  occurrences: 43
+- status: 429
+  title: Too Many Requests
+  description: Rate limit exceeded for the tenant / token.
+  occurrences: 142
+- status: 500
+  title: Internal Server Error
+  description: Unexpected server-side error.
+  occurrences: 158

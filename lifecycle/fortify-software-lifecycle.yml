@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.microfocus.com/documentation/fortify-on-demand/
+versioning:
+  scheme: uri-path
+  current: v3
+  base_path: /api/v3
+  docs: https://api.ams.fortify.com/swagger/ui/index
+release_cadence:
+  notes: >-
+    OpenText Core Application Security / Fortify on Demand ships Cloud Edition
+    releases on a regular cadence (e.g. CE 25.x); on-prem Fortify Software follows
+    dated numbered releases (e.g. 24.2.0, 24.4.0, 25.2.0). Release notes are
+    published on the OpenText community.
+  release_notes: https://community.opentext.com/cybersec/fortify/w/tips
+status_page: https://status.fortify.com
+sla:
+  notes: SLA terms are governed by the OpenText Core Application Security service description.
+  service_description: https://www.opentext.com/products/fortify-on-demand
+deprecated_operations: []

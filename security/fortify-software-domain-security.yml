@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.opentext.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Feb  5 23:59:59 2027 GMT
+  hsts: null
+- host: api.ams.fortify.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Oct 26 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: opentext.com
+  dnssec: false
+  caa:
+  - 0 issue "sectigo.com"
+  - 0 issue "digicert.com"
+  - 0 issuewild "sectigo.com"
+  - 0 issuewild "digicert.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: fortify.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

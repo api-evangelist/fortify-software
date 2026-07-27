@@ -1,0 +1,29 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Fortify on Demand REST API (v3)
+  version: 1.0.0
+extends: openapi/fortify-software-fod-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: fortify-software
+    x-apievangelist-product: OpenText Core Application Security (Fortify on Demand)
+    x-apievangelist-auth: oauth2-client-credentials
+    x-apievangelist-token-url: https://api.ams.fortify.com/oauth/token
+    x-apievangelist-scopes: scopes/fortify-software-scopes.yml
+    x-apievangelist-error-envelope: 'ErrorResponse { errors: [ { errorCode, message } ] }'
+    x-apievangelist-pagination: offset-limit
+    x-apievangelist-categories:
+    - Application Security
+    - SAST
+    - DAST
+    - Vulnerability Management
+    - DevSecOps
+- target: $
+  update:
+    x-apievangelist-notes: >-
+      The published Swagger 2.0 document omits securityDefinitions even though every
+      operation documents "Allowed Scopes:" and the service uses OAuth 2.0
+      client-credentials against /oauth/token. This overlay records the real
+      authentication model captured in authentication/ and scopes/ without mutating
+      the harvested spec.

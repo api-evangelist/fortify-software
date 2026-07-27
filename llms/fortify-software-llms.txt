@@ -1,0 +1,37 @@
+# Fortify Software (OpenText Core Application Security)
+
+> Fortify is the application security (AppSec) platform now delivered as OpenText Core Application Security. Its flagship SaaS, Fortify on Demand (FoD), provides static (SAST), dynamic (DAST), mobile (MAST) and open-source/software-composition analysis as a service, and exposes a documented Fortify on Demand REST API (v3). Authentication is OAuth 2.0 client-credentials with tenant scopes, plus personal access tokens and API keys.
+
+## APIs
+
+- [Fortify on Demand REST API (v3)](https://api.ams.fortify.com/swagger/ui/index): 124 paths / 158 operations across 28 tags — applications, releases, static/dynamic/mobile/open-source scans, vulnerabilities, reports, users, tenants, API keys and personal access tokens.
+
+## Specs
+
+- [OpenAPI (Swagger 2.0)](openapi/fortify-software-fod-openapi.json)
+- [OpenAPI Overlay (AE enhancements)](overlays/fortify-software-fod-overlay.yaml)
+
+## Auth
+
+- [Authentication profile](authentication/fortify-software-authentication.yml): OAuth 2.0 client-credentials, token endpoint https://api.ams.fortify.com/oauth/token, plus PATs and tenant API keys.
+- [OAuth scopes](scopes/fortify-software-scopes.yml): api-tenant, view-apps/manage-apps, view-issues/manage-issues, start-scans, view-reports/manage-reports, view-users/manage-users, view-tenant-data, manage-notifications.
+
+## Conventions & errors
+
+- [API conventions](conventions/fortify-software-conventions.yml): offset/limit pagination, bearer auth, HTTP 429 rate limiting, custom error envelope.
+- [Error catalog](errors/fortify-software-problem-types.yml): ErrorResponse envelope `{ errors: [ { errorCode, message } ] }`.
+- [Data model](data-model/fortify-software-data-model.yml): Application → Release → Scan / Vulnerability.
+
+## Tooling
+
+- [Packages / SDKs](packages/fortify-software-packages.yml)
+- [fcli CLI](cli/fortify-software-cli.yml)
+- [GitHub organization](https://github.com/fortify)
+
+## Docs
+
+- [Product documentation](https://www.microfocus.com/documentation/fortify-on-demand/)
+- [Developer community & support](https://community.opentext.com/cybersec/fortify)
+- [Product page](https://www.opentext.com/products/fortify-on-demand)
+- [Status page](https://status.fortify.com)
+- [Security / vulnerability disclosure](https://www.opentext.com/about/security-acknowledgements)

@@ -1,8 +1,31 @@
 aid: fortify-software
 name: Fortify Software
-description: 'Fortify Software is a company surfaced as a portfolio company of kleiner-perkins and added
-  to the API Evangelist network as a stub for enrichment. Sector: security. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Fortify Software is the application security (AppSec) business now delivered as
+  OpenText Core Application Security, better known by its long-running Fortify brand.
+  Founded in 2003 in San Mateo, California, Fortify pioneered static application
+  security testing (SAST) and was acquired by HP in 2010, moved to Micro Focus in
+  2017, and to OpenText in 2023. Its flagship SaaS, Fortify on Demand (FoD),
+  provides SAST, DAST, mobile (MAST), and open-source/software-composition analysis
+  as a service, and exposes a documented Fortify on Demand REST API (v3) covering
+  applications, releases, scans, vulnerabilities, reports, users, tenants, and
+  personal access tokens. Authentication is OAuth 2.0 (client-credentials token
+  endpoint) with granular tenant scopes, plus personal access tokens and API keys.
+  A rich GitHub organization (github.com/fortify) ships first-party tooling
+  including the fcli command-line utility and Software Security Center REST clients.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.opentext.com/assets/images/opentext-logo-white.svg
 url: https://raw.githubusercontent.com/api-evangelist/fortify-software/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,13 +35,585 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Security
-apis: []
+- Application Security
+- AppSec
+- SAST
+- DAST
+- Vulnerability Management
+- DevSecOps
+- Software Composition Analysis
+- API Security
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: fortify-software:fortify-software-apikeymanagement-api
+  name: Fortify Software ApiKeyManagement API
+  description: The ApiKeyManagement API from Fortify Software — 5 operation(s) for apikeymanagement.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - ApiKeyManagement
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-apikeymanagement-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-applications-api
+  name: Fortify Software Applications API
+  description: The Applications API from Fortify Software — 15 operation(s) for applications.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-applications-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-attributes-api
+  name: Fortify Software Attributes API
+  description: The Attributes API from Fortify Software — 2 operation(s) for attributes.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Attributes
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-attributes-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-audittemplate-api
+  name: Fortify Software AuditTemplate API
+  description: The AuditTemplate API from Fortify Software — 1 operation(s) for audittemplate.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - AuditTemplate
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-audittemplate-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-dastautomatedscans-api
+  name: Fortify Software DastAutomatedScans API
+  description: >-
+    The DastAutomatedScans API from Fortify Software — 9 operation(s) for dastautomatedscans.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - DastAutomatedScans
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-dastautomatedscans-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-dynamicscans-api
+  name: Fortify Software DynamicScans API
+  description: The DynamicScans API from Fortify Software — 5 operation(s) for dynamicscans.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - DynamicScans
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-dynamicscans-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-eventlogs-api
+  name: Fortify Software EventLogs API
+  description: The EventLogs API from Fortify Software — 1 operation(s) for eventlogs.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - EventLogs
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-eventlogs-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-fortifyondemandconnectnetworks-api
+  name: Fortify Software FortifyOnDemandConnectNetworks API
+  description: >-
+    The FortifyOnDemandConnectNetworks API from Fortify Software — 1 operation(s) for fortifyondemandconnectnetworks.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - FortifyOnDemandConnectNetworks
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-fortifyondemandconnectnetworks-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-lookupitems-api
+  name: Fortify Software LookupItems API
+  description: The LookupItems API from Fortify Software — 1 operation(s) for lookupitems.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - LookupItems
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-lookupitems-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-mobilescans-api
+  name: Fortify Software MobileScans API
+  description: The MobileScans API from Fortify Software — 3 operation(s) for mobilescans.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - MobileScans
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-mobilescans-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-multifactorauthorizationcode-api
+  name: Fortify Software MultiFactorAuthorizationCode API
+  description: >-
+    The MultiFactorAuthorizationCode API from Fortify Software — 1 operation(s) for multifactorauthorizationcode.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - MultiFactorAuthorizationCode
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-multifactorauthorizationcode-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-notifications-api
+  name: Fortify Software Notifications API
+  description: The Notifications API from Fortify Software — 3 operation(s) for notifications.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-notifications-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-opensourcecomponents-api
+  name: Fortify Software OpenSourceComponents API
+  description: >-
+    The OpenSourceComponents API from Fortify Software — 2 operation(s) for opensourcecomponents.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - OpenSourceComponents
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-opensourcecomponents-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-opensourcescans-api
+  name: Fortify Software OpenSourceScans API
+  description: The OpenSourceScans API from Fortify Software — 1 operation(s) for opensourcescans.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - OpenSourceScans
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-opensourcescans-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-personalaccesstokens-api
+  name: Fortify Software PersonalAccessTokens API
+  description: >-
+    The PersonalAccessTokens API from Fortify Software — 3 operation(s) for personalaccesstokens.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - PersonalAccessTokens
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-personalaccesstokens-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-releases-api
+  name: Fortify Software Releases API
+  description: The Releases API from Fortify Software — 15 operation(s) for releases.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Releases
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-releases-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-reports-api
+  name: Fortify Software Reports API
+  description: The Reports API from Fortify Software — 7 operation(s) for reports.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-scans-api
+  name: Fortify Software Scans API
+  description: The Scans API from Fortify Software — 8 operation(s) for scans.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Scans
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-scans-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-staticscans-api
+  name: Fortify Software StaticScans API
+  description: The StaticScans API from Fortify Software — 6 operation(s) for staticscans.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - StaticScans
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-staticscans-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-tenantentitlements-api
+  name: Fortify Software TenantEntitlements API
+  description: >-
+    The TenantEntitlements API from Fortify Software — 2 operation(s) for tenantentitlements.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - TenantEntitlements
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-tenantentitlements-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-tenantheatmaps-api
+  name: Fortify Software TenantHeatMaps API
+  description: The TenantHeatMaps API from Fortify Software — 1 operation(s) for tenantheatmaps.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - TenantHeatMaps
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-tenantheatmaps-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-tenants-api
+  name: Fortify Software Tenants API
+  description: The Tenants API from Fortify Software — 2 operation(s) for tenants.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Tenants
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-tenants-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-tenantsummary-api
+  name: Fortify Software TenantSummary API
+  description: The TenantSummary API from Fortify Software — 1 operation(s) for tenantsummary.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - TenantSummary
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-tenantsummary-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-userapplicationaccess-api
+  name: Fortify Software UserApplicationAccess API
+  description: >-
+    The UserApplicationAccess API from Fortify Software — 2 operation(s) for userapplicationaccess.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - UserApplicationAccess
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-userapplicationaccess-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-usergroupapplicationaccess-api
+  name: Fortify Software UserGroupApplicationAccess API
+  description: >-
+    The UserGroupApplicationAccess API from Fortify Software — 2 operation(s) for usergroupapplicationaccess.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - UserGroupApplicationAccess
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-usergroupapplicationaccess-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-usermanagement-api
+  name: Fortify Software UserManagement API
+  description: The UserManagement API from Fortify Software — 3 operation(s) for usermanagement.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - UserManagement
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-usermanagement-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-users-api
+  name: Fortify Software Users API
+  description: The Users API from Fortify Software — 2 operation(s) for users.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-users-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+- aid: fortify-software:fortify-software-vulnerabilities-api
+  name: Fortify Software Vulnerabilities API
+  description: The Vulnerabilities API from Fortify Software — 20 operation(s) for vulnerabilities.
+  humanURL: https://api.ams.fortify.com/swagger/ui/index
+  baseURL: https://api.ams.fortify.com
+  tags:
+  - Vulnerabilities
+  properties:
+  - type: OpenAPI
+    url: openapi/fortify-software-vulnerabilities-api-openapi.yml
+  - type: Authentication
+    url: authentication/fortify-software-authentication.yml
+  - type: OAuthScopes
+    url: scopes/fortify-software-scopes.yml
+  - type: ErrorCatalog
+    url: errors/fortify-software-problem-types.yml
+  - type: DataModel
+    url: data-model/fortify-software-data-model.yml
+common:
+- type: DeveloperPortal
+  url: https://api.ams.fortify.com/swagger/ui/index
+- type: Documentation
+  url: https://www.microfocus.com/documentation/fortify-on-demand/
+- type: APIReference
+  url: https://api.ams.fortify.com/swagger/ui/index
+- type: Website
+  url: https://www.opentext.com/products/fortify-on-demand
+- type: GitHubOrganization
+  url: https://github.com/fortify
+- type: Support
+  url: https://community.opentext.com/cybersec/fortify
+- type: Blog
+  url: https://blogs.opentext.com/category/technologies/cybersecurity/
+- type: MCPServer
+  url: mcp/fortify-software-mcp.yml
+- type: Packages
+  url: packages/fortify-software-packages.yml
+- type: SDKs
+  url: packages/fortify-software-packages.yml
+- type: CLI
+  url: cli/fortify-software-cli.yml
+- type: WellKnown
+  url: well-known/fortify-software-well-known.yml
+- type: SecurityTxt
+  url: well-known/fortify-software-well-known.yml
+- type: LLMsTxt
+  url: llms/fortify-software-llms.txt
+- type: Conformance
+  url: conformance/fortify-software-conformance.yml
+- type: Lifecycle
+  url: lifecycle/fortify-software-lifecycle.yml
+- type: StatusPage
+  url: https://status.fortify.com
+- type: DomainSecurity
+  url: security/fortify-software-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/fortify-software-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.opentext.com/about/security-acknowledgements
+- type: Conventions
+  url: conventions/fortify-software-conventions.yml
+- type: ChangeLog
+  url: changelog/fortify-software-changelog.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

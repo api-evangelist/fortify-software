@@ -1,0 +1,83 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/fortify-software-fod-openapi.json
+notes: >-
+  Entity-relationship graph derived from Fortify on Demand v3 Swagger definitions
+  and path structure (/applications/{applicationId}/releases/{releaseId}/... nesting
+  and id-reference fields such as applicationId, releaseId, scanId).
+entities:
+- name: Application
+  schema: Application
+  id: applicationId
+- name: Release
+  schema: Release
+  id: releaseId
+- name: Scan
+  schema: Scan
+  id: scanId
+- name: Vulnerability
+  schema: Vulnerability
+  id: vulnId
+- name: Report
+  schema: ReportDTO
+  id: reportId
+- name: User
+  schema: User
+  id: userId
+- name: UserGroup
+  schema: UserGroup
+  id: userGroupId
+- name: ApiKey
+  schema: ApiKey
+  id: apiKeyId
+- name: PersonalAccessToken
+  schema: PersonalAccessToken
+  id: id
+- name: Tenant
+  schema: Tenant
+  id: tenantId
+relationships:
+- from: Application
+  type: has_many
+  to: Release
+  via: applicationId
+- from: Release
+  type: belongs_to
+  to: Application
+  via: applicationId
+- from: Release
+  type: has_many
+  to: Scan
+  via: releaseId
+- from: Release
+  type: has_many
+  to: Vulnerability
+  via: releaseId
+- from: Scan
+  type: belongs_to
+  to: Release
+  via: releaseId
+- from: Vulnerability
+  type: belongs_to
+  to: Release
+  via: releaseId
+- from: Application
+  type: has_many
+  to: User
+  via: applicationId
+- from: Application
+  type: has_many
+  to: UserGroup
+  via: applicationId
+- from: Report
+  type: belongs_to
+  to: Release
+  via: releaseId
+- from: User
+  type: has_many
+  to: PersonalAccessToken
+  via: userId
+- from: Tenant
+  type: has_many
+  to: ApiKey
+  via: tenantId

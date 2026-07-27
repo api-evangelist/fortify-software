@@ -1,0 +1,49 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/fortify-software-fod-openapi.json
+docs: https://www.microfocus.com/documentation/fortify-on-demand/
+summary: >-
+  Cross-cutting request/response semantics for the Fortify on Demand v3 REST API,
+  derived from the Swagger document and the FoD API documentation.
+authentication:
+  style: oauth2-client-credentials + bearer
+  token_url: https://api.ams.fortify.com/oauth/token
+  header: 'Authorization: Bearer <access_token>'
+  scopes: scopes/fortify-software-scopes.yml
+  ref: authentication/fortify-software-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    FoD does not document an idempotency-key header. Write operations are not
+    declared idempotent beyond the natural idempotency of PUT/DELETE.
+pagination:
+  style: offset-limit
+  params:
+    offset: offset
+    limit: limit
+  additional: [orderBy, orderByDirection, filters, fields]
+  response_fields: [items, totalCount]
+  notes: >-
+    List endpoints accept `offset` and `limit` query parameters and return a
+    response wrapper with `items` and `totalCount`. Filtering via `filters` and
+    field selection via `fields`; sorting via `orderBy`.
+filtering:
+  params: [filters, excludeFilters, keywordSearch, fields]
+versioning:
+  style: uri-path
+  current: v3
+  base_path: /api/v3
+error_envelope:
+  ref: errors/fortify-software-problem-types.yml
+  shape: '{ "errors": [ { "errorCode": <int>, "message": <string> } ] }'
+rate_limiting:
+  signal: http-429
+  notes: >-
+    Rate limiting is enforced (HTTP 429 declared on 142 of 158 operations). FoD
+    does not document standard X-RateLimit-* headers in the Swagger surface.
+events:
+  webhooks: false
+  notes: >-
+    FoD exposes in-application notifications via a pull API (GET
+    /api/v3/notifications/unread, /read, POST /markasread); there is no documented
+    outbound webhook or AsyncAPI event surface.

@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/fortify/fcli
+name: fcli
+description: >-
+  fcli is the official Fortify command-line utility for interacting with Fortify
+  products from a single tool — Fortify on Demand (FoD), Software Security Center
+  (SSC), ScanCentral SAST/DAST, and the SAST/DAST cloud services. It is the
+  successor to the deprecated per-task GitHub Actions and standalone utilities.
+docs: https://fortify.github.io/fcli/
+repo: https://github.com/fortify/fcli
+install:
+- method: github-release
+  detail: Download the platform binary from https://github.com/fortify/fcli/releases
+- method: docker
+  detail: 'fortifydocker/fcli image (see github.com/fortify/fcli-docker)'
+- method: fcli-tool-install
+  detail: 'fcli tool * install (fcli can install other Fortify tools)'
+command_groups:
+- name: fod
+  description: Interact with Fortify on Demand — apps, releases, scans, vulnerabilities, reports.
+- name: ssc
+  description: Interact with Software Security Center — app versions, artifacts, issues.
+- name: sc-sast
+  description: Trigger and manage ScanCentral SAST scans.
+- name: sc-dast
+  description: Trigger and manage ScanCentral DAST scans.
+- name: tool
+  description: Install and manage other Fortify tools (ScanCentral client, etc.).
+- name: config
+  description: Manage fcli configuration, connections and session state.
+key_flows:
+- Authenticate a session against FoD or SSC (fcli fod session login / ssc session login).
+- Start a static/dynamic scan and poll for completion.
+- Export vulnerabilities (replaces the deprecated FortifyVulnerabilityExporter).
+- Convert/download FPR results and generate SARIF for CI/CD gating.

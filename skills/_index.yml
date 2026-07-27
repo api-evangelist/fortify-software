@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/fortify-software-fod-openapi.json
+skills:
+- file: fortify-software-run-sast-scan.md
+  name: Run a Fortify on Demand static (SAST) scan and retrieve findings
+  api: openapi/fortify-software-fod-openapi.json
+  operations: [StaticScansV3_StartScan, ReleasesV3_GetReleaseScanByScanId, VulnerabilitiesV3_GetVulnerabilities]
+- file: fortify-software-triage-vulnerabilities.md
+  name: Triage Fortify on Demand vulnerabilities for a release
+  api: openapi/fortify-software-fod-openapi.json
+  operations: [VulnerabilitiesV3_GetVulnerabilities, VulnerabilitiesV3_GetVulnerabilityDetails, VulnerabilitiesV3_GetVulnerabilityRecommendations]

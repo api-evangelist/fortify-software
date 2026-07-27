@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+# RFC9116
+# Serial: 20240315
+
+# OpenText Secure Vulnerability Disclosure
+Acknowledgments: https://www.opentext.com/about/security-acknowledgements
+Policy: https://www.opentext.com/about/security-acknowledgements
+Hiring: https://careers.opentext.com/
+
+# How to contact us
+Contact: https://www.opentext.com/about/security-acknowledgements
+Contact: mailto:security@opentext.com
+Preferred-Languages: en, fr
+
+# Our security key
+Encryption: https://www.opentext.com/.well-known/opentext-security-pgp-key.txt
+Encryption: openpgp4fpr:b53ee2db540c6084a43192cbdc5c4b7228cbdd8c
+
+Expires: 2029-01-15T01:02:42z
+
+# Some OpenText domains from Alexa top 1M
+Canonical: https://www.opentext.com/.well-known/security.txt
+Canonical: https://www.opentext.eu/.well-known/security.txt
+Canonical: https://www.carbonite.com/.well-known/security.txt
+Canonical: https://www.brightcloud.com/.well-known/security.txt
+Canonical: https://www.webroot.com/.well-known/security.txt
+Canonical: https://www.hightail.com/.well-known/security.txt
+Canonical: https://www.cloudally.com/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEtT7i21QMYISkMZLL3FxLcijL3YwFAmX0nccACgkQ3FxLcijL
+3Yw7Ggf/ZY/mVhAY+8x1fPwqPyd/RkrNcUoBpMxd/8mLrdIiomjLxAKEag51hH5B
+mbGjU/V9YshFjC/tUm/LITFyqyUxHNhhxfVBezX1b60mD6e8oP2JceBOi1VVmAMQ
+qEIhzgzoNps8Vzflc67mJgllpHwKnvPNj0ekwkf5VCXawWYuIOQ8yR7zndJyGGPb
+w3LqJpMjL5ns+mm4En54wKSwWH0IsWExst3GcuVBN180Xo+nLANe/T9uHgmYXZpm
+XE5hHeUE7qr3IT9vxO6La0Ff5pLVjT5f40A21JQ3vk4cOOeF+r6wuTHq+vcFrU0S
+nU6Gf2v/1dE0kOzxesd3jniOlhv7+g==
+=vGeg
+-----END PGP SIGNATURE-----

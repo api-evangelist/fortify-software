@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: searched
+source: https://community.opentext.com/cybersec/fortify/w/tips
+notes: >-
+  Fortify on Demand ships as a Cloud Edition (CE) with regular releases; on-prem
+  Fortify Software follows dated numbered releases (year.quarter.patch). Release
+  notes and "What's New" posts are published on the OpenText Core Application
+  Security community. Only versions observed in published release-notes titles are
+  listed below; consult the live release-notes index for exact dates and details.
+scheme: calver-ish (YY.Q.patch) for on-prem; Cloud Edition (CE YY.N) for FoD SaaS
+current: 'FoD Cloud Edition CE 25.3'
+release_notes_index: https://community.opentext.com/cybersec/fortify/w/tips
+entries:
+- version: 'FoD CE 25.3'
+  channel: cloud
+  highlights: OpenText Core Application Security (Fortify on Demand) Cloud Edition release.
+- version: '25.2.0'
+  channel: on-prem
+  highlights: >-
+    OpenText Static Application Security Testing (Fortify Static Code Analyzer)
+    25.2.0 and Software Security Center 25.2.x.
+- version: '24.4.0'
+  channel: on-prem
+  highlights: Fortify Software 24.4.0 release.
+- version: '24.2.0'
+  channel: on-prem
+  highlights: Fortify Software 24.2.0 release.
