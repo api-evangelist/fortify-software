@@ -566,6 +566,8 @@ apis:
   - type: DataModel
     url: data-model/fortify-software-data-model.yml
 common:
+- type: Overlay
+  url: overlays/fortify-software-fod-overlay.yaml
 - type: DeveloperPortal
   url: https://api.ams.fortify.com/swagger/ui/index
 - type: Documentation
