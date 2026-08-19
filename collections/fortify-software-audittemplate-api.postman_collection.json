@@ -1,0 +1,899 @@
+{
+  "item": [
+    {
+      "id": "8b15024c-c05b-4a52-a0d8-f09f3d820ea5",
+      "name": "AuditTemplate",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b14b6a1e-95b1-4094-aa88-754171e1a11b",
+          "name": "Returns a list of global audit templates",
+          "request": {
+            "name": "Returns a list of global audit templates",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, manage-issues",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "audittemplate",
+                "globalaudittemplates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scanType",
+                  "value": "<string>",
+                  "description": "The scan type<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3933fbc3-0e0e-4ed1-abe7-980e77da14a9",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scanType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"applicationId\": 7694,\n      \"scanType\": \"string\",\n      \"scanTypeId\": 7982,\n      \"conditions\": [\n        {\n          \"field\": \"string\",\n          \"conditionType\": \"string\",\n          \"fieldValue\": \"string\",\n          \"operationType\": \"string\"\n        },\n        {\n          \"field\": \"string\",\n          \"conditionType\": \"string\",\n          \"fieldValue\": \"string\",\n          \"operationType\": \"string\"\n        }\n      ],\n      \"action\": {\n        \"actionType\": \"string\",\n        \"severity\": \"string\",\n        \"severityId\": 5611,\n        \"suppressedStatus\": \"string\"\n      }\n    },\n    {\n      \"applicationId\": 1520,\n      \"scanType\": \"string\",\n      \"scanTypeId\": 2994,\n      \"conditions\": [\n        {\n          \"field\": \"string\",\n          \"conditionType\": \"string\",\n          \"fieldValue\": \"string\",\n          \"operationType\": \"string\"\n        },\n        {\n          \"field\": \"string\",\n          \"conditionType\": \"string\",\n          \"fieldValue\": \"string\",\n          \"operationType\": \"string\"\n        }\n      ],\n      \"action\": {\n        \"actionType\": \"string\",\n        \"severity\": \"string\",\n        \"severityId\": 8367,\n        \"suppressedStatus\": \"string\"\n      }\n    }\n  ],\n  \"totalCount\": 5888,\n  \"offset\": 2500,\n  \"limit\": 3572\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50dda8ef-05fd-4633-83ea-4c3128eff38c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scanType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c9cc32f-c03c-41cc-8487-4075e698cd7b",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scanType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1cbf0284-1c3e-4d30-862a-6ed89e55cbb1",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scanType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ddbe6898-43ac-4ebc-831a-460163b05722",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scanType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d720493-b87e-4b1a-a0d5-6f154549840e",
+          "name": "Creates/Update Global Audit templates",
+          "request": {
+            "name": "Creates/Update Global Audit templates",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, manage-issues",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "audittemplate",
+                "globalaudittemplates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "scanType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "action",
+                  "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanTypeId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "conditions",
+                  "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "action",
+                  "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanTypeId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "conditions",
+                  "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "20597442-eb30-40fa-8ab2-fc7a7c7d24aa",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applicationId\": 1983,\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dfb513f3-3afe-4fe6-aec4-fce02f157ce0",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"applicationId\": 7977,\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b1a01a7-7f25-48b4-86d1-40eef6b78832",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f29c9efc-c21a-4d56-84b1-3dfef43ceff1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b148a433-1469-4660-8d39-784cbdbfb40f",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d11385f-f135-4dec-aa16-962ab8e8b1bb",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9586eb0c-f44d-443b-acbf-63e84a735360",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "audittemplate",
+                    "globalaudittemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "action",
+                      "value": "{\"actionType\":\"<string>\",\"severity\":\"<string>\",\"severityId\":\"<integer>\",\"suppressedStatus\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "scanTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "conditions",
+                      "value": "[{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"},{\"conditionType\":\"<string>\",\"field\":\"<string>\",\"fieldValue\":\"<string>\",\"operationType\":\"<string>\"}]"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ams.fortify.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c68a1d40-4f81-453e-b7f6-3be72ade5bee",
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement AuditTemplate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

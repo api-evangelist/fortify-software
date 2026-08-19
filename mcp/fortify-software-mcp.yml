@@ -2,11 +2,9 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/fortify-software-fod-openapi.json
-notes: >-
-  No official hosted MCP server was found for Fortify on Demand as of this pass.
-  This is a CANDIDATE tool list derived from a representative subset of the FoD v3
-  operations (one tool per operationId) to seed an MCP server. Auth is OAuth 2.0
-  client-credentials with tenant scopes.
+notes: No official hosted MCP server was found for Fortify on Demand as of this pass. This is a CANDIDATE
+  tool list derived from a representative subset of the FoD v3 operations (one tool per operationId) to
+  seed an MCP server. Auth is OAuth 2.0 client-credentials with tenant scopes.
 server:
   name: fortify-on-demand
   transport: http
@@ -44,3 +42,9 @@ tools:
 - name: create_report
   description: Create a new report.
   source_operation: openapi/fortify-software-fod-openapi.json#ReportsV3_PostReport
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census

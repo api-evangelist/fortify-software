@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement LookupItems API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LookupItems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of lookup items for the given type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/lookup-items",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of lookup items to return"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data\r\n            \r\nFor LanguageLevels, the group field indicates the TechnologyTypeId."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

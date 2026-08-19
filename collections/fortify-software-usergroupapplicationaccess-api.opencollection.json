@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement UserGroupApplicationAccess API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserGroupApplicationAccess",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of applications a user group has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/user-group-application-access/:userGroupId",
+            "params": [
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path",
+                "description": "The user group id can be obtained by calling GET/api/v3/user-management/user-groups"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-users"
+        },
+        {
+          "info": {
+            "name": "Create user group access for the given user group and application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/user-group-application-access/:userGroupId",
+            "params": [
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path",
+                "description": "The user group id can be obtained by calling GET/api/v3/user-management/user-groups"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-users"
+        },
+        {
+          "info": {
+            "name": "Delete user group access for the given user group and application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v3/user-group-application-access/:userGroupId/:applicationId",
+            "params": [
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path",
+                "description": "The user group id can be obtained by calling GET/api/v3/user-management/user-groups"
+              },
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-users"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

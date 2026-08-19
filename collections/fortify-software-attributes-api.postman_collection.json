@@ -1,0 +1,2211 @@
+{
+  "item": [
+    {
+      "id": "7da86db3-6aef-47d7-aa3b-2276f45ca564",
+      "name": "Attributes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47587cb3-1769-46ce-a8b3-c7ad048d7747",
+          "name": "Retrieve a list of attributes",
+          "request": {
+            "name": "Retrieve a list of attributes",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-tenant-data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>",
+                  "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: picklistValues"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "607b3a9b-0bb8-4651-98eb-401d19ba7c9e",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": 5274,\n      \"name\": \"string\",\n      \"attributeTypeId\": 4745,\n      \"attributeType\": \"string\",\n      \"attributeDataTypeId\": 6467,\n      \"attributeDataType\": \"string\",\n      \"isRequired\": false,\n      \"isRestricted\": true,\n      \"defaultValue\": \"string\",\n      \"picklistValues\": [\n        {\n          \"id\": 5534,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1333,\n          \"name\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 1866,\n      \"name\": \"string\",\n      \"attributeTypeId\": 8935,\n      \"attributeType\": \"string\",\n      \"attributeDataTypeId\": 502,\n      \"attributeDataType\": \"string\",\n      \"isRequired\": false,\n      \"isRestricted\": false,\n      \"defaultValue\": \"string\",\n      \"picklistValues\": [\n        {\n          \"id\": 3543,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 7924,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"totalCount\": 9047,\n  \"offset\": 1087,\n  \"limit\": 2416\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60659b71-7061-4874-8b99-21949f76979d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3358fe02-e517-4bbb-9116-35a67a6bb516",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd0926d3-fb79-4312-bf4f-a34df3fe6683",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cea85a9e-fe18-4f4e-b1a5-f08058afbe43",
+          "name": "Create a new attribute",
+          "request": {
+            "name": "Create a new attribute",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, manage-apps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Attribute name"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributeType",
+                  "value": "<string>",
+                  "description": "(Required) Attribute type"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributeDataType",
+                  "value": "<string>",
+                  "description": "(Required) Attribute data name"
+                },
+                {
+                  "disabled": false,
+                  "key": "isRequired",
+                  "value": "<boolean>",
+                  "description": "Is attribute required"
+                },
+                {
+                  "disabled": false,
+                  "key": "isRestricted",
+                  "value": "<boolean>",
+                  "description": "Is attribute editable only by SecLeads"
+                },
+                {
+                  "disabled": false,
+                  "key": "defaultValue",
+                  "value": "<string>",
+                  "description": "Default value for the attribute. Required when both isRequired and isRestricted are true."
+                },
+                {
+                  "disabled": false,
+                  "key": "picklistValues",
+                  "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}",
+                  "description": "Picklist Values"
+                },
+                {
+                  "disabled": false,
+                  "key": "picklistValues",
+                  "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}",
+                  "description": "Picklist Values"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9d4df6f5-3b84-45dc-960f-c398e92353d7",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute type",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute data name",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeDataType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributeId\": 6728,\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e660ff01-39e2-467b-916d-b6241f327617",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute type",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute data name",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeDataType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 3007,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 6628,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5460dd7-0011-4c16-a7ba-2848cc6fea4d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute type",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute data name",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeDataType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "825867aa-2551-4919-9c60-76a6bc15eddf",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute type",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute data name",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeDataType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 7726,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 729,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8580cf34-fefc-4a18-a3de-2bc618101f30",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute type",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute data name",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeDataType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0503cbde-b429-44e7-bb26-2d25da851861",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute type",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Attribute data name",
+                        "type": "text/plain"
+                      },
+                      "key": "attributeDataType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "{\"Name\":\"<string>\",\"SortOrder\":\"<integer>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6e53892-8056-4ad6-87bf-d27b5b803ca8",
+          "name": "Update an attribute",
+          "request": {
+            "name": "Update an attribute",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, manage-apps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "attributes",
+                ":attributeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "attributeId",
+                  "description": "(Required) The attribute id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "isRequired",
+                  "value": "<boolean>",
+                  "description": "Is attribute required"
+                },
+                {
+                  "disabled": false,
+                  "key": "isRestricted",
+                  "value": "<boolean>",
+                  "description": "Is attribute editable only by SecLeads"
+                },
+                {
+                  "disabled": false,
+                  "key": "defaultValue",
+                  "value": "<string>",
+                  "description": "Default value for the attribute. Required when both isRequired and isRestricted are true."
+                },
+                {
+                  "disabled": false,
+                  "key": "overwriteExistingValues",
+                  "value": "<boolean>",
+                  "description": "Overwrite existing picklist values"
+                },
+                {
+                  "disabled": false,
+                  "key": "picklistValues",
+                  "value": "<string>",
+                  "description": "Picklist Values"
+                },
+                {
+                  "disabled": false,
+                  "key": "picklistValues",
+                  "value": "<string>",
+                  "description": "Picklist Values"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b17b8a6a-da07-4d4d-ad55-c5324f78159d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73b39967-7993-473b-a254-bf459ef76f14",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "902f69a9-98aa-4cbe-bee1-1291eff3cae5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75106ec6-7a22-4442-a8e7-ac3259268f4e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8ae3138-98ef-4873-bef5-67e511af3304",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "502288c6-663c-4047-82db-fe497535e9ca",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf2b62e1-85d9-4f20-9931-67177f89b9b4",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9db4b23d-52e3-4e85-8c0c-dc5ee3756f69",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute required",
+                        "type": "text/plain"
+                      },
+                      "key": "isRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Is attribute editable only by SecLeads",
+                        "type": "text/plain"
+                      },
+                      "key": "isRestricted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Default value for the attribute. Required when both isRequired and isRestricted are true.",
+                        "type": "text/plain"
+                      },
+                      "key": "defaultValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Overwrite existing picklist values",
+                        "type": "text/plain"
+                      },
+                      "key": "overwriteExistingValues",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Picklist Values",
+                        "type": "text/plain"
+                      },
+                      "key": "picklistValues",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4429451a-70cc-4712-8e12-3cc23241016e",
+          "name": "Deletes an attribute",
+          "request": {
+            "name": "Deletes an attribute",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, manage-apps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "attributes",
+                ":attributeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "attributeId",
+                  "description": "(Required) The attribute id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d623eac-1384-4803-85a5-3150ba1584e9",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01d14465-510d-4656-96ec-b50f6692ba2f",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af5cba08-189f-4275-a048-c1e59d8515b8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7290490-61fc-43a6-9ae1-0beb8752d9d6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e797d20d-dac9-47d6-afb6-3b6151f54425",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "494808c9-dd81-4dae-b9c8-151cd02ff70b",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9718799d-49c1-454e-9771-d15dd62ad626",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "attributes",
+                    ":attributeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "attributeId",
+                      "description": "(Required) The attribute id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ams.fortify.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6efd3444-d75f-42de-a11f-08728f633bf1",
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement Attributes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

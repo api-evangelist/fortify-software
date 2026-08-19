@@ -1,0 +1,480 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement StaticScans API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "StaticScans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start a static scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scans/start-scan",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "assessmentTypeId",
+                "value": "",
+                "type": "query",
+                "description": "The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types"
+              },
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              },
+              {
+                "name": "entitlementId",
+                "value": "",
+                "type": "query",
+                "description": "The entitlement id to consume"
+              },
+              {
+                "name": "entitlementFrequencyType",
+                "value": "",
+                "type": "query",
+                "description": "The entitlement frequency type"
+              },
+              {
+                "name": "technologyStack",
+                "value": "",
+                "type": "query",
+                "description": "The technology stack<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes"
+              },
+              {
+                "name": "languageLevel",
+                "value": "",
+                "type": "query",
+                "description": "The language level<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels"
+              },
+              {
+                "name": "isRemediationScan",
+                "value": "",
+                "type": "query",
+                "description": "Indicates of the scan is a remediation scan. Value defaults to false if not specified."
+              },
+              {
+                "name": "doSonatypeScan",
+                "value": "",
+                "type": "query",
+                "description": "Obsolete. Use doOpenSourceScan instead. This parameter may be removed in a future release. Value defaults to false if not specified."
+              },
+              {
+                "name": "excludeThirdPartyLibs",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if third party libraries should be excluded. Value defaults to false if not specified."
+              },
+              {
+                "name": "scanPreferenceType",
+                "value": "",
+                "type": "query",
+                "description": "This parameter is depcrecated."
+              },
+              {
+                "name": "auditPreferenceType",
+                "value": "",
+                "type": "query",
+                "description": "The audit preference type"
+              },
+              {
+                "name": "fallbackToActiveEntitlement",
+                "value": "",
+                "type": "query",
+                "description": "Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified."
+              },
+              {
+                "name": "isBundledAssessment",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if the assessment is a bundled assessment. If not supplied legacy behavior will apply. Value defaults to null if not specified."
+              },
+              {
+                "name": "parentAssessmentTypeId",
+                "value": "",
+                "type": "query",
+                "description": "The parent assessment type id for the bundled assessment. If not supplied legacy behavior will apply"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "The notes about the scan."
+              },
+              {
+                "name": "scanMethodType",
+                "value": "",
+                "type": "query",
+                "description": "The method of starting a scan"
+              },
+              {
+                "name": "scanTool",
+                "value": "",
+                "type": "query",
+                "description": "The tool used for scanning"
+              },
+              {
+                "name": "scanToolVersion",
+                "value": "",
+                "type": "query",
+                "description": "The version for the scan tool used for scanning"
+              },
+              {
+                "name": "doOpenSourceScan",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if an open source scan should be included. Value defaults to false if not specified."
+              },
+              {
+                "name": "doBinaryScan",
+                "value": "",
+                "type": "query",
+                "description": "Indicates that mixed mode scanning should be used. Value defaults to null if not specified."
+              },
+              {
+                "name": "includeFortifyAviator",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether SAST Aviator Addon Service is requested. Value defaults to null if not specified."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Start a static scan using the default settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scans/start-scan-with-defaults",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              },
+              {
+                "name": "isRemediationScan",
+                "value": "",
+                "type": "query",
+                "description": "Indicates of the scan is a remediation scan. Value defaults to false if not specified."
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "The notes about the scan."
+              },
+              {
+                "name": "scanMethodType",
+                "value": "",
+                "type": "query",
+                "description": "The method of starting a scan"
+              },
+              {
+                "name": "scanTool",
+                "value": "",
+                "type": "query",
+                "description": "The tool used for scanning"
+              },
+              {
+                "name": "scanToolVersion",
+                "value": "",
+                "type": "query",
+                "description": "The version for the scan tool used for scanning"
+              },
+              {
+                "name": "fallbackToActiveEntitlement",
+                "value": "",
+                "type": "query",
+                "description": "Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Start a static scan using advanced options",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scans/start-scan-advanced",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "entitlementPreferenceType",
+                "value": "",
+                "type": "query",
+                "description": "The entitlement preference type"
+              },
+              {
+                "name": "purchaseEntitlement",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if an entitlement should be purchased if one is not available. Value defaults to true if not specified."
+              },
+              {
+                "name": "remdiationScanPreferenceType",
+                "value": "",
+                "type": "query",
+                "description": "The remdiation scan preference type"
+              },
+              {
+                "name": "inProgressScanActionType",
+                "value": "",
+                "type": "query",
+                "description": "The action to take for in-progress scans for the given release"
+              },
+              {
+                "name": "scanMethodType",
+                "value": "",
+                "type": "query",
+                "description": "The method of starting a scan"
+              },
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              },
+              {
+                "name": "bsiToken",
+                "value": "",
+                "type": "query",
+                "description": "The build server integration token for the release"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "The notes about the scan."
+              },
+              {
+                "name": "scanTool",
+                "value": "",
+                "type": "query",
+                "description": "The tool used for scanning"
+              },
+              {
+                "name": "scanToolVersion",
+                "value": "",
+                "type": "query",
+                "description": "The version for the scan tool used for scanning"
+              },
+              {
+                "name": "entitlementId",
+                "value": "",
+                "type": "query",
+                "description": "The entitlement id to consume"
+              },
+              {
+                "name": "fallbackToActiveEntitlement",
+                "value": "",
+                "type": "query",
+                "description": "Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified."
+              },
+              {
+                "name": "includeFortifyAviator",
+                "value": "",
+                "type": "query",
+                "description": "Indicates whether SAST Aviator Addon Service is requested. Value defaults to null if not specified."
+              },
+              {
+                "name": "doOpenSourceScan",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if an open source scan should be included. Value defaults to false if not specified."
+              },
+              {
+                "name": "assessmentTypeId",
+                "value": "",
+                "type": "query",
+                "description": "The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types"
+              },
+              {
+                "name": "auditPreferenceType",
+                "value": "",
+                "type": "query",
+                "description": "The audit preference type"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves the contents to import scan file",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scans/import-scan",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release Id of the scan to import"
+              },
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              },
+              {
+                "name": "fileLength",
+                "value": "",
+                "type": "query",
+                "description": "The number of bytes of the file being imported"
+              },
+              {
+                "name": "importScanSessionId",
+                "value": "",
+                "type": "query",
+                "description": "The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Get static scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scans/scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves static scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scans/scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans."
+        },
+        {
+          "info": {
+            "name": "Imports a Static Analysis Resource Interchange Format (SARIF) file",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scans/import-sarif",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release Id of the scan to import"
+              },
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              },
+              {
+                "name": "fileLength",
+                "value": "",
+                "type": "query",
+                "description": "The number of bytes of the file being imported"
+              },
+              {
+                "name": "importScanSessionId",
+                "value": "",
+                "type": "query",
+                "description": "The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

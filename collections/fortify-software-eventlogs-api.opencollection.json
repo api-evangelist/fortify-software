@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement EventLogs API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EventLogs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Download the last 24 hours of event log data in csv format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/eventlogs/download"
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

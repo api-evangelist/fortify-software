@@ -1,0 +1,3148 @@
+{
+  "item": [
+    {
+      "id": "a974b4d2-ba73-49f1-bd75-17b0210c0175",
+      "name": "Scans",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "12e5facb-6e9a-4989-8a47-cb9de44a7a96",
+          "name": "Returns a list of scans",
+          "request": {
+            "name": "Returns a list of scans",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-apps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "scans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startedOnStartDate",
+                  "value": "<dateTime>",
+                  "description": "The started on start date."
+                },
+                {
+                  "disabled": false,
+                  "key": "startedOnEndDate",
+                  "value": "<dateTime>",
+                  "description": "The started on end date."
+                },
+                {
+                  "disabled": false,
+                  "key": "completedOnStartDate",
+                  "value": "<dateTime>",
+                  "description": "The completed on start date."
+                },
+                {
+                  "disabled": false,
+                  "key": "completedOnEndDate",
+                  "value": "<dateTime>",
+                  "description": "The completed on end date."
+                },
+                {
+                  "disabled": false,
+                  "key": "modifiedStartDate",
+                  "value": "<dateTime>",
+                  "description": "The modified on or after date."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "The field name to order the results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderByDirection",
+                  "value": "<string>",
+                  "description": "The direction to order the results by. ASC and DESC are valid values."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of the starting record. 0 indicates the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum records to return. The maximum value allowed is 50."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03bc56e1-2600-46e9-9b05-b3795b71f601",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "startedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modifiedStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"applicationId\": 9323,\n      \"applicationName\": \"string\",\n      \"releaseId\": 4702,\n      \"releaseName\": \"string\",\n      \"scanId\": 8439,\n      \"scanTypeId\": 2993,\n      \"scanType\": \"string\",\n      \"assessmentTypeId\": 1380,\n      \"assessmentTypeName\": \"string\",\n      \"analysisStatusTypeId\": 6708,\n      \"analysisStatusType\": \"string\",\n      \"startedDateTime\": \"1975-03-06T08:00:10.969Z\",\n      \"completedDateTime\": \"1978-11-16T01:14:01.898Z\",\n      \"totalIssues\": 3428,\n      \"issueCountCritical\": 6155,\n      \"issueCountHigh\": 1371,\n      \"issueCountMedium\": 8257,\n      \"issueCountLow\": 7572,\n      \"starRating\": 6983,\n      \"notes\": \"string\",\n      \"isFalsePositiveChallenge\": false,\n      \"isRemediationScan\": false,\n      \"entitlementId\": 8369,\n      \"entitlementUnitsConsumed\": 8606,\n      \"isSubscriptionEntitlement\": false,\n      \"pauseDetails\": [\n        {\n          \"pausedOn\": \"2016-01-20T16:58:36.011Z\",\n          \"reason\": \"string\",\n          \"notes\": \"string\"\n        },\n        {\n          \"pausedOn\": \"1998-09-11T09:13:54.166Z\",\n          \"reason\": \"string\",\n          \"notes\": \"string\"\n        }\n      ],\n      \"cancelReason\": \"string\",\n      \"analysisStatusReasonNotes\": \"string\",\n      \"scanMethodTypeId\": 8852,\n      \"scanMethodTypeName\": \"string\",\n      \"scanTool\": \"string\",\n      \"scanToolVersion\": \"string\",\n      \"attributes\": [\n        {\n          \"name\": \"string\",\n          \"id\": 3130,\n          \"value\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"id\": 9323,\n          \"value\": \"string\"\n        }\n      ]\n    },\n    {\n      \"applicationId\": 1040,\n      \"applicationName\": \"string\",\n      \"releaseId\": 2615,\n      \"releaseName\": \"string\",\n      \"scanId\": 1546,\n      \"scanTypeId\": 9002,\n      \"scanType\": \"string\",\n      \"assessmentTypeId\": 2747,\n      \"assessmentTypeName\": \"string\",\n      \"analysisStatusTypeId\": 2062,\n      \"analysisStatusType\": \"string\",\n      \"startedDateTime\": \"1955-02-12T02:23:17.306Z\",\n      \"completedDateTime\": \"1970-11-10T15:41:21.181Z\",\n      \"totalIssues\": 6989,\n      \"issueCountCritical\": 3915,\n      \"issueCountHigh\": 5437,\n      \"issueCountMedium\": 6331,\n      \"issueCountLow\": 1059,\n      \"starRating\": 5885,\n      \"notes\": \"string\",\n      \"isFalsePositiveChallenge\": false,\n      \"isRemediationScan\": false,\n      \"entitlementId\": 7470,\n      \"entitlementUnitsConsumed\": 8354,\n      \"isSubscriptionEntitlement\": true,\n      \"pauseDetails\": [\n        {\n          \"pausedOn\": \"2019-08-11T23:08:19.718Z\",\n          \"reason\": \"string\",\n          \"notes\": \"string\"\n        },\n        {\n          \"pausedOn\": \"1950-12-14T01:45:03.386Z\",\n          \"reason\": \"string\",\n          \"notes\": \"string\"\n        }\n      ],\n      \"cancelReason\": \"string\",\n      \"analysisStatusReasonNotes\": \"string\",\n      \"scanMethodTypeId\": 111,\n      \"scanMethodTypeName\": \"string\",\n      \"scanTool\": \"string\",\n      \"scanToolVersion\": \"string\",\n      \"attributes\": [\n        {\n          \"name\": \"string\",\n          \"id\": 3192,\n          \"value\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"id\": 8189,\n          \"value\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"totalCount\": 3201,\n  \"offset\": 9585,\n  \"limit\": 3432\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c47a788-646f-4004-b5c8-29e7869c91b5",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "startedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modifiedStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 3496,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 2406,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40ec83f2-841a-4d11-a3fd-5d902b85bb85",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "startedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modifiedStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "329c4130-9374-429b-ba5c-3c15d0766c68",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "startedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modifiedStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "35933ad9-ee45-47a8-87dc-f4af38b3dfc5",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "startedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modifiedStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea5cee27-77e1-4bee-890d-23fbef1bd3d1",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "startedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "completedOnEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "modifiedStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7df99c6f-1413-4e9b-89f6-ceb8568017aa",
+          "name": "Returns summary information for the requested scan id",
+          "request": {
+            "name": "Returns summary information for the requested scan id",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-apps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "scans",
+                ":scanId",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scanId",
+                  "description": "(Required) The scan id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbc2c9ed-c448-4c7b-b3d1-4c38fae4c446",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"startedByUserId\": 7453,\n  \"startedByUserName\": \"string\",\n  \"dynamicScanSummaryDetails\": {\n    \"dynamicSiteURL\": \"string\",\n    \"restrictToDirectoryAndSubdirectories\": false,\n    \"allowSameHostRedirects\": false,\n    \"allowFormSubmissions\": false,\n    \"timeZone\": \"string\",\n    \"dynamicScanEnvironmentFacingType\": \"Internal\",\n    \"hasAvailabilityRestrictions\": false,\n    \"requestCall\": true,\n    \"hasFormsAuthentication\": true,\n    \"requiresNetworkAuthentication\": true,\n    \"isWebService\": false,\n    \"webServiceType\": \"Grpc\",\n    \"userAgentType\": \"Mobile\",\n    \"notes\": \"string\",\n    \"concurrentRequestThreadsType\": \"Limited\",\n    \"elapsedTimeSpan\": \"string\",\n    \"policyName\": \"string\",\n    \"crawlSessions\": 1599,\n    \"failedRequests\": 9730,\n    \"logouts\": 139,\n    \"macroPlaybacks\": 9367,\n    \"scanType\": \"string\",\n    \"timeBoxInHours\": 3981\n  },\n  \"mobileScanSummaryDetails\": {\n    \"frameworkType\": \"iOS\",\n    \"auditPreferenceType\": \"Manual\",\n    \"platformType\": \"Both\",\n    \"identifier\": \"string\",\n    \"version\": \"string\",\n    \"userAccountsRequried\": true,\n    \"accessToWebServices\": true,\n    \"hasExclusions\": true,\n    \"hasAvailabilityRestrictions\": true\n  },\n  \"staticScanSummaryDetails\": {\n    \"technologyStack\": \"string\",\n    \"languageLevel\": \"string\",\n    \"doSonatypeScan\": false,\n    \"auditPreferenceType\": \"Automated\",\n    \"excludeThirdPartyLibs\": false,\n    \"buildDate\": \"2013-06-10T17:33:59.525Z\",\n    \"engineVersion\": \"string\",\n    \"rulePackVersion\": \"string\",\n    \"fileCount\": 5233,\n    \"totalLinesOfCode\": 2817,\n    \"payLoadSize\": \"string\",\n    \"staticVulnerabilityFilter\": \"string\",\n    \"includeFortifyAviator\": true,\n    \"fortifyAviatorError\": {\n      \"exitCode\": \"string\",\n      \"error\": \"string\"\n    }\n  },\n  \"applicationId\": 5236,\n  \"applicationName\": \"string\",\n  \"releaseId\": 5728,\n  \"releaseName\": \"string\",\n  \"scanId\": 4865,\n  \"scanTypeId\": 7761,\n  \"scanType\": \"string\",\n  \"assessmentTypeId\": 6496,\n  \"assessmentTypeName\": \"string\",\n  \"analysisStatusTypeId\": 8768,\n  \"analysisStatusType\": \"string\",\n  \"startedDateTime\": \"1967-07-15T18:43:04.895Z\",\n  \"completedDateTime\": \"2014-08-18T01:48:21.525Z\",\n  \"totalIssues\": 192,\n  \"issueCountCritical\": 2368,\n  \"issueCountHigh\": 7869,\n  \"issueCountMedium\": 9463,\n  \"issueCountLow\": 5928,\n  \"starRating\": 5422,\n  \"notes\": \"string\",\n  \"isFalsePositiveChallenge\": false,\n  \"isRemediationScan\": false,\n  \"entitlementId\": 4832,\n  \"entitlementUnitsConsumed\": 3042,\n  \"isSubscriptionEntitlement\": false,\n  \"pauseDetails\": [\n    {\n      \"pausedOn\": \"1952-07-09T23:34:22.343Z\",\n      \"reason\": \"string\",\n      \"notes\": \"string\"\n    },\n    {\n      \"pausedOn\": \"1994-10-29T17:24:30.311Z\",\n      \"reason\": \"string\",\n      \"notes\": \"string\"\n    }\n  ],\n  \"cancelReason\": \"string\",\n  \"analysisStatusReasonNotes\": \"string\",\n  \"scanMethodTypeId\": 9417,\n  \"scanMethodTypeName\": \"string\",\n  \"scanTool\": \"string\",\n  \"scanToolVersion\": \"string\",\n  \"attributes\": [\n    {\n      \"name\": \"string\",\n      \"id\": 361,\n      \"value\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": 3194,\n      \"value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6982a47e-d2fb-47a6-897b-cdf548586144",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f16f1e8f-b9b9-4520-a60f-b7ee3a80bafc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b72df0b1-1759-4228-b028-33f6460c5191",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a33bb68-27b2-4ad0-8a07-e7f615a9d64b",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb01b73e-dc48-4dd5-b0ed-fb81d597db6c",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38dc8c70-1e7c-44b0-ab8c-d0c7d51afb0c",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e96faab5-c889-41ad-9a35-b415be11cb28",
+          "name": "Download the scan manifest",
+          "request": {
+            "name": "Download the scan manifest",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-apps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "scans",
+                ":scanId",
+                "manifest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scanId",
+                  "description": "(Required) The scan id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3881b5ab-f0e3-4b2d-837c-4a5ed7ffe88a",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebc2d94f-3a75-480d-bf4a-1183310873f8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5964e549-2010-46e6-a49b-35e87b60f3a3",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28928b21-1c4f-4520-9e51-c13893ead5b3",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0cb6a13-98a0-4d0d-9a81-2a6891af5fc8",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57b9cace-3a9f-4b31-98ca-0b4f00913b33",
+          "name": "Get the site tree",
+          "request": {
+            "name": "Get the site tree",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-reports",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "scans",
+                ":scanId",
+                "site-tree"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "The field name to order the results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderByDirection",
+                  "value": "<string>",
+                  "description": "The direction to order the results by. ASC and DESC are valid values."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma separated list of fields to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset of the starting record. 0 indicates the first record."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum records to return. The maximum value allowed is 50."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scanId",
+                  "description": "(Required) The scan id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3fb9b43c-1553-4ab5-a4de-0c8ae20c1e64",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "site-tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"requestTime\": \"string\",\n      \"scheme\": \"string\",\n      \"host\": \"string\",\n      \"port\": \"string\",\n      \"method\": \"string\",\n      \"path\": \"string\",\n      \"statusCode\": \"string\",\n      \"responseTimeDelta\": \"string\",\n      \"spaDisplayName\": \"string\",\n      \"spaDisplaySelector\": \"string\"\n    },\n    {\n      \"requestTime\": \"string\",\n      \"scheme\": \"string\",\n      \"host\": \"string\",\n      \"port\": \"string\",\n      \"method\": \"string\",\n      \"path\": \"string\",\n      \"statusCode\": \"string\",\n      \"responseTimeDelta\": \"string\",\n      \"spaDisplayName\": \"string\",\n      \"spaDisplaySelector\": \"string\"\n    }\n  ],\n  \"totalCount\": 6332,\n  \"offset\": 8976,\n  \"limit\": 7028\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "479d3d20-8365-44bd-95fc-9f8ead752e52",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "site-tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d4097a79-ad84-4f70-871d-8ce06153ee92",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "site-tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "91c96cf3-f4d6-4d41-a9b0-b0ad8555f279",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "site-tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "831503f6-b077-4033-b813-d3177f9fec2d",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "site-tree"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderByDirection",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8c7126e-2cf7-4c64-a052-5f7d473e6bde",
+          "name": "Download the static scan source file",
+          "request": {
+            "name": "Download the static scan source file",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "scans",
+                ":scanId",
+                "static-source-file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scanId",
+                  "description": "(Required) The scan id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3159345b-81b7-4f76-bd34-eb2675220d49",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "static-source-file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3a4e1c6-1fdb-4afc-9838-4ba4a9e30bda",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "static-source-file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 4229,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7837,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98591a6a-ec3e-4f92-b3df-ce804dafde68",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "static-source-file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d4fb875-9f8b-4098-98ca-b7f293978122",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "static-source-file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 4229,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7837,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49d8156f-1777-4a98-b590-cef15d783445",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "static-source-file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fb11ac15-0792-4edf-b988-938b1f7637db",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "static-source-file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8052380-fb22-4ac4-a711-37881bd19659",
+          "name": "Download the FPR file for the given ScanId",
+          "request": {
+            "name": "Download the FPR file for the given ScanId",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-issues",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "scans",
+                ":scanId",
+                "fpr"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scanId",
+                  "description": "(Required) The scan id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "86c5fec2-45f4-41e3-b9ba-434d44e5b6a4",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0629b0fc-9184-4c57-9e05-cb9e0a03848a",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 4229,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7837,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea85d0a8-1022-4819-a869-e028a9ad1425",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 4229,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7837,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5336c3a7-b449-4d45-bb1a-350fbb181603",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5d3ce99-cf73-4777-b5bd-7c66f6196ad4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc6ade62-b344-4580-987b-e0b6b490f993",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eeaf5be6-e55c-4099-b4d8-0e75d11fab20",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dce05c9-e50d-45b5-9556-3b0baf07b674",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "fpr"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64445fd0-530d-4ec3-9933-3c2f896dbcf0",
+          "name": "Returns mobile validation status and results",
+          "request": {
+            "name": "Returns mobile validation status and results",
+            "description": {
+              "content": "<remarks>Allowed Scopes: api-tenant, view-apps</remarks>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "scans",
+                ":scanId",
+                "mobile-scans",
+                "payload-validation-results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scanId",
+                  "description": "(Required) The scan id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "208006e9-9db6-4300-b553-822f7a906b94",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "mobile-scans",
+                    "payload-validation-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"validationStatus\": \"string\",\n  \"Items\": [\n    {\n      \"result\": \"string\",\n      \"message\": \"string\"\n    },\n    {\n      \"result\": \"string\",\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ed79eae-2a28-470d-8f92-636a8e234567",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "mobile-scans",
+                    "payload-validation-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e350a9be-a83f-4047-a248-d8e151206f95",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "mobile-scans",
+                    "payload-validation-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ed3d1f1-8f4a-45ab-b11f-00d675ca0c99",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "mobile-scans",
+                    "payload-validation-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "72f87405-b955-48f4-808f-716808a03d5c",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "mobile-scans",
+                    "payload-validation-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2d9bf622-3fcd-4462-a202-8b7e770a5385",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "scans",
+                    ":scanId",
+                    "mobile-scans",
+                    "payload-validation-results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "719ab318-9962-4e6b-a141-182673735749",
+          "name": "Updates an existing scan",
+          "request": {
+            "name": "Updates an existing scan",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, manage-apps",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3scans",
+                ":scanId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "scanId",
+                  "description": "(Required) The scan id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}",
+                  "description": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}",
+                  "description": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04245d35-1278-410b-99e3-5cbaaf18f8d4",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d1a5f5d-83da-431e-bf9d-8629901df125",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d5f06c0-33af-440c-9af6-c295c17b0319",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d89479b-2b4f-4924-947c-ddde860477e1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "241992b9-8e71-49f3-b329-3b9abc3c27a1",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f881a7b6-be64-4ee9-b322-5fabf2c35cb6",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ece9997e-cabe-46b2-826d-7a818b421e07",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "935e5a34-c119-442f-8d61-fd560eafcbb4",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3scans",
+                    ":scanId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "scanId",
+                      "description": "(Required) The scan id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Scan attributes. This is an array of key/value objects. Example, [{\"Attribute 1\": \"value 1\"}, {\"Attribute 2\": \"value 2\"}, {\"Attribute 3\": \"value 3\"} ]",
+                        "type": "text/plain"
+                      },
+                      "key": "attributes",
+                      "value": "{\"id\":\"<integer>\",\"value\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ams.fortify.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "16c52c5d-fd88-46cc-90d9-c75f237daf80",
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement Scans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

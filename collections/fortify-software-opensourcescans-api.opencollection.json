@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement OpenSourceScans API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OpenSourceScans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start an open source scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/open-source-scans/start-scan",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

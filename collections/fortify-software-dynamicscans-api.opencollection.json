@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement DynamicScans API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DynamicScans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get dynamic scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dynamic-scans/scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves dynamic scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dynamic-scans/scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Uploads a web service manifest to the release",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dynamic-scans/scan-setup/manifest",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "webServiceFileType",
+                "value": "",
+                "type": "query",
+                "description": "The web service type"
+              },
+              {
+                "name": "postmanFileType",
+                "value": "",
+                "type": "query",
+                "description": "Select a file type (Workflow, Auth, Environment, or Globals). \r\nWorkflow file is required. Defaults to Workflow if not specified."
+              }
+            ]
+          },
+          "docs": "Uploads a web service manifest to the release"
+        },
+        {
+          "info": {
+            "name": "Starts a dynamic scan using the current scan setup settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dynamic-scans/start-scan",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release Id of the scan to start"
+              },
+              {
+                "name": "networkName",
+                "value": "",
+                "type": "query",
+                "description": "Network Name"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves the contents to import scan file",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dynamic-scans/import-scan",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release Id of the scan to import"
+              },
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              },
+              {
+                "name": "fileLength",
+                "value": "",
+                "type": "query",
+                "description": "The number of bytes of the file being imported"
+              },
+              {
+                "name": "importScanSessionId",
+                "value": "",
+                "type": "query",
+                "description": "The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Switches Dynamic Scan Setup to Dast Automated",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dynamic-scans/dynamic-to-dast",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Switches Dynamic Scan Setup to Dast Automated"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

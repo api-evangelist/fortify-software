@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement TenantSummary API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TenantSummary",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves a summary of the tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/tenant-summary",
+            "params": [
+              {
+                "name": "daysFrom",
+                "value": "",
+                "type": "query",
+                "description": "Days back to look"
+              },
+              {
+                "name": "sdlcStatus",
+                "value": "",
+                "type": "query",
+                "description": "The SDLC Status to retrieve information about"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

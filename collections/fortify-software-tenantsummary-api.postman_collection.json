@@ -1,0 +1,294 @@
+{
+  "item": [
+    {
+      "id": "e30b9dce-20de-40f9-9f31-1a9d00f83183",
+      "name": "TenantSummary",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02bb586b-3fc9-4486-8d13-1b1b3cfa6a3d",
+          "name": "Retrieves a summary of the tenant",
+          "request": {
+            "name": "Retrieves a summary of the tenant",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-tenant-data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "tenant-summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "daysFrom",
+                  "value": "<integer>",
+                  "description": "Days back to look"
+                },
+                {
+                  "disabled": false,
+                  "key": "sdlcStatus",
+                  "value": "<string>",
+                  "description": "The SDLC Status to retrieve information about"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8296e554-2d11-48f4-be65-1571aee66a93",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "daysFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sdlcStatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"totalReleaseCount\": 1928,\n      \"scannedApplicationCount\": 4345,\n      \"totalAnalysisCount\": 2168,\n      \"staticAnalysisCount\": 5534,\n      \"dynamicAnalysisCount\": 5647,\n      \"mobileAnalysisCount\": 1280,\n      \"staticAnalysisDVIdx\": 8670,\n      \"dynamicAnalysisDVIdx\": 4827,\n      \"mobileAnalysisDVIdx\": 5216,\n      \"criticalCount\": 1597,\n      \"highCount\": 8449,\n      \"mediumCount\": 9525,\n      \"lowCount\": 6808,\n      \"criticalUrl\": \"string\",\n      \"highUrl\": \"string\",\n      \"mediumUrl\": \"string\",\n      \"lowUrl\": \"string\",\n      \"unassessedCount\": 3967,\n      \"oneStarRatingCount\": 3035,\n      \"twoStarRatingCount\": 4248,\n      \"threeStarRatingCount\": 394,\n      \"fourStarRatingCount\": 2546,\n      \"fiveStarRatingCount\": 536,\n      \"oneStarRatingDVIdx\": 3673,\n      \"twoStarRatingDVIdx\": 9510,\n      \"threeStarRatingDVIdx\": 3081,\n      \"fourStarRatingDVIdx\": 5854,\n      \"fiveStarRatingDVIdx\": 3697\n    },\n    {\n      \"totalReleaseCount\": 1068,\n      \"scannedApplicationCount\": 6492,\n      \"totalAnalysisCount\": 3938,\n      \"staticAnalysisCount\": 3933,\n      \"dynamicAnalysisCount\": 997,\n      \"mobileAnalysisCount\": 7206,\n      \"staticAnalysisDVIdx\": 2707,\n      \"dynamicAnalysisDVIdx\": 4404,\n      \"mobileAnalysisDVIdx\": 193,\n      \"criticalCount\": 3005,\n      \"highCount\": 6519,\n      \"mediumCount\": 6708,\n      \"lowCount\": 1058,\n      \"criticalUrl\": \"string\",\n      \"highUrl\": \"string\",\n      \"mediumUrl\": \"string\",\n      \"lowUrl\": \"string\",\n      \"unassessedCount\": 5977,\n      \"oneStarRatingCount\": 5783,\n      \"twoStarRatingCount\": 7267,\n      \"threeStarRatingCount\": 4866,\n      \"fourStarRatingCount\": 7688,\n      \"fiveStarRatingCount\": 6102,\n      \"oneStarRatingDVIdx\": 8803,\n      \"twoStarRatingDVIdx\": 1681,\n      \"threeStarRatingDVIdx\": 3574,\n      \"fourStarRatingDVIdx\": 7514,\n      \"fiveStarRatingDVIdx\": 926\n    }\n  ],\n  \"totalCount\": 3832,\n  \"offset\": 785,\n  \"limit\": 2862\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30ae096c-84e7-4e80-96e1-2891742ac3cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "daysFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sdlcStatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c164d354-41a2-4e9d-980f-8141ee17b7c8",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "daysFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sdlcStatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1920,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 1229,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34e2fc60-9089-4761-b5ce-c0e456ccdf46",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "daysFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sdlcStatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f395aa7-872d-4704-b454-e9b15783db0f",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "daysFrom",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sdlcStatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ams.fortify.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6ad20568-6982-45b2-b906-457116c929ec",
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement TenantSummary API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

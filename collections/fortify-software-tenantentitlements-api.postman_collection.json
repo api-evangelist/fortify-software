@@ -1,0 +1,428 @@
+{
+  "item": [
+    {
+      "id": "bfdef2dd-b124-4eb1-b9f9-15473ee1d8fd",
+      "name": "TenantEntitlements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "127d1102-cfa6-489e-a15a-179e25572960",
+          "name": "Returns a list of active tenant entitlements",
+          "request": {
+            "name": "Returns a list of active tenant entitlements",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-tenant-data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "tenant-entitlements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02bd7a0d-e7c1-4442-8671-b1c203f9019b",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"subscriptionTypeId\": 8570,\n  \"subscriptionType\": \"string\",\n  \"tenantEntitlements\": [\n    {\n      \"entitlementId\": 4889,\n      \"entitlementType\": \"string\",\n      \"analysisType\": \"string\",\n      \"entitlementDescription\": \"string\",\n      \"unitsPurchased\": 5686,\n      \"unitsConsumed\": 3163,\n      \"developerCount\": 6275,\n      \"startDate\": \"2000-02-02T21:02:26.281Z\",\n      \"endDate\": \"2013-01-01T22:24:38.848Z\",\n      \"extendedProperties\": {\n        \"assessmentTypeId\": 4777,\n        \"frequencyTypeId\": 5275,\n        \"frequencyType\": \"string\",\n        \"subscriptionLength\": \"string\"\n      }\n    },\n    {\n      \"entitlementId\": 858,\n      \"entitlementType\": \"string\",\n      \"analysisType\": \"string\",\n      \"entitlementDescription\": \"string\",\n      \"unitsPurchased\": 3577,\n      \"unitsConsumed\": 7205,\n      \"developerCount\": 5516,\n      \"startDate\": \"2019-11-04T16:44:40.031Z\",\n      \"endDate\": \"2002-05-14T00:44:04.189Z\",\n      \"extendedProperties\": {\n        \"assessmentTypeId\": 1254,\n        \"frequencyTypeId\": 9961,\n        \"frequencyType\": \"string\",\n        \"subscriptionLength\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "857d91e3-871d-4052-874d-26ec55168600",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fdabc0e5-c818-48a3-9570-193e4c07693a",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ad56d68-fa43-4c03-aee5-fbdaf9d4d961",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c97a75f-311f-4518-b2d4-211bf021a663",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "236733d8-4a85-4a36-91d2-3a1640a6e268",
+          "name": "Returns a list of active open source entitlements for tenant",
+          "request": {
+            "name": "Returns a list of active open source entitlements for tenant",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, view-tenant-data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "tenant-open-source-entitlements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5c63571-ca37-4752-93f6-16a6af3d592d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-open-source-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"entitlementTypeId\": 4719,\n  \"tenant-Oss-Entitlements\": [\n    {\n      \"entitlementId\": 6480,\n      \"entitlementType\": \"string\",\n      \"analysisType\": \"string\",\n      \"entitlementDescription\": \"string\",\n      \"unitsPurchased\": 8746,\n      \"unitsConsumed\": 8084,\n      \"developerCount\": 4573,\n      \"startDate\": \"1990-01-15T15:21:20.094Z\",\n      \"endDate\": \"1972-04-04T19:01:14.830Z\",\n      \"extendedProperties\": {\n        \"assessmentTypeId\": 3493,\n        \"frequencyTypeId\": 1769,\n        \"frequencyType\": \"string\",\n        \"subscriptionLength\": \"string\"\n      }\n    },\n    {\n      \"entitlementId\": 3031,\n      \"entitlementType\": \"string\",\n      \"analysisType\": \"string\",\n      \"entitlementDescription\": \"string\",\n      \"unitsPurchased\": 8103,\n      \"unitsConsumed\": 1638,\n      \"developerCount\": 4365,\n      \"startDate\": \"1947-05-07T19:46:31.403Z\",\n      \"endDate\": \"2020-03-30T08:36:18.621Z\",\n      \"extendedProperties\": {\n        \"assessmentTypeId\": 2648,\n        \"frequencyTypeId\": 3269,\n        \"frequencyType\": \"string\",\n        \"subscriptionLength\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac928c40-2bab-4bfb-aa5c-04fdefe67a3d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-open-source-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4265b851-18d1-4add-9e8d-fd93408d583f",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-open-source-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "97d2d945-c2bb-47b7-aff2-9dacc6de9053",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-open-source-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46b781d4-6815-4a73-97d6-4c10fb181f8d",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "tenant-open-source-entitlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ams.fortify.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b0088367-e313-4ec9-b463-1b24f3c80ead",
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement TenantEntitlements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement UserApplicationAccess API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserApplicationAccess",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of applications a user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/user-application-access/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The user id can be obtained by calling GET /api/v3/users"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-users"
+        },
+        {
+          "info": {
+            "name": "Create user access for the given user and application(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/user-application-access/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The user id can be obtained by calling GET /api/v3/users"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-users"
+        },
+        {
+          "info": {
+            "name": "Delete user access for the given user and application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v3/user-application-access/:userId/:applicationId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The user id can be obtained by calling GET /api/v3/users"
+              },
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-users"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

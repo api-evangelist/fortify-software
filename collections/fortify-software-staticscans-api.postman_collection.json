@@ -1,0 +1,5504 @@
+{
+  "item": [
+    {
+      "id": "aa4a4335-55be-4549-b0ab-e307e872ffe7",
+      "name": "StaticScans",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05480c68-36a3-4ea6-9f66-784ebf8927a3",
+          "name": "Start a static scan",
+          "request": {
+            "name": "Start a static scan",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "static-scans",
+                "start-scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "assessmentTypeId",
+                  "value": "<integer>",
+                  "description": "(Required) The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types"
+                },
+                {
+                  "disabled": false,
+                  "key": "fragNo",
+                  "value": "<long>",
+                  "description": "(Required) -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>",
+                  "description": "(Required) The offset of the bytes sent. 0 indicates the first bytes"
+                },
+                {
+                  "disabled": false,
+                  "key": "entitlementId",
+                  "value": "<integer>",
+                  "description": "(Required) The entitlement id to consume"
+                },
+                {
+                  "disabled": false,
+                  "key": "entitlementFrequencyType",
+                  "value": "<string>",
+                  "description": "(Required) The entitlement frequency type"
+                },
+                {
+                  "disabled": false,
+                  "key": "technologyStack",
+                  "value": "<string>",
+                  "description": "The technology stack<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes"
+                },
+                {
+                  "disabled": false,
+                  "key": "languageLevel",
+                  "value": "<string>",
+                  "description": "The language level<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels"
+                },
+                {
+                  "disabled": false,
+                  "key": "isRemediationScan",
+                  "value": "<boolean>",
+                  "description": "Indicates of the scan is a remediation scan. Value defaults to false if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "doSonatypeScan",
+                  "value": "<boolean>",
+                  "description": "Obsolete. Use doOpenSourceScan instead. This parameter may be removed in a future release. Value defaults to false if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeThirdPartyLibs",
+                  "value": "<boolean>",
+                  "description": "Indicates if third party libraries should be excluded. Value defaults to false if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "scanPreferenceType",
+                  "value": "<string>",
+                  "description": "This parameter is depcrecated."
+                },
+                {
+                  "disabled": false,
+                  "key": "auditPreferenceType",
+                  "value": "<string>",
+                  "description": "The audit preference type"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackToActiveEntitlement",
+                  "value": "<boolean>",
+                  "description": "Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "isBundledAssessment",
+                  "value": "<boolean>",
+                  "description": "Indicates if the assessment is a bundled assessment. If not supplied legacy behavior will apply. Value defaults to null if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "parentAssessmentTypeId",
+                  "value": "<integer>",
+                  "description": "The parent assessment type id for the bundled assessment. If not supplied legacy behavior will apply"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "The notes about the scan."
+                },
+                {
+                  "disabled": false,
+                  "key": "scanMethodType",
+                  "value": "<string>",
+                  "description": "The method of starting a scan"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanTool",
+                  "value": "<string>",
+                  "description": "The tool used for scanning"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanToolVersion",
+                  "value": "<string>",
+                  "description": "The version for the scan tool used for scanning"
+                },
+                {
+                  "disabled": false,
+                  "key": "doOpenSourceScan",
+                  "value": "<boolean>",
+                  "description": "Indicates if an open source scan should be included. Value defaults to false if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "doBinaryScan",
+                  "value": "<boolean>",
+                  "description": "Indicates that mixed mode scanning should be used. Value defaults to null if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFortifyAviator",
+                  "value": "<boolean>",
+                  "description": "Indicates whether SAST Aviator Addon Service is requested. Value defaults to null if not specified."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) The release id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32a99607-7060-48b0-8861-e5a790753ef2",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"scanId\": 1069,\n  \"messages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20b090ea-ab1f-45ef-9897-9a1a58b63d4f",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56eb3d04-2e9f-44b1-a02a-f6206b273496",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 4891,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7894,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1403a2fc-29fa-441b-ba21-f21749ce28e0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b308242-d027-48cf-9ff9-ba2e98e82194",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "45195288-4111-43a1-ba74-aac07b58491a",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38683450-3c84-4140-b1c8-a70eb0a6801c",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cf3e3e4-f167-4c89-aa90-b7a78081de97",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "technologyStack",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "languageLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doSonatypeScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excludeThirdPartyLibs",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "scanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doBinaryScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eecff344-c9b4-4a83-a3cc-dc200263772c",
+          "name": "Start a static scan using the default settings",
+          "request": {
+            "name": "Start a static scan using the default settings",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "static-scans",
+                "start-scan-with-defaults"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fragNo",
+                  "value": "<long>",
+                  "description": "(Required) -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>",
+                  "description": "(Required) The offset of the bytes sent. 0 indicates the first bytes"
+                },
+                {
+                  "disabled": false,
+                  "key": "isRemediationScan",
+                  "value": "<boolean>",
+                  "description": "Indicates of the scan is a remediation scan. Value defaults to false if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "The notes about the scan."
+                },
+                {
+                  "disabled": false,
+                  "key": "scanMethodType",
+                  "value": "<string>",
+                  "description": "The method of starting a scan"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanTool",
+                  "value": "<string>",
+                  "description": "The tool used for scanning"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanToolVersion",
+                  "value": "<string>",
+                  "description": "The version for the scan tool used for scanning"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackToActiveEntitlement",
+                  "value": "<boolean>",
+                  "description": "Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) The release id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2ee71a9-a9db-4507-adb0-65bee2940057",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"scanId\": 8432,\n  \"messages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dadfe94-2c79-4fac-bde6-50608ebba363",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b67a132f-4179-4b0b-80ab-4821361830e4",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba9e0945-4406-4280-85e4-4be30ac5f3ea",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98568c23-3bc3-4f40-901f-78de5ff124aa",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c0f30d6-4e4c-43a4-bc54-efcfdea0f375",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03ee093c-66d4-4a0a-85dc-38f21d8e7014",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca0e3a40-a7bf-4414-851a-7535356f0534",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-with-defaults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32becfb8-56be-4acf-8c9e-c01fd8246f80",
+          "name": "Start a static scan using advanced options",
+          "request": {
+            "name": "Start a static scan using advanced options",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "static-scans",
+                "start-scan-advanced"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "entitlementPreferenceType",
+                  "value": "<string>",
+                  "description": "(Required) The entitlement preference type"
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseEntitlement",
+                  "value": "<boolean>",
+                  "description": "(Required) Indicates if an entitlement should be purchased if one is not available. Value defaults to true if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "remdiationScanPreferenceType",
+                  "value": "<string>",
+                  "description": "(Required) The remdiation scan preference type"
+                },
+                {
+                  "disabled": false,
+                  "key": "inProgressScanActionType",
+                  "value": "<string>",
+                  "description": "(Required) The action to take for in-progress scans for the given release"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanMethodType",
+                  "value": "<string>",
+                  "description": "(Required) The method of starting a scan"
+                },
+                {
+                  "disabled": false,
+                  "key": "fragNo",
+                  "value": "<long>",
+                  "description": "(Required) -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>",
+                  "description": "(Required) The offset of the bytes sent. 0 indicates the first bytes"
+                },
+                {
+                  "disabled": false,
+                  "key": "bsiToken",
+                  "value": "<string>",
+                  "description": "The build server integration token for the release"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "The notes about the scan."
+                },
+                {
+                  "disabled": false,
+                  "key": "scanTool",
+                  "value": "<string>",
+                  "description": "The tool used for scanning"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanToolVersion",
+                  "value": "<string>",
+                  "description": "The version for the scan tool used for scanning"
+                },
+                {
+                  "disabled": false,
+                  "key": "entitlementId",
+                  "value": "<integer>",
+                  "description": "The entitlement id to consume"
+                },
+                {
+                  "disabled": false,
+                  "key": "fallbackToActiveEntitlement",
+                  "value": "<boolean>",
+                  "description": "Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFortifyAviator",
+                  "value": "<boolean>",
+                  "description": "Indicates whether SAST Aviator Addon Service is requested. Value defaults to null if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "doOpenSourceScan",
+                  "value": "<boolean>",
+                  "description": "Indicates if an open source scan should be included. Value defaults to false if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "assessmentTypeId",
+                  "value": "<integer>",
+                  "description": "The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types"
+                },
+                {
+                  "disabled": false,
+                  "key": "auditPreferenceType",
+                  "value": "<string>",
+                  "description": "The audit preference type"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) The release id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "191168e5-c559-4edc-9732-b2271b787570",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"scanId\": 8432,\n  \"messages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "447fcf9a-85b5-4d2f-8f1d-5ec3325e9530",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eec7e901-3a29-451d-b48e-7a28d2165420",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ac86be7-9b3f-45ce-bb4d-de4e9edcc6b8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa33626e-d90a-4b55-839a-1c738b7ae238",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9545fd66-86f5-402f-8500-efc180fb4266",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17fc87f2-acba-4141-8c1f-794784c5d5b6",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7aa30965-8f5a-46e8-b4df-827328b41354",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "start-scan-advanced"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "entitlementPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "remdiationScanPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inProgressScanActionType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "bsiToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fallbackToActiveEntitlement",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "doOpenSourceScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f367fa1-f1ac-4825-80a9-b68f91933905",
+          "name": "Saves the contents to import scan file",
+          "request": {
+            "name": "Saves the contents to import scan file",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "static-scans",
+                "import-scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fragNo",
+                  "value": "<long>",
+                  "description": "(Required) -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>",
+                  "description": "(Required) The offset of the bytes sent. 0 indicates the first bytes"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileLength",
+                  "value": "<long>",
+                  "description": "(Required) The number of bytes of the file being imported"
+                },
+                {
+                  "disabled": false,
+                  "key": "importScanSessionId",
+                  "value": "<string>",
+                  "description": "(Required) The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) Release Id of the scan to import"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef7b152d-d07d-4daf-a822-2e6a03e8ecb8",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"referenceId\": \"string\",\n  \"scanId\": 9910\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "736d0ddc-3dd5-4e3f-8bbe-ccf434a7f889",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "874193b9-09b4-4ee6-a1e3-d4aa25f0053c",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "958ffad0-9b4e-4324-936b-a1c24e1b190d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1e8c3ab-52a9-44ff-9914-23f15409f499",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0bb347ea-edf6-4349-b1f4-b0a8162179b7",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f527115b-4bf0-434c-af57-c607b821551e",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d477648-f275-4bc6-87ad-500df2c144a7",
+          "name": "Get static scan setup details",
+          "request": {
+            "name": "Get static scan setup details",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "static-scans",
+                "scan-setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e69bddc7-9167-4698-bacb-5df695b580b6",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assessmentTypeId\": 832,\n  \"entitlementId\": 6348,\n  \"entitlementFrequencyType\": \"Subscription\",\n  \"releaseId\": 3718,\n  \"technologyStackId\": 1641,\n  \"technologyStack\": \"string\",\n  \"languageLevelId\": 1445,\n  \"languageLevel\": \"string\",\n  \"performOpenSourceAnalysis\": true,\n  \"auditPreferenceType\": \"Manual\",\n  \"includeThirdPartyLibraries\": false,\n  \"useSourceControl\": false,\n  \"scanBinary\": false,\n  \"bsiToken\": \"string\",\n  \"includeFortifyAviator\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3781ace-43af-4721-a04a-14511f44fc41",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "caec8b74-0b2b-4c31-96f7-d554d93c4e52",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "355520c4-683a-4b7b-8fb5-d127714e926c",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb7dd526-712c-4f0d-9e4e-a3f702bb989b",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "96e87a9b-4211-49bc-a2b0-c5ef4266adc1",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4617cbb-2566-46f1-bc75-79bb6902c253",
+          "name": "Saves static scan setup details",
+          "request": {
+            "name": "Saves static scan setup details",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "static-scans",
+                "scan-setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) The release id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "assessmentTypeId",
+                  "value": "<integer>",
+                  "description": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types"
+                },
+                {
+                  "disabled": false,
+                  "key": "entitlementFrequencyType",
+                  "value": "<string>",
+                  "description": "The EntitlementFrequencyType"
+                },
+                {
+                  "disabled": false,
+                  "key": "EntitlementId",
+                  "value": "<integer>",
+                  "description": "The EntitlementId."
+                },
+                {
+                  "disabled": false,
+                  "key": "technologyStackId",
+                  "value": "<integer>",
+                  "description": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes"
+                },
+                {
+                  "disabled": false,
+                  "key": "languageLevelId",
+                  "value": "<integer>",
+                  "description": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels"
+                },
+                {
+                  "disabled": false,
+                  "key": "performOpenSourceAnalysis",
+                  "value": "<boolean>",
+                  "description": "Indicates if open source analysis should be performed"
+                },
+                {
+                  "disabled": false,
+                  "key": "auditPreferenceType",
+                  "value": "<string>",
+                  "description": "The AuditPreferenceType"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeThirdPartyLibraries",
+                  "value": "<boolean>",
+                  "description": "Indicates if third party libraries should be included"
+                },
+                {
+                  "disabled": false,
+                  "key": "useSourceControl",
+                  "value": "<boolean>",
+                  "description": "Indicates if source control should be used"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanBinary",
+                  "value": "<boolean>",
+                  "description": "Indicates if source control should be used"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeFortifyAviator",
+                  "value": "<boolean>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4f2bea81-6222-4140-8843-c0869f695224",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementFrequencyType",
+                        "type": "text/plain"
+                      },
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementId.",
+                        "type": "text/plain"
+                      },
+                      "key": "EntitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes",
+                        "type": "text/plain"
+                      },
+                      "key": "technologyStackId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels",
+                        "type": "text/plain"
+                      },
+                      "key": "languageLevelId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if open source analysis should be performed",
+                        "type": "text/plain"
+                      },
+                      "key": "performOpenSourceAnalysis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AuditPreferenceType",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if third party libraries should be included",
+                        "type": "text/plain"
+                      },
+                      "key": "includeThirdPartyLibraries",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "useSourceControl",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "scanBinary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"bsiToken\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"messages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80eb8f50-81ff-4e7b-bbc1-b949f4c72fae",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementFrequencyType",
+                        "type": "text/plain"
+                      },
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementId.",
+                        "type": "text/plain"
+                      },
+                      "key": "EntitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes",
+                        "type": "text/plain"
+                      },
+                      "key": "technologyStackId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels",
+                        "type": "text/plain"
+                      },
+                      "key": "languageLevelId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if open source analysis should be performed",
+                        "type": "text/plain"
+                      },
+                      "key": "performOpenSourceAnalysis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AuditPreferenceType",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if third party libraries should be included",
+                        "type": "text/plain"
+                      },
+                      "key": "includeThirdPartyLibraries",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "useSourceControl",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "scanBinary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2096451d-7080-4dac-a6e0-1d458fc0fe75",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementFrequencyType",
+                        "type": "text/plain"
+                      },
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementId.",
+                        "type": "text/plain"
+                      },
+                      "key": "EntitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes",
+                        "type": "text/plain"
+                      },
+                      "key": "technologyStackId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels",
+                        "type": "text/plain"
+                      },
+                      "key": "languageLevelId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if open source analysis should be performed",
+                        "type": "text/plain"
+                      },
+                      "key": "performOpenSourceAnalysis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AuditPreferenceType",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if third party libraries should be included",
+                        "type": "text/plain"
+                      },
+                      "key": "includeThirdPartyLibraries",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "useSourceControl",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "scanBinary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a3325c3b-f208-495a-82eb-e82170c175ac",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementFrequencyType",
+                        "type": "text/plain"
+                      },
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementId.",
+                        "type": "text/plain"
+                      },
+                      "key": "EntitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes",
+                        "type": "text/plain"
+                      },
+                      "key": "technologyStackId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels",
+                        "type": "text/plain"
+                      },
+                      "key": "languageLevelId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if open source analysis should be performed",
+                        "type": "text/plain"
+                      },
+                      "key": "performOpenSourceAnalysis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AuditPreferenceType",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if third party libraries should be included",
+                        "type": "text/plain"
+                      },
+                      "key": "includeThirdPartyLibraries",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "useSourceControl",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "scanBinary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3aa5e212-bb3d-48a6-8053-abe4de2a6d0c",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementFrequencyType",
+                        "type": "text/plain"
+                      },
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementId.",
+                        "type": "text/plain"
+                      },
+                      "key": "EntitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes",
+                        "type": "text/plain"
+                      },
+                      "key": "technologyStackId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels",
+                        "type": "text/plain"
+                      },
+                      "key": "languageLevelId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if open source analysis should be performed",
+                        "type": "text/plain"
+                      },
+                      "key": "performOpenSourceAnalysis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AuditPreferenceType",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if third party libraries should be included",
+                        "type": "text/plain"
+                      },
+                      "key": "includeThirdPartyLibraries",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "useSourceControl",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "scanBinary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"bsiToken\": \"string\",\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ],\n  \"messages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"legalMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f07ea12-8917-48d3-8475-469e943fb2f0",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementFrequencyType",
+                        "type": "text/plain"
+                      },
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementId.",
+                        "type": "text/plain"
+                      },
+                      "key": "EntitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes",
+                        "type": "text/plain"
+                      },
+                      "key": "technologyStackId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels",
+                        "type": "text/plain"
+                      },
+                      "key": "languageLevelId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if open source analysis should be performed",
+                        "type": "text/plain"
+                      },
+                      "key": "performOpenSourceAnalysis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AuditPreferenceType",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if third party libraries should be included",
+                        "type": "text/plain"
+                      },
+                      "key": "includeThirdPartyLibraries",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "useSourceControl",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "scanBinary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "30611128-4e8f-4052-82af-da61d8233542",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AssessmentTypeId. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementFrequencyType",
+                        "type": "text/plain"
+                      },
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The EntitlementId.",
+                        "type": "text/plain"
+                      },
+                      "key": "EntitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The TechnologyStackId. Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes",
+                        "type": "text/plain"
+                      },
+                      "key": "technologyStackId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The LanguageLevelId. Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels",
+                        "type": "text/plain"
+                      },
+                      "key": "languageLevelId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if open source analysis should be performed",
+                        "type": "text/plain"
+                      },
+                      "key": "performOpenSourceAnalysis",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The AuditPreferenceType",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if third party libraries should be included",
+                        "type": "text/plain"
+                      },
+                      "key": "includeThirdPartyLibraries",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "useSourceControl",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if source control should be used",
+                        "type": "text/plain"
+                      },
+                      "key": "scanBinary",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "includeFortifyAviator",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38832674-c053-49d0-b18c-183322a4dd30",
+          "name": "Imports a Static Analysis Resource Interchange Format (SARIF) file",
+          "request": {
+            "name": "Imports a Static Analysis Resource Interchange Format (SARIF) file",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "static-scans",
+                "import-sarif"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fragNo",
+                  "value": "<long>",
+                  "description": "(Required) -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>",
+                  "description": "(Required) The offset of the bytes sent. 0 indicates the first bytes"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileLength",
+                  "value": "<long>",
+                  "description": "(Required) The number of bytes of the file being imported"
+                },
+                {
+                  "disabled": false,
+                  "key": "importScanSessionId",
+                  "value": "<string>",
+                  "description": "(Required) The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) Release Id of the scan to import"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4361e4f-ee9b-4b31-8a12-342c86535d3a",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-sarif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"referenceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4e205f42-52b4-47f5-bebf-fc9c6cfab617",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-sarif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f570ec7-7407-4878-b1a8-dcd4e3f808e7",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-sarif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a06e3231-83b9-4bae-a847-c0554a36b719",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-sarif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc426f4f-f3e3-4b16-b716-c8a302640e37",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-sarif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84e73df4-9c37-427c-9e3c-a492f5d5cef9",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-sarif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5dfd1f66-9f57-445a-88d1-641422508267",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "static-scans",
+                    "import-sarif"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1555,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 7818,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ams.fortify.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "67fd2694-803d-43ad-902c-244b1df0e77b",
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement StaticScans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

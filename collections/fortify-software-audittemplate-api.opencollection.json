@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement AuditTemplate API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AuditTemplate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of global audit templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/audittemplate/globalaudittemplates",
+            "params": [
+              {
+                "name": "scanType",
+                "value": "",
+                "type": "query",
+                "description": "The scan type<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        },
+        {
+          "info": {
+            "name": "Creates/Update Global Audit templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/audittemplate/globalaudittemplates"
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

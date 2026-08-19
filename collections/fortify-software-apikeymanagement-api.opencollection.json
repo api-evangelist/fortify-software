@@ -1,0 +1,197 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiKeyManagement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of API keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/api-keys",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        },
+        {
+          "info": {
+            "name": "Creates a new API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/api-keys"
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        },
+        {
+          "info": {
+            "name": "Returns an API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/api-keys/:apiKeyId",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path",
+                "description": "The Api Key id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant,"
+        },
+        {
+          "info": {
+            "name": "Updates an existing API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/api-keys/:apiKeyId",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path",
+                "description": "The Api Key id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        },
+        {
+          "info": {
+            "name": "Deletes the given ApiKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v3/api-keys/:apiKeyId",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path",
+                "description": "The api key id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        },
+        {
+          "info": {
+            "name": "Creates a new secret for an existing api key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/api-keys/:apiKeyId/newsecret",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path",
+                "description": "The Api Key id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        },
+        {
+          "info": {
+            "name": "Returns a list of Applications assigned to an API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/api-keys/:apiKeyId/application-access",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path",
+                "description": "Api Key Id"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        },
+        {
+          "info": {
+            "name": "Assign applications to API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/api-keys/:apiKeyId/application-access",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        },
+        {
+          "info": {
+            "name": "Unassign applications to API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/api-keys/:apiKeyId/unassign-application-access",
+            "params": [
+              {
+                "name": "apiKeyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

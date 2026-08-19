@@ -1,0 +1,650 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement Vulnerabilities API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vulnerabilities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of vulnerabilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: auditPendingAuditorStatus, auditPendingSuppression, checkId, closedDate, closedStatus, falsePositiveChallenge, instanceId, pci1_2, sink, source, stig6, suppressedBy, timeToFixDays"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is in Tenant's 'Max Number of Vulnerabilities Records Per API Call'."
+              },
+              {
+                "name": "excludeFilters",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if filter data should be excluded in the return value. Value defaults to false if not specified."
+              },
+              {
+                "name": "includeFixed",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if items that have been fixed should be included in the return value. Value defaults to false if not specified."
+              },
+              {
+                "name": "includeSuppressed",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if items that have been suppressed should be included in the return value. Value defaults to false if not specified."
+              },
+              {
+                "name": "fortifyAviator",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if SAST Aviator audited items should be included in the return value. Value defaults to null if not specified."
+              },
+              {
+                "name": "keywordSearch",
+                "value": "",
+                "type": "query",
+                "description": "Used for keyword searches"
+              },
+              {
+                "name": "lastModifiedDate",
+                "value": "",
+                "type": "query",
+                "description": "Indicates the last modified date of the vulnerability. The format of the date is YYYY/MM/DD."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns all of the data for the vulnerability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/all-data",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              },
+              {
+                "name": "includeSystemEvents",
+                "value": "",
+                "type": "query",
+                "description": "Include system events in the return data. Value defaults to false if not specified."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/summary",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/details",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/recommendations",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/history",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              },
+              {
+                "name": "includeSystemEvents",
+                "value": "",
+                "type": "query",
+                "description": "Include system events in the return data. Value defaults to false if not specified."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability screenshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/screenshots",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns a screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/screenshot/:screenshotId",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              },
+              {
+                "name": "screenshotId",
+                "value": "",
+                "type": "path",
+                "description": "The screenshot id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability request and response",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/request-response",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability headers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/headers",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability parameters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/parameters",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability traces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/traces",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the trace code for the specific index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/traces/:traceIndex/:traceEntryIndex/code",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              },
+              {
+                "name": "traceIndex",
+                "value": "",
+                "type": "path",
+                "description": "The trace index can be obtained by calling GET/api/v3/releases/{releaseId}/vulnerabilities/{vulnId}/all-data"
+              },
+              {
+                "name": "traceEntryIndex",
+                "value": "",
+                "type": "path",
+                "description": "The trace entry index can be obtained by calling GET/api/v3/releases/{releaseId}/vulnerabilities/{vulnId}/all-data"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the trace snippet for the specific index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/traces/:traceIndex/:traceEntryIndex/snippet",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              },
+              {
+                "name": "traceIndex",
+                "value": "",
+                "type": "path",
+                "description": "The trace index can be obtained by calling GET/api/v3/releases/{releaseId}/vulnerabilities/{vulnId}/all-data"
+              },
+              {
+                "name": "traceEntryIndex",
+                "value": "",
+                "type": "path",
+                "description": "The trace entry index can be obtained by calling GET/api/v3/releases/{releaseId}/vulnerabilities/{vulnId}/all-data"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability audit options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/audit-options",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Saves audit data for the vulnerabilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/bulk-edit",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        },
+        {
+          "info": {
+            "name": "Get available vulnerability filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerability-filters",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: auditPendingAuditorStatus, auditPendingSuppression, checkId, closedDate, closedStatus, falsePositiveChallenge, instanceId, pci1_2, sink, source, stig6, suppressedBy, timeToFixDays"
+              },
+              {
+                "name": "fieldName",
+                "value": "",
+                "type": "query",
+                "description": "The specific field to return"
+              },
+              {
+                "name": "includeFixed",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if items that have been fixed should be included in the return value. Value defaults to false if not specified."
+              },
+              {
+                "name": "includeSuppressed",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if items that have been suppressed should be included in the return value. Value defaults to false if not specified."
+              },
+              {
+                "name": "keywordSearch",
+                "value": "",
+                "type": "query",
+                "description": "Used for keyword searches"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Saves bug tracker url for the vulnerabilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/bug-link",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        },
+        {
+          "info": {
+            "name": "Returns the vulnerability audit comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/comments",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              },
+              {
+                "name": "userName",
+                "value": "",
+                "type": "query",
+                "description": "The username to get user specific comments"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns machine readable aviator remediation details in json format for each individual issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/vulnerabilities/:vulnId/aviator-remediation-guidance",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "vulnId",
+                "value": "",
+                "type": "path",
+                "description": "Field accepts \"id\" or \"vulnId\". To obtain the vulnId or Id call GET /api/v3/vulnerabilities. Id is also available through portal."
+              }
+            ]
+          },
+          "docs": "Returns machine readable aviator remediation details in json format for each individual issue"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

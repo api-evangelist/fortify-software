@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement FortifyOnDemandConnectNetworks API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "FortifyOnDemandConnectNetworks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of Fortify on Demand Connect networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/fortify-on-demand-connect-networks"
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

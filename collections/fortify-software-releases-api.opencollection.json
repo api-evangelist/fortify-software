@@ -1,0 +1,548 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement Releases API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Releases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns the specific release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Updates an existing release",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Deletes the given release",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Returns a list of releases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: suspended"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              },
+              {
+                "name": "modifiedStartDate",
+                "value": "",
+                "type": "query",
+                "description": "The modified on or after date."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Creates a new release",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases"
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Returns Scan status for a specific scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/scans/:scanId/polling-summary",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Get the fpr for the given release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/fpr",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "scanType",
+                "value": "",
+                "type": "query",
+                "description": "The scan type"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "List and count of vulnerabilities categories, by severity for this release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/category-rollups",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "showFixed",
+                "value": "",
+                "type": "query",
+                "description": "Indicates of vulnerabilities marked as fixed should be included. Value defaults to false if not specified."
+              },
+              {
+                "name": "vulnerabilitiesSeverityType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns summary information for the requested scan id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/scans/:scanId",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Get a list of scans for a release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/scans",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Sets the audit action for the given release",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/audit-action",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        },
+        {
+          "info": {
+            "name": "Get audit options for the given release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/audit-options",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        },
+        {
+          "info": {
+            "name": "Get a list of options available for starting a static scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scan-options",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "technologyStack",
+                "value": "",
+                "type": "query",
+                "description": "The technology stack<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=TechnologyTypes"
+              },
+              {
+                "name": "languageLevel",
+                "value": "",
+                "type": "query",
+                "description": "The language level<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=LanguageLevels"
+              },
+              {
+                "name": "assessmentTypeId",
+                "value": "",
+                "type": "query",
+                "description": "The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types<br /><br />If this parameter is supplied entitlementFrequencyType is also required"
+              },
+              {
+                "name": "entitlementFrequencyType",
+                "value": "",
+                "type": "query",
+                "description": "The entitlement frequency type<br>If this parameter is supplied assessmentTypeId is also required</br>"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Get a list of available assessment types for the given release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/assessment-types",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "scanType",
+                "value": "",
+                "type": "query",
+                "description": "The scan type"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: suspended"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Initiates an import scan session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/import-scan-session-id",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release Id of the scan to import"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Imports a CycloneDx Software Bill of Materials (SBOM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/open-source-scans/import-cyclonedx-sbom",
+            "params": [
+              {
+                "name": "fragNo",
+                "value": "",
+                "type": "query",
+                "description": "-1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset of the bytes sent. 0 indicates the first bytes"
+              },
+              {
+                "name": "importScanSessionId",
+                "value": "",
+                "type": "query",
+                "description": "The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id"
+              },
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Cancels a scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/scans/:scanId/cancel-scan",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              },
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Get the build server integration token for the given release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/static-scan-bsi-token",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "The release id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

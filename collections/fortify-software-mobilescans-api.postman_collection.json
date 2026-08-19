@@ -1,0 +1,3320 @@
+{
+  "item": [
+    {
+      "id": "2dcf2961-cfbd-4648-a933-5f48894ffdd7",
+      "name": "MobileScans",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00e84df5-6733-400a-aa58-a06ec7e60c1a",
+          "name": "Get mobile scan setup details",
+          "request": {
+            "name": "Get mobile scan setup details",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "mobile-scans",
+                "scan-setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da1e8912-5871-4222-b8f7-ba94961cd64a",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assessmentTypeId\": 4059,\n  \"entitlementId\": 1140,\n  \"entitlementFrequencyType\": \"SingleScan\",\n  \"frameworkType\": \"string\",\n  \"auditPreferenceType\": \"string\",\n  \"timeZone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f75fe51e-4db0-4e31-b5e3-a84462e8bf2f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd8acc38-eb44-4450-b7f1-769f77709ec4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95d2adfc-0cfb-42d6-bcf3-50facdfaebe9",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb8d544d-0973-433e-a61f-9b68848eabbd",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3998be64-2a4c-4051-8041-bc189b8caa28",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "776ea689-1ded-4d80-b2d7-4f58397b8de5",
+          "name": "Saves mobile scan setup details",
+          "request": {
+            "name": "Saves mobile scan setup details",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "mobile-scans",
+                "scan-setup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) The release id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "assessmentTypeId",
+                  "value": "<integer>",
+                  "description": "(Required) The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types"
+                },
+                {
+                  "disabled": false,
+                  "key": "frameworkType",
+                  "value": "<string>",
+                  "description": "(Required) The framework type"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeZone",
+                  "value": "<string>",
+                  "description": "(Required) The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones"
+                },
+                {
+                  "disabled": false,
+                  "key": "userAccountsRequried",
+                  "value": "<boolean>",
+                  "description": "Indicates if user accounts are required"
+                },
+                {
+                  "disabled": false,
+                  "key": "userAccounts",
+                  "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}",
+                  "description": "List of user accounts"
+                },
+                {
+                  "disabled": false,
+                  "key": "userAccounts",
+                  "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}",
+                  "description": "List of user accounts"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "Notes"
+                },
+                {
+                  "disabled": false,
+                  "key": "vpnRequired",
+                  "value": "<boolean>",
+                  "description": "Indicates if VPN is required"
+                },
+                {
+                  "disabled": false,
+                  "key": "vpnUserName",
+                  "value": "<string>",
+                  "description": "The VPN username"
+                },
+                {
+                  "disabled": false,
+                  "key": "vpnPassword",
+                  "value": "<string>",
+                  "description": "The VPN password"
+                },
+                {
+                  "disabled": false,
+                  "key": "hasMultiFactorAuthentication",
+                  "value": "<boolean>",
+                  "description": "Indicates if multi-factor authentication is used"
+                },
+                {
+                  "disabled": false,
+                  "key": "multiFactorAuthenticationNotes",
+                  "value": "<string>",
+                  "description": "Multi-factor authentication notes"
+                },
+                {
+                  "disabled": false,
+                  "key": "intrusionDetectionSystem",
+                  "value": "<boolean>",
+                  "description": "Indicates if intrusion detection system is used"
+                },
+                {
+                  "disabled": false,
+                  "key": "intrusionPreventionSystem",
+                  "value": "<boolean>",
+                  "description": "Indicates if intrusion prevention system is used"
+                },
+                {
+                  "disabled": false,
+                  "key": "webApplicationFirewall",
+                  "value": "<boolean>",
+                  "description": "Indicates if web application firewall is used"
+                },
+                {
+                  "disabled": false,
+                  "key": "proxyServers",
+                  "value": "<boolean>",
+                  "description": "Indicates if proxy servers are used"
+                },
+                {
+                  "disabled": false,
+                  "key": "loadBalancer",
+                  "value": "<boolean>",
+                  "description": "Indicates if load balancer is used"
+                },
+                {
+                  "disabled": false,
+                  "key": "preAssessmentCall",
+                  "value": "<boolean>",
+                  "description": "Indicates if the customer should be contacted prior to beginning the assessment"
+                },
+                {
+                  "disabled": false,
+                  "key": "auditPreferenceType",
+                  "value": "<string>",
+                  "description": "The audit preference type"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "038b0b71-516c-4c84-8da4-11cc13728b57",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The framework type",
+                        "type": "text/plain"
+                      },
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones",
+                        "type": "text/plain"
+                      },
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if user accounts are required",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccountsRequried",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Notes",
+                        "type": "text/plain"
+                      },
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if VPN is required",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN username",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN password",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if multi-factor authentication is used",
+                        "type": "text/plain"
+                      },
+                      "key": "hasMultiFactorAuthentication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Multi-factor authentication notes",
+                        "type": "text/plain"
+                      },
+                      "key": "multiFactorAuthenticationNotes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion detection system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionDetectionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion prevention system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionPreventionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if web application firewall is used",
+                        "type": "text/plain"
+                      },
+                      "key": "webApplicationFirewall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if proxy servers are used",
+                        "type": "text/plain"
+                      },
+                      "key": "proxyServers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if load balancer is used",
+                        "type": "text/plain"
+                      },
+                      "key": "loadBalancer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if the customer should be contacted prior to beginning the assessment",
+                        "type": "text/plain"
+                      },
+                      "key": "preAssessmentCall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The audit preference type",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c70780f-f8b2-4bec-8128-ad786978e806",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The framework type",
+                        "type": "text/plain"
+                      },
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones",
+                        "type": "text/plain"
+                      },
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if user accounts are required",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccountsRequried",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Notes",
+                        "type": "text/plain"
+                      },
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if VPN is required",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN username",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN password",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if multi-factor authentication is used",
+                        "type": "text/plain"
+                      },
+                      "key": "hasMultiFactorAuthentication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Multi-factor authentication notes",
+                        "type": "text/plain"
+                      },
+                      "key": "multiFactorAuthenticationNotes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion detection system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionDetectionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion prevention system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionPreventionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if web application firewall is used",
+                        "type": "text/plain"
+                      },
+                      "key": "webApplicationFirewall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if proxy servers are used",
+                        "type": "text/plain"
+                      },
+                      "key": "proxyServers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if load balancer is used",
+                        "type": "text/plain"
+                      },
+                      "key": "loadBalancer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if the customer should be contacted prior to beginning the assessment",
+                        "type": "text/plain"
+                      },
+                      "key": "preAssessmentCall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The audit preference type",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d64dd8c-f33a-4950-a9c4-75d7c3424816",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The framework type",
+                        "type": "text/plain"
+                      },
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones",
+                        "type": "text/plain"
+                      },
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if user accounts are required",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccountsRequried",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Notes",
+                        "type": "text/plain"
+                      },
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if VPN is required",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN username",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN password",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if multi-factor authentication is used",
+                        "type": "text/plain"
+                      },
+                      "key": "hasMultiFactorAuthentication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Multi-factor authentication notes",
+                        "type": "text/plain"
+                      },
+                      "key": "multiFactorAuthenticationNotes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion detection system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionDetectionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion prevention system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionPreventionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if web application firewall is used",
+                        "type": "text/plain"
+                      },
+                      "key": "webApplicationFirewall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if proxy servers are used",
+                        "type": "text/plain"
+                      },
+                      "key": "proxyServers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if load balancer is used",
+                        "type": "text/plain"
+                      },
+                      "key": "loadBalancer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if the customer should be contacted prior to beginning the assessment",
+                        "type": "text/plain"
+                      },
+                      "key": "preAssessmentCall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The audit preference type",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85e3e9d7-163b-44e1-9d8c-f1bacdc76901",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The framework type",
+                        "type": "text/plain"
+                      },
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones",
+                        "type": "text/plain"
+                      },
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if user accounts are required",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccountsRequried",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Notes",
+                        "type": "text/plain"
+                      },
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if VPN is required",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN username",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN password",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if multi-factor authentication is used",
+                        "type": "text/plain"
+                      },
+                      "key": "hasMultiFactorAuthentication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Multi-factor authentication notes",
+                        "type": "text/plain"
+                      },
+                      "key": "multiFactorAuthenticationNotes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion detection system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionDetectionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion prevention system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionPreventionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if web application firewall is used",
+                        "type": "text/plain"
+                      },
+                      "key": "webApplicationFirewall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if proxy servers are used",
+                        "type": "text/plain"
+                      },
+                      "key": "proxyServers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if load balancer is used",
+                        "type": "text/plain"
+                      },
+                      "key": "loadBalancer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if the customer should be contacted prior to beginning the assessment",
+                        "type": "text/plain"
+                      },
+                      "key": "preAssessmentCall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The audit preference type",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48efc37c-4bae-400f-ba27-ec91a31940cd",
+              "name": "TooManyRequests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The framework type",
+                        "type": "text/plain"
+                      },
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones",
+                        "type": "text/plain"
+                      },
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if user accounts are required",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccountsRequried",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Notes",
+                        "type": "text/plain"
+                      },
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if VPN is required",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN username",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN password",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if multi-factor authentication is used",
+                        "type": "text/plain"
+                      },
+                      "key": "hasMultiFactorAuthentication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Multi-factor authentication notes",
+                        "type": "text/plain"
+                      },
+                      "key": "multiFactorAuthenticationNotes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion detection system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionDetectionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion prevention system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionPreventionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if web application firewall is used",
+                        "type": "text/plain"
+                      },
+                      "key": "webApplicationFirewall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if proxy servers are used",
+                        "type": "text/plain"
+                      },
+                      "key": "proxyServers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if load balancer is used",
+                        "type": "text/plain"
+                      },
+                      "key": "loadBalancer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if the customer should be contacted prior to beginning the assessment",
+                        "type": "text/plain"
+                      },
+                      "key": "preAssessmentCall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The audit preference type",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6fb18def-2b6c-4864-82c1-7e02d80da4af",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "scan-setup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The assessment type id. Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types",
+                        "type": "text/plain"
+                      },
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The framework type",
+                        "type": "text/plain"
+                      },
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The timezone. Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones",
+                        "type": "text/plain"
+                      },
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if user accounts are required",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccountsRequried",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "List of user accounts",
+                        "type": "text/plain"
+                      },
+                      "key": "userAccounts",
+                      "value": "{\"username\":\"<string>\",\"password\":\"<string>\",\"roleType\":\"<string>\",\"oneTimePassword\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Notes",
+                        "type": "text/plain"
+                      },
+                      "key": "notes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if VPN is required",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN username",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnUserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The VPN password",
+                        "type": "text/plain"
+                      },
+                      "key": "vpnPassword",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if multi-factor authentication is used",
+                        "type": "text/plain"
+                      },
+                      "key": "hasMultiFactorAuthentication",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Multi-factor authentication notes",
+                        "type": "text/plain"
+                      },
+                      "key": "multiFactorAuthenticationNotes",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion detection system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionDetectionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if intrusion prevention system is used",
+                        "type": "text/plain"
+                      },
+                      "key": "intrusionPreventionSystem",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if web application firewall is used",
+                        "type": "text/plain"
+                      },
+                      "key": "webApplicationFirewall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if proxy servers are used",
+                        "type": "text/plain"
+                      },
+                      "key": "proxyServers",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if load balancer is used",
+                        "type": "text/plain"
+                      },
+                      "key": "loadBalancer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Indicates if the customer should be contacted prior to beginning the assessment",
+                        "type": "text/plain"
+                      },
+                      "key": "preAssessmentCall",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The audit preference type",
+                        "type": "text/plain"
+                      },
+                      "key": "auditPreferenceType",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94515db7-83e4-4d1b-bca6-7e5de746dbd0",
+          "name": "Starts a mobile scan for the given release",
+          "request": {
+            "name": "Starts a mobile scan for the given release",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "mobile-scans",
+                "start-scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) The start date for the scan in MM/dd/yyyy HH:mm format"
+                },
+                {
+                  "disabled": false,
+                  "key": "assessmentTypeId",
+                  "value": "<integer>",
+                  "description": "(Required) The assessment type id for the scan<br /><br />Values can be obtained by calling GET /api/v3/releases/{releaseId}/assessment-types"
+                },
+                {
+                  "disabled": false,
+                  "key": "frameworkType",
+                  "value": "<string>",
+                  "description": "(Required) The framework type id. Only iOS and Android are supported at this time"
+                },
+                {
+                  "disabled": false,
+                  "key": "timeZone",
+                  "value": "<string>",
+                  "description": "(Required) The time zone<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=TimeZones"
+                },
+                {
+                  "disabled": false,
+                  "key": "fragNo",
+                  "value": "<long>",
+                  "description": "(Required) -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>",
+                  "description": "(Required) The offset of the bytes sent. 0 indicates the first bytes"
+                },
+                {
+                  "disabled": false,
+                  "key": "entitlementId",
+                  "value": "<integer>",
+                  "description": "(Required) The entitlement id to consume"
+                },
+                {
+                  "disabled": false,
+                  "key": "entitlementFrequencyType",
+                  "value": "<string>",
+                  "description": "(Required) The entitlement frequency type"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileName",
+                  "value": "<string>",
+                  "description": "The uploaded file name with extension"
+                },
+                {
+                  "disabled": false,
+                  "key": "isRemediationScan",
+                  "value": "<boolean>",
+                  "description": "Indicates if the scan is a remediation scan. Value defaults to false if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "isBundledAssessment",
+                  "value": "<boolean>",
+                  "description": "Indicates if the assessment is a bundled assessment. If not supplied legacy behavior will apply. Value defaults to null if not specified."
+                },
+                {
+                  "disabled": false,
+                  "key": "parentAssessmentTypeId",
+                  "value": "<integer>",
+                  "description": "The parent assessment type id for the bundled assessment. If not supplied legacy behavior will apply"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanMethodType",
+                  "value": "<string>",
+                  "description": "The method of starting a scan"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanTool",
+                  "value": "<string>",
+                  "description": "The tool used for scanning"
+                },
+                {
+                  "disabled": false,
+                  "key": "scanToolVersion",
+                  "value": "<string>",
+                  "description": "The version for the scan tool used for scanning"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) The release id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aecba491-c68d-4586-af27-dae850100f07",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"scanId\": 684\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10d997c3-1aa1-464e-a228-d1d957b9515c",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b98430e-ada0-47e4-a50d-d296deefdaf4",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 848,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 2104,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ae9b94e-0755-46a4-b98a-3f395b9d856e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dd22e9ea-8441-4a54-b37c-1aa6f57febaa",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "95ef278b-820e-4670-abf6-24c746b059c8",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "debdae6c-fe7a-41e5-ace6-2d887ae96aec",
+              "name": "UnprocessableEntity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 2530,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 68,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ca34999-4df3-4d6d-ba58-c6ecdeae4b5d",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "start-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "assessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "frameworkType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timeZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "entitlementId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entitlementFrequencyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fileName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isRemediationScan",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "isBundledAssessment",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parentAssessmentTypeId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scanMethodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanTool",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scanToolVersion",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) The release id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 2530,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 68,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e38f3e0-7521-4440-a87e-8b09ba588057",
+          "name": "Saves the contents to import scan file",
+          "request": {
+            "name": "Saves the contents to import scan file",
+            "description": {
+              "content": "Allowed Scopes: api-tenant, start-scans",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "releases",
+                ":releaseId",
+                "mobile-scans",
+                "import-scan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fragNo",
+                  "value": "<long>",
+                  "description": "(Required) -1 indicates the fragment of bytes has been sent. The value starts with 0 and increments by 1 for each fragment of bytes sent"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<long>",
+                  "description": "(Required) The offset of the bytes sent. 0 indicates the first bytes"
+                },
+                {
+                  "disabled": false,
+                  "key": "fileLength",
+                  "value": "<long>",
+                  "description": "(Required) The number of bytes of the file being imported"
+                },
+                {
+                  "disabled": false,
+                  "key": "importScanSessionId",
+                  "value": "<string>",
+                  "description": "(Required) The unique importScanSessionId to use for the session provided by GET /api/v3/releases/{releaseId}/import-scan-session-id"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "releaseId",
+                  "description": "(Required) Release Id of the scan to import"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe34616d-3b3c-4277-b2be-43d3cd81ab5e",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"referenceId\": \"string\",\n  \"scanId\": 333\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb24abcf-6199-4713-bc7d-acba69d38d56",
+              "name": "Accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "127ec097-72db-457f-8142-f5b42a7358cb",
+              "name": "BadRequest",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 2530,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 68,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbbc8570-9073-4184-93e9-40a103cefe3c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b034c990-ffd4-4b73-8b41-d048296033d2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bcc5d695-1cf8-48ce-9977-ada0540320de",
+              "name": "NotFound",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16dd5630-c1de-4de5-a079-f1012a48bf8c",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "releases",
+                    ":releaseId",
+                    "mobile-scans",
+                    "import-scan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fragNo",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "fileLength",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "importScanSessionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "releaseId",
+                      "description": "(Required) Release Id of the scan to import"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 2530,\n      \"message\": \"string\"\n    },\n    {\n      \"errorCode\": 68,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.ams.fortify.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "670676c5-c39e-48d9-8d87-a2234df9d147",
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement MobileScans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement TenantEntitlements API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TenantEntitlements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of active tenant entitlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/tenant-entitlements"
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        },
+        {
+          "info": {
+            "name": "Returns a list of active open source entitlements for tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/tenant-open-source-entitlements"
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

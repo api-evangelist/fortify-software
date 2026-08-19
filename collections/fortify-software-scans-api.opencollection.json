@@ -1,0 +1,254 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement Scans API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns a list of scans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/scans",
+            "params": [
+              {
+                "name": "startedOnStartDate",
+                "value": "",
+                "type": "query",
+                "description": "The started on start date."
+              },
+              {
+                "name": "startedOnEndDate",
+                "value": "",
+                "type": "query",
+                "description": "The started on end date."
+              },
+              {
+                "name": "completedOnStartDate",
+                "value": "",
+                "type": "query",
+                "description": "The completed on start date."
+              },
+              {
+                "name": "completedOnEndDate",
+                "value": "",
+                "type": "query",
+                "description": "The completed on end date."
+              },
+              {
+                "name": "modifiedStartDate",
+                "value": "",
+                "type": "query",
+                "description": "The modified on or after date."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns summary information for the requested scan id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/scans/:scanId/summary",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Download the scan manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/scans/:scanId/manifest",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Get the site tree",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/scans/:scanId/site-tree",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-reports"
+        },
+        {
+          "info": {
+            "name": "Download the static scan source file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/scans/:scanId/static-source-file",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Download the FPR file for the given ScanId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/scans/:scanId/fpr",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        },
+        {
+          "info": {
+            "name": "Returns mobile validation status and results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/scans/:scanId/mobile-scans/payload-validation-results",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "<remarks>Allowed Scopes: api-tenant, view-apps</remarks>"
+        },
+        {
+          "info": {
+            "name": "Updates an existing scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3scans/:scanId",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

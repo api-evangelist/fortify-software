@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement Tenants API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tenants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get tenant features",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/tenants/features"
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        },
+        {
+          "info": {
+            "name": "Get tenant data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/tenants"
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

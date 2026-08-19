@@ -1,0 +1,207 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement DastAutomatedScans API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DastAutomatedScans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Dast Automated scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves Dast Automated Website scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/website-scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves Dast Automated Workflow scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/workflow-scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves Dast Automated Open API scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/openapi-scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        },
+        {
+          "info": {
+            "name": "Saves Dast Automated GraphQL scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/graphql-scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              }
+            ]
+          },
+          "docs": "Saves Dast Automated GraphQL scan setup details"
+        },
+        {
+          "info": {
+            "name": "Saves Dast Automated GRPC scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/grpc-scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              }
+            ]
+          },
+          "docs": "Saves Dast Automated GRPC scan setup details"
+        },
+        {
+          "info": {
+            "name": "Saves Dast Automated Postman scan setup details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/postman-scan-setup",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              }
+            ]
+          },
+          "docs": "Saves Dast Automated Postman scan setup details"
+        },
+        {
+          "info": {
+            "name": "Uploads a Dast Automated file to release",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/scan-setup/file-upload",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID"
+              },
+              {
+                "name": "dastFileType",
+                "value": "",
+                "type": "query",
+                "description": "DAST Automated file type"
+              }
+            ]
+          },
+          "docs": "Uploads a Dast Automated file to release"
+        },
+        {
+          "info": {
+            "name": "Starts a DAST Automated scan using the current scan setup settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/releases/:releaseId/dast-automated-scans/start-scan",
+            "params": [
+              {
+                "name": "releaseId",
+                "value": "",
+                "type": "path",
+                "description": "Release ID of the scan to start"
+              },
+              {
+                "name": "networkName",
+                "value": "",
+                "type": "query",
+                "description": "Network Name"
+              },
+              {
+                "name": "fallbackToActiveEntitlement",
+                "value": "",
+                "type": "query",
+                "description": "Use existing active entitlement if specified entitlement is expired. Value defaults to true if not specified."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, start-scans"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,611 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement Applications API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieves an individual application by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Update an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Deletes an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Retrieve a collection of applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications",
+            "params": [
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: applicationDescription, attributes"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              },
+              {
+                "name": "modifiedStartDate",
+                "value": "",
+                "type": "query",
+                "description": "The modified on or after date."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Create a new application and release",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/applications"
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Returns the associated auto-run report type for the application.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/auto-report",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Set-up the associated auto-run report for the application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/auto-report",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Returns a list of users that have access to the application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/users",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns a list of user groups that have access to the application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/user-groups",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns a list of users that can be set as an application owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/owners"
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns the permissions the current user has for the application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/user-permissions",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns a list of releases for the given application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/releases",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: suspended"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              },
+              {
+                "name": "modifiedStartDate",
+                "value": "",
+                "type": "query",
+                "description": "The modified on or after date."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Retrieves number of issues by severity for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/issue-count-by-severity",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns a list of scans for the given application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/scans",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Returns the bug tracker settings for the given application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/bug-tracker",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of Microservices for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/microservices",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              },
+              {
+                "name": "includeReleases",
+                "value": "",
+                "type": "query",
+                "description": "Value defaults to true if not specified."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-apps"
+        },
+        {
+          "info": {
+            "name": "Add a Microservice to an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/microservices",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Edit a Microservice for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/microservices/:microserviceId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              },
+              {
+                "name": "microserviceId",
+                "value": "",
+                "type": "path",
+                "description": "The microservice id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Delete a Microservice for an application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/microservices/:microserviceId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              },
+              {
+                "name": "microserviceId",
+                "value": "",
+                "type": "path",
+                "description": "The microservice id"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-apps"
+        },
+        {
+          "info": {
+            "name": "Returns a list of audit templates for the given application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/audittemplates",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application id"
+              },
+              {
+                "name": "scanType",
+                "value": "",
+                "type": "query",
+                "description": "The scan type<br /><br />Values can be obtained by calling GET /api/v3/lookup-items?type=ScanTypes"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        },
+        {
+          "info": {
+            "name": "Creates/Update Audit templates for the given application",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/audittemplates",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, manage-issues"
+        },
+        {
+          "info": {
+            "name": "Returns a list of vulnerabilities with matching InstanceId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/:applicationId/vulnerabilities/:Id",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path",
+                "description": "The application Id"
+              },
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The Issue id"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value.\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2.\r\n<br /><br />Filtering is not supported for the following fields: auditPendingAuditorStatus, auditPendingSuppression, checkId, closedDate, closedStatus, falsePositiveChallenge, instanceId, pci1_2, sink, source, stig6, suppressedBy, timeToFixDays"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              },
+              {
+                "name": "includeFixed",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if items that have been fixed should be included in the return value. Value defaults to false if not specified."
+              },
+              {
+                "name": "includeSuppressed",
+                "value": "",
+                "type": "query",
+                "description": "Indicates if items that have been suppressed should be included in the return value. Value defaults to false if not specified."
+              },
+              {
+                "name": "keywordSearch",
+                "value": "",
+                "type": "query",
+                "description": "Used for keyword searches"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

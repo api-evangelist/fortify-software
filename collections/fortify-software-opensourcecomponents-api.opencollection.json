@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement OpenSourceComponents API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OpenSourceComponents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a collection of open source components.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/applications/open-source-components",
+            "params": [
+              {
+                "name": "openSourceScanType",
+                "value": "",
+                "type": "query",
+                "description": "The source of component data."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "A delimited list of field filters.\r\n<br /><br />Field name and value should be separated by a colon (:).\r\n<br /><br />Multiple fields should be separated by a plus (+). Multiple fields are treated as an AND condition. Example, fieldname1:value+fieldname2:value\r\n<br /><br />Multiple values for a field should be separated by a pipe (|). Mulitple values for a field are treated as an OR condition. Example, fieldname1:value1|value2\r\n<br /><br />Filtering is not supported for the following fields: licenses, packageUrl, vulnerabilityCounts"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query",
+                "description": "The field name to order the results by."
+              },
+              {
+                "name": "orderByDirection",
+                "value": "",
+                "type": "query",
+                "description": "The direction to order the results by. ASC and DESC are valid values."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma separated list of fields to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset of the starting record. 0 indicates the first record."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum records to return. The maximum value allowed is 50."
+              },
+              {
+                "name": "returnTotalComponentCount",
+                "value": "",
+                "type": "query",
+                "description": "If true return the total number of components. Default is true."
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-tenant-data"
+        },
+        {
+          "info": {
+            "name": "Download the Open Source SBOM file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v3/open-source-scans/:scanId/sbom",
+            "params": [
+              {
+                "name": "scanId",
+                "value": "",
+                "type": "path",
+                "description": "The scan id"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The format of the SBOM file (e.g., \"CycloneDx\" or \"SPDx\")"
+              }
+            ]
+          },
+          "docs": "Allowed Scopes: api-tenant, view-issues"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

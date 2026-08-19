@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenText™ Core Application Security Web API Explorer ApiKeyManagement MultiFactorAuthorizationCode API",
+    "version": "v3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MultiFactorAuthorizationCode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send an Authorization code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v3/multi-factor-authorization-code"
+          },
+          "docs": "Send an Authorization code"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
