@@ -59,6 +59,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - API Key Management
+  tags_raw:
   - ApiKeyManagement
   properties:
   - type: OpenAPI
@@ -77,6 +79,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -132,6 +136,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - DAST Automated Scans
+  tags_raw:
   - DastAutomatedScans
   properties:
   - type: OpenAPI
@@ -150,6 +156,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Dynamic Scans
+  tags_raw:
   - DynamicScans
   properties:
   - type: OpenAPI
@@ -168,6 +176,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Event Logs
+  tags_raw:
   - EventLogs
   properties:
   - type: OpenAPI
@@ -205,6 +215,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Lookup Items
+  tags_raw:
   - LookupItems
   properties:
   - type: OpenAPI
@@ -223,6 +235,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Mobile Scans
+  tags_raw:
   - MobileScans
   properties:
   - type: OpenAPI
@@ -260,6 +274,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -279,6 +295,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Open Source Components
+  tags_raw:
   - OpenSourceComponents
   properties:
   - type: OpenAPI
@@ -297,6 +315,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Open Source Scans
+  tags_raw:
   - OpenSourceScans
   properties:
   - type: OpenAPI
@@ -316,6 +336,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Personal Access Tokens
+  tags_raw:
   - PersonalAccessTokens
   properties:
   - type: OpenAPI
@@ -388,6 +410,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - Static Scans
+  tags_raw:
   - StaticScans
   properties:
   - type: OpenAPI
@@ -517,6 +541,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - User Management
+  tags_raw:
   - UserManagement
   properties:
   - type: OpenAPI
@@ -535,6 +561,8 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
