@@ -13,6 +13,17 @@ description: >-
   endpoint) with granular tenant scopes, plus personal access tokens and API keys.
   A rich GitHub organization (github.com/fortify) ships first-party tooling
   including the fcli command-line utility and Software Security Center REST clients.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
