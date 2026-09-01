@@ -70,7 +70,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - ApiKeyManagement
+  - API Key Management
   tags_raw:
   - ApiKeyManagement
   properties:
@@ -147,7 +147,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - DastAutomatedScans
+  - DAST Automated Scans
   tags_raw:
   - DastAutomatedScans
   properties:
@@ -167,7 +167,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - DynamicScans
+  - Dynamic Scans
   tags_raw:
   - DynamicScans
   properties:
@@ -226,7 +226,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - LookupItems
+  - Lookup Items
   tags_raw:
   - LookupItems
   properties:
@@ -246,7 +246,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - MobileScans
+  - Mobile Scans
   tags_raw:
   - MobileScans
   properties:
@@ -306,7 +306,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - OpenSourceComponents
+  - Open Source Components
   tags_raw:
   - OpenSourceComponents
   properties:
@@ -326,7 +326,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - OpenSourceScans
+  - Open Source Scans
   tags_raw:
   - OpenSourceScans
   properties:
@@ -347,7 +347,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - PersonalAccessTokens
+  - Personal Access Tokens
   tags_raw:
   - PersonalAccessTokens
   properties:
@@ -421,7 +421,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - StaticScans
+  - Static Scans
   tags_raw:
   - StaticScans
   properties:
@@ -552,7 +552,7 @@ apis:
   humanURL: https://api.ams.fortify.com/swagger/ui/index
   baseURL: https://api.ams.fortify.com
   tags:
-  - UserManagement
+  - User Management
   tags_raw:
   - UserManagement
   properties:
