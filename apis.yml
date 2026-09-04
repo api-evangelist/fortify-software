@@ -605,6 +605,9 @@ apis:
   - type: DataModel
     url: data-model/fortify-software-data-model.yml
 common:
+- type: CapabilityMap
+  url: capabilities/fortify-software-capability-edges.yml
+  name: Fortify Software Business Capability Map
 - type: Overlay
   url: overlays/fortify-software-fod-overlay.yaml
 - type: DeveloperPortal
@@ -621,8 +624,9 @@ common:
   url: https://community.opentext.com/cybersec/fortify
 - type: Blog
   url: https://blogs.opentext.com/category/technologies/cybersecurity/
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/fortify-software-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: Packages
   url: packages/fortify-software-packages.yml
 - type: SDKs
